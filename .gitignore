@@ -1,1 +1,8 @@
 venv/
+.env
+*.env
+cookies.txt
+HasiiMusic/assets/cookies.txt
+cache/
+downloads/
+
