@@ -1,5 +1,7 @@
 import os
+import asyncio
 from datetime import datetime, timedelta, timezone
+from turtle import delay
 
 from PIL import Image, ImageDraw, ImageFont
 from pyrogram import enums, filters
@@ -13,11 +15,11 @@ from HasiiMusic import app
 # ─────────────────────────────
 # CONFIG
 # ─────────────────────────────
-BG_PATH      = "HasiiMusic/assets/hasii/HasiiNwel.png"
+BG_PATH = "HasiiMusic/assets/hasii/HasiiNwel.png"
 FALLBACK_PIC = "HasiiMusic/assets/upic.png"
-FONT_PATH    = "HasiiMusic/assets/hasii/ArialReg.ttf"
-BTN_VIEW     = "๏ ᴠɪᴇᴡ ɴᴇᴡ ᴍᴇᴍʙᴇʀ ๏"
-BTN_ADD      = "๏ ᴋɪᴅɴᴀᴘ ᴍᴇ ๏"
+FONT_PATH = "HasiiMusic/assets/hasii/ArialReg.ttf"
+BTN_VIEW = "๏ ᴠɪᴇᴡ ɴᴇᴡ ᴍᴇᴍʙᴇʀ ๏"
+BTN_ADD = "๏ ᴋɪᴅɴᴀᴘ ᴍᴇ ๏"
 
 # CAPTION_TXT = """
 # **❅────✦ ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ✦────❅
@@ -33,7 +35,7 @@ BTN_ADD      = "๏ ᴋɪᴅɴᴀᴘ ᴍᴇ ๏"
 
 CAPTION_TXT = """
 **╔═══❖•ೋ° °ೋ•❖═══╗**
-      ✦ ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ✦  
+      ✦ ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ✦
      {chat_title}
 **╚═══❖•ೋ° °ೋ•❖═══╝**
 
@@ -49,13 +51,15 @@ CAPTION_TXT = """
 
 
 JOIN_THRESHOLD = 10
-TIME_WINDOW    = 8
-COOL_MINUTES   = 10
-WELCOME_LIMIT  = 10
+TIME_WINDOW = 8
+COOL_MINUTES = 10
+WELCOME_LIMIT = 10
 
 # ─────────────────────────────
 # DATABASE
 # ─────────────────────────────
+
+
 class _WelDB:
     def __init__(self):
         self.state = {}
@@ -69,14 +73,16 @@ class _WelDB:
     async def bump(self, cid):
         now = datetime.now(timezone.utc)
         last = self.last_ts.get(cid, now - timedelta(seconds=TIME_WINDOW + 1))
-        cnt = 1 if (now - last).total_seconds() > TIME_WINDOW else self.join_cnt.get(cid, 0) + 1
+        cnt = 1 if (
+            now - last).total_seconds() > TIME_WINDOW else self.join_cnt.get(cid, 0) + 1
         self.join_cnt[cid] = cnt
         self.last_ts[cid] = now
         return cnt
 
     async def cool(self, cid):
         await self.set(cid, "off")
-        self.cool_until[cid] = datetime.now(timezone.utc) + timedelta(minutes=COOL_MINUTES)
+        self.cool_until[cid] = datetime.now(
+            timezone.utc) + timedelta(minutes=COOL_MINUTES)
 
     async def auto_on(self, cid):
         ts = self.cool_until.get(cid)
@@ -86,18 +92,22 @@ class _WelDB:
             return True
         return False
 
+
 db = _WelDB()
 last_messages: dict[int, list] = {}
 
 # ─────────────────────────────
 # IMAGE UTILS
 # ─────────────────────────────
+
+
 def _circle(im, size=(835, 839)):
     im = im.resize(size, Image.LANCZOS).convert("RGBA")
     mask = Image.new("L", size, 0)
     ImageDraw.Draw(mask).ellipse((0, 0, *size), fill=255)
     im.putalpha(mask)
     return im
+
 
 def build_pic(av, fn, uid, un):
     bg = Image.open(BG_PATH).convert("RGBA")
@@ -115,6 +125,8 @@ def build_pic(av, fn, uid, un):
 # ─────────────────────────────
 # TOGGLE COMMAND
 # ─────────────────────────────
+
+
 @app.on_message(filters.command("welcome") & filters.group)
 async def toggle(client, m: Message):
     usage = "**Usage:**\n⦿/welcome [on|off]\n➤ Hasii Special Welcome....."
@@ -141,6 +153,8 @@ async def toggle(client, m: Message):
 # ─────────────────────────────
 # WELCOME HANDLER
 # ─────────────────────────────
+
+
 @app.on_chat_member_updated(filters.group, group=-3)
 async def welcome(client, update: ChatMemberUpdated):
     old, new, cid = update.old_chat_member, update.new_chat_member, update.chat.id
@@ -169,7 +183,8 @@ async def welcome(client, update: ChatMemberUpdated):
     avatar = img = None
     try:
         avatar = await client.download_media(user.photo.big_file_id, file_name=f"downloads/pp_{user.id}.png") if user.photo else FALLBACK_PIC
-        img = build_pic(avatar, user.first_name, user.id, user.username or "No Username")
+        img = build_pic(avatar, user.first_name, user.id,
+                        user.username or "No Username")
 
         members = await client.get_chat_members_count(cid)
         caption = CAPTION_TXT.format(
@@ -185,10 +200,24 @@ async def welcome(client, update: ChatMemberUpdated):
             img,
             caption=caption,
             reply_markup=InlineKeyboardMarkup([
-                [InlineKeyboardButton(BTN_VIEW, url=f"tg://openmessage?user_id={user.id}")],
-                [InlineKeyboardButton(BTN_ADD,  url=f"https://t.me/{client.username}?startgroup=true")],
+                [InlineKeyboardButton(
+                    BTN_VIEW, url=f"tg://openmessage?user_id={user.id}")],
+                [InlineKeyboardButton(
+                    BTN_ADD,  url=f"https://t.me/{client.username}?startgroup=true")],
             ])
         )
+
+        # --- To auto-delete the welcome message after 60 seconds ---
+        async def auto_delete(msg, delay=60):
+            await asyncio.sleep(delay)
+            try:
+                await msg.delete()
+            except Exception:
+                pass
+
+        asyncio.create_task(auto_delete(sent, 60))
+        # -------------------------------------------------------------------------
+
 
         last_messages.setdefault(cid, []).append(sent)
         if len(last_messages[cid]) > WELCOME_LIMIT:
