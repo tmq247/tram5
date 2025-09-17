@@ -8,93 +8,106 @@ from HasiiMusic.mongo.pretenderdb import (
 from HasiiMusic.utils.admin_filters import admin_filter
 
 
-async def update_userdata(user):
-    """Helper to update user info in the database."""
-    await add_userdata(
-        user.id,
-        user.username,
-        user.first_name,
-        user.last_name
-    )
-
-
 @app.on_message(filters.group & ~filters.bot & ~filters.via_bot, group=69)
 async def chk_usr(_, message: Message):
     if message.sender_chat or not await check_pretender(message.chat.id):
         return
-
     if not await usr_data(message.from_user.id):
-        return await update_userdata(message.from_user)
-
-    prev_username, prev_first, prev_last = await get_userdata(message.from_user.id)
-    user = message.from_user
+        return await add_userdata(
+            message.from_user.id,
+            message.from_user.username,
+            message.from_user.first_name,
+            message.from_user.last_name,
+        )
+    usernamebefore, first_name, lastname_before = await get_userdata(message.from_user.id)
     msg = ""
-
-    # Username change
-    if prev_username != user.username:
-        prev_name = f"@{prev_username}" if prev_username else "​🇳​​🇴​ ​🇺​​🇸​​🇪​​🇷​​🇳​​🇦​​🇲​​🇪​"
-        new_name = f"@{user.username}" if user.username else "​🇳​​🇴​ ​🇺​​🇸​​🇪​​🇷​​🇳​​🇦​​🇲​​🇪​"
+    if (
+        usernamebefore != message.from_user.username
+        or first_name != message.from_user.first_name
+        or lastname_before != message.from_user.last_name
+    ):
         msg += f"""
+**🔓 ᴘʀᴇᴛᴇɴᴅᴇʀ ᴅᴇᴛᴇᴄᴛᴇᴅ 🔓**
+━━━━━━━━━━━━━━━  
+**🍊 ɴᴀᴍᴇ** : {message.from_user.mention}
+**🍅 ᴜsᴇʀ ɪᴅ** : {message.from_user.id}
+━━━━━━━━━━━━━━━  \n
+"""
+    if usernamebefore != message.from_user.username:
+        usernamebefore = f"@{usernamebefore}" if usernamebefore else "​🇳​​🇴​ ​🇺​​🇸​​🇪​​🇷​​🇳​​🇦​​🇲​​🇪​"
+        usernameafter = (
+            f"@{message.from_user.username}"
+            if message.from_user.username
+            else "​🇳​​🇴​ ​🇺​​🇸​​🇪​​🇷​​🇳​​🇦​​🇲​​🇪​"
+        )
+        msg += """
 **🐻‍❄️ ᴄʜᴀɴɢᴇᴅ ᴜsᴇʀɴᴀᴍᴇ 🐻‍❄️**
 ━━━━━━━━━━━━━━━  
-**🎭 ꜰʀᴏᴍ** : {prev_name}
-**🍜 ᴛᴏ** : {new_name}
+**🎭 ​🇫​​🇷​​🇴​​🇲​** : {bef}
+**🍜 ᴛᴏ** : {aft}
 ━━━━━━━━━━━━━━━  \n
-"""
-        await update_userdata(user)
-
-    # First name change
-    if prev_first != user.first_name:
-        msg += f"""
+""".format(bef=usernamebefore, aft=usernameafter)
+        await add_userdata(
+            message.from_user.id,
+            message.from_user.username,
+            message.from_user.first_name,
+            message.from_user.last_name,
+        )
+    if first_name != message.from_user.first_name:
+        msg += """
 **🪧 ᴄʜᴀɴɢᴇs ғɪʀsᴛ ɴᴀᴍᴇ 🪧**
 ━━━━━━━━━━━━━━━  
-**🔐 ꜰʀᴏᴍ** : {prev_first}
-**🍓 ᴛᴏ** : {user.first_name}
+**🔐 ​🇫​​🇷​​🇴​​🇲​** : {bef}
+**🍓 ᴛᴏ** : {aft}
 ━━━━━━━━━━━━━━━  \n
-"""
-        await update_userdata(user)
-
-    # Last name change
-    if prev_last != user.last_name:
-        prev_last = prev_last or "​🇳​​🇴​ ​🇱​​🇦​​🇸​​🇹​ ​🇳​​🇦​​🇲​​🇪​"
-        new_last = user.last_name or "​🇳​​🇴​ ​🇱​​🇦​​🇸​​🇹​ ​🇳​​🇦​​🇲​​🇪​​"
-        msg += f"""
-**🪧 ᴄʜᴀɴɢᴇ​​🇸​​ ʟᴀ​🇸​​ᴛ ɴᴀᴍᴇ 🪧**
-━━━━━━━━━━━━━━━  
-**🚏 ꜰʀᴏᴍ** : {prev_last}
-**🍕 ᴛᴏ** : {new_last}
-━━━━━━━━━━━━━━━  \n
-"""
-        await update_userdata(user)
-
-    if msg:
-        await message.reply_photo(
-            "https://i.ibb.co/tprHKhYc/hasii.png",
-            caption=f"**🔓 ᴘʀᴇᴛᴇɴᴅᴇʀ ᴅᴇᴛᴇᴄᴛᴇᴅ 🔓**\n━━━━━━━━━━━━━━━\n{msg}"
+""".format(
+            bef=first_name, aft=message.from_user.first_name
         )
+        await add_userdata(
+            message.from_user.id,
+            message.from_user.username,
+            message.from_user.first_name,
+            message.from_user.last_name,
+        )
+    if lastname_before != message.from_user.last_name:
+        lastname_before = lastname_before or "​🇳​​🇴​ ​🇱​​🇦​​🇸​​🇹​ ​🇳​​🇦​​🇲​​🇪​"
+        lastname_after = message.from_user.last_name or "​🇳​​🇴​ ​🇱​​🇦​​🇸​​🇹​ ​🇳​​🇦​​🇲​​🇪​"
+        msg += """
+**🪧 ᴄʜᴀɴɢᴇs ʟᴀsᴛ ɴᴀᴍᴇ 🪧**
+━━━━━━━━━━━━━━━  
+**🚏 ​🇫​​🇷​​🇴​​🇲​** : {bef}
+**🍕 ᴛᴏ** : {aft}
+━━━━━━━━━━━━━━━  \n
+""".format(
+            bef=lastname_before, aft=lastname_after
+        )
+        await add_userdata(
+            message.from_user.id,
+            message.from_user.username,
+            message.from_user.first_name,
+            message.from_user.last_name,
+        )
+    if msg != "":
+        await message.reply_photo("https://i.ibb.co/tprHKhYc/hasii.png", caption=msg)
 
 
 @app.on_message(filters.group & filters.command("imposter") & ~filters.bot & ~filters.via_bot & admin_filter)
 async def set_mataa(_, message: Message):
     if len(message.command) == 1:
-        return await message.reply(
-            "ᴅᴇᴛᴇᴄᴛ ᴘʀᴇᴛᴇɴᴅᴇʀ ᴜsᴇʀs **ᴜsᴀɢᴇ:** `/imposter enable|disable`"
-        )
-
-    action = message.command[1].lower()
-    if action == "enable":
-        if await impo_on(message.chat.id):
+        return await message.reply("ᴅᴇᴛᴇᴄᴛ ᴘʀᴇᴛᴇɴᴅᴇʀ ᴜsᴇʀs **ᴜsᴀɢᴇ:** `/imposter enable|disable`")
+    if message.command[1] == "enable":
+        cekset = await impo_on(message.chat.id)
+        if cekset:
             await message.reply("**ᴘʀᴇᴛᴇɴᴅᴇʀ ᴍᴏᴅᴇ ɪs ᴀʟʀᴇᴀᴅʏ ᴇɴᴀʙʟᴇᴅ.**")
         else:
             await impo_on(message.chat.id)
             await message.reply(f"**sᴜᴄᴄᴇssғᴜʟʟʏ ᴇɴᴀʙʟᴇᴅ ᴘʀᴇᴛᴇɴᴅᴇʀ ᴍᴏᴅᴇ ғᴏʀ** {message.chat.title}")
-
-    elif action == "disable":
-        if not await impo_off(message.chat.id):
+    elif message.command[1] == "disable":
+        cekset = await impo_off(message.chat.id)
+        if not cekset:
             await message.reply("**ᴘʀᴇᴛᴇɴᴅᴇʀ ᴍᴏᴅᴇ ɪs ᴀʟʀᴇᴀᴅʏ ᴅɪsᴀʙʟᴇᴅ.**")
         else:
             await impo_off(message.chat.id)
             await message.reply(f"**sᴜᴄᴄᴇssғᴜʟʟʏ ᴅɪsᴀʙʟᴇᴅ ᴘʀᴇᴛᴇɴᴅᴇʀ ᴍᴏᴅᴇ ғᴏʀ** {message.chat.title}")
-
     else:
         await message.reply("**ᴅᴇᴛᴇᴄᴛ ᴘʀᴇᴛᴇɴᴅᴇʀ ᴜsᴇʀs ᴜsᴀɢᴇ : ᴘʀᴇᴛᴇɴᴅᴇʀ ᴏɴ|ᴏғғ**")
