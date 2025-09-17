@@ -7,7 +7,6 @@ from HasiiMusic.mongo.pretenderdb import (
 )
 from HasiiMusic.utils.admin_filters import admin_filter
 
-
 @app.on_message(filters.group & ~filters.bot & ~filters.via_bot, group=69)
 async def chk_usr(_, message: Message):
     if message.sender_chat or not await check_pretender(message.chat.id):
@@ -34,16 +33,16 @@ async def chk_usr(_, message: Message):
 ━━━━━━━━━━━━━━━  \n
 """
     if usernamebefore != message.from_user.username:
-        usernamebefore = f"@{usernamebefore}" if usernamebefore else "​🇳​​🇴​ ​🇺​​🇸​​🇪​​🇷​​🇳​​🇦​​🇲​​🇪​"
+        usernamebefore = f"@{usernamebefore}" if usernamebefore else "NO USERNAME"
         usernameafter = (
             f"@{message.from_user.username}"
             if message.from_user.username
-            else "​🇳​​🇴​ ​🇺​​🇸​​🇪​​🇷​​🇳​​🇦​​🇲​​🇪​"
+            else "NO USERNAME"
         )
         msg += """
 **🐻‍❄️ ᴄʜᴀɴɢᴇᴅ ᴜsᴇʀɴᴀᴍᴇ 🐻‍❄️**
 ━━━━━━━━━━━━━━━  
-**🎭 ​🇫​​🇷​​🇴​​🇲​** : {bef}
+**🎭 ғʀᴏᴍ** : {bef}
 **🍜 ᴛᴏ** : {aft}
 ━━━━━━━━━━━━━━━  \n
 """.format(bef=usernamebefore, aft=usernameafter)
@@ -57,7 +56,7 @@ async def chk_usr(_, message: Message):
         msg += """
 **🪧 ᴄʜᴀɴɢᴇs ғɪʀsᴛ ɴᴀᴍᴇ 🪧**
 ━━━━━━━━━━━━━━━  
-**🔐 ​🇫​​🇷​​🇴​​🇲​** : {bef}
+**🔐 ғʀᴏᴍ** : {bef}
 **🍓 ᴛᴏ** : {aft}
 ━━━━━━━━━━━━━━━  \n
 """.format(
@@ -70,12 +69,12 @@ async def chk_usr(_, message: Message):
             message.from_user.last_name,
         )
     if lastname_before != message.from_user.last_name:
-        lastname_before = lastname_before or "​🇳​​🇴​ ​🇱​​🇦​​🇸​​🇹​ ​🇳​​🇦​​🇲​​🇪​"
-        lastname_after = message.from_user.last_name or "​🇳​​🇴​ ​🇱​​🇦​​🇸​​🇹​ ​🇳​​🇦​​🇲​​🇪​"
+        lastname_before = lastname_before or "NO LAST NAME"
+        lastname_after = message.from_user.last_name or "NO LAST NAME"
         msg += """
 **🪧 ᴄʜᴀɴɢᴇs ʟᴀsᴛ ɴᴀᴍᴇ 🪧**
 ━━━━━━━━━━━━━━━  
-**🚏 ​🇫​​🇷​​🇴​​🇲​** : {bef}
+**🚏 ғʀᴏᴍ** : {bef}
 **🍕 ᴛᴏ** : {aft}
 ━━━━━━━━━━━━━━━  \n
 """.format(
@@ -88,7 +87,7 @@ async def chk_usr(_, message: Message):
             message.from_user.last_name,
         )
     if msg != "":
-        await message.reply_photo("https://i.ibb.co/tprHKhYc/hasii.png", caption=msg)
+        await message.reply_photo("https://telegra.ph/file/58afe55fee5ae99d6901b.jpg", caption=msg)
 
 
 @app.on_message(filters.group & filters.command("imposter") & ~filters.bot & ~filters.via_bot & admin_filter)
