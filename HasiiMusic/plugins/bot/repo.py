@@ -61,7 +61,7 @@ async def show_repo(_, msg):
     buttons = [
         [InlineKeyboardButton("➕ ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ ✨", url="https://t.me/HasiiMucisBot?startgroup=true")],
         [InlineKeyboardButton("🚀 Hosted by", url="https://t.me/Hasindu_Lakshan")],
-        [InlineKeyboardButton("💬 Support", url="https://t.me/CertifiedCodes")]
+        [InlineKeyboardButton("💬 Support", url="https://t.me/Hasindu_Lakshan")]
     ]
 
     reply_markup = InlineKeyboardMarkup(buttons)
