@@ -1,13 +1,7 @@
-import os
 import re
 from os import getenv
 from dotenv import load_dotenv
 from pyrogram import filters
-
-# Default value for auto leave target group
-LEAVE_GROUP_USER_ID = int(os.getenv("LEAVE_GROUP_USER_ID", "123456789"))
-LEAVE_GROUP_CHAT_ID = int(os.getenv("LEAVE_GROUP_CHAT_ID", "-1001361675429"))
-
 
 
 # Load environment variables from .env file
