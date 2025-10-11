@@ -94,7 +94,7 @@ YOUTUBE_IMG_URL = "https://files.catbox.moe/rt7nxl.png"
 SPOTIFY_ARTIST_IMG_URL = "https://files.catbox.moe/5zitrm.png"
 SPOTIFY_ALBUM_IMG_URL = "https://files.catbox.moe/5zitrm.png"
 SPOTIFY_PLAYLIST_IMG_URL = "https://files.catbox.moe/5zitrm.png"
-FAILED = "hhttps://files.catbox.moe/rt7nxl.png"
+FAILED = "https://files.catbox.moe/rt7nxl.png"
 
 
 # ───── Utility & Functional ───── #

@@ -83,8 +83,10 @@ async def _get_session() -> aiohttp.ClientSession:
     async with _session_lock:
         if _session and not _session.closed:
             return _session
-        timeout = aiohttp.ClientTimeout(total=600, sock_connect=20, sock_read=60)
-        connector = TCPConnector(limit=0, ttl_dns_cache=300, enable_cleanup_closed=True)
+        timeout = aiohttp.ClientTimeout(
+            total=600, sock_connect=20, sock_read=60)
+        connector = TCPConnector(
+            limit=0, ttl_dns_cache=300, enable_cleanup_closed=True)
         _session = aiohttp.ClientSession(timeout=timeout, connector=connector)
         return _session
 
@@ -206,7 +208,8 @@ async def yt_dlp_download(
                 }
             )
             await _with_sem(
-                loop.run_in_executor(None, lambda: YoutubeDL(opts).download([link]))
+                loop.run_in_executor(
+                    None, lambda: YoutubeDL(opts).download([link]))
             )
             return f"{_DOWNLOAD_DIR}/{safe_title}.mp4"
 
@@ -220,20 +223,30 @@ async def yt_dlp_download(
             opts = _ytdlp_base_opts()
             opts.update(
                 {
-                    "format": format_id,
+                    "format": "bestaudio/best",
                     "outtmpl": f"{_DOWNLOAD_DIR}/{safe_title}.%(ext)s",
                     "prefer_ffmpeg": True,
                     "postprocessors": [
                         {
                             "key": "FFmpegExtractAudio",
                             "preferredcodec": "mp3",
-                            "preferredquality": "192",
-                        }
+                            "preferredquality": "320",
+                        },
+                        {"key": "FFmpegMetadata"},
+                    ],
+                    "postprocessor_args": [
+                        "-ar", "48000",
+                        "-ac", "2",
+                        "-b:a", "320k",
+                        "-compression_level", "2",  # better quality than 0
+                        "-af", "loudnorm=I=-16:TP=-1.5:LRA=11,highpass=f=60,lowpass=f=16000",
                     ],
                 }
             )
+
             await _with_sem(
-                loop.run_in_executor(None, lambda: YoutubeDL(opts).download([link]))
+                loop.run_in_executor(
+                    None, lambda: YoutubeDL(opts).download([link]))
             )
             return f"{_DOWNLOAD_DIR}/{safe_title}.mp3"
 
