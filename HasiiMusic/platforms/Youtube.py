@@ -247,68 +247,55 @@ class YouTubeAPI:
     #         "thumb": thumb,
     #     }
     #     return details, info.get("id", "")
-
+    
     @capture_internal_err
-async def track(self, link: str, videoid: Union[str, bool, None] = None) -> Tuple[Dict, str]:
-    # Debug: print what we’re about to look for
-    print(f"[DEBUG][track] search link: {link!r}, videoid: {videoid!r}")
-    prepared_link = self._prepare_link(link, videoid)
-    print(f"[DEBUG][track] prepared_link: {prepared_link}")
+    async def track(self, link: str, videoid: Union[str, bool, None] = None) -> Tuple[Dict, str]:
+        # Debug log: show search input
+        print(f"[track] Input: link={link!r}, videoid={videoid!r}")
+        prepared = self._prepare_link(link, videoid)
+        print(f"[track] Prepared link: {prepared!r}")
 
-    info = None
-    # First: Try YouTube API / youtube-search-python
+    # 1. Try via youtube-search-python API
     try:
-        info = await self._fetch_video_info(prepared_link)
-        print(f"[DEBUG][track] youtube-search-python result: {info}")
+        info = await self._fetch_video_info(prepared)
+        print(f"[track] API result: {info!r}")
         if not info:
             raise ValueError("Track not found via API")
-    except Exception as api_err:
-        print(f"[ERROR][track] youtube-search-python failed: {api_err}")
-
-        # Fallback: Try yt-dlp directly
+    except Exception as e:
+        print(f"[track] API search failed: {e!r}")
+        # 2. Fallback: Try via yt-dlp
         try:
             stdout, stderr = await _exec_proc(
-                "yt-dlp",
-                *(_cookies_args()),
-                "--dump-json",
-                prepared_link
+                "yt-dlp", *(_cookies_args()), "--dump-json", prepared
             )
-            print(f"[DEBUG][track] yt-dlp stdout: {stdout[:200]!r}")
-            print(f"[DEBUG][track] yt-dlp stderr: {stderr[:200]!r}")
-
+            print(f"[track] yt-dlp stdout: {stdout[:100]!r}, stderr: {stderr[:100]!r}")
             if not stdout:
                 raise ValueError("Track not found (yt-dlp fallback)")
-
-            # Try decoding the output as JSON
             try:
                 info = json.loads(stdout.decode())
-                print(f"[DEBUG][track] yt-dlp JSON info: {info}")
-            except json.JSONDecodeError as json_err:
-                print(f"[ERROR][track] yt-dlp JSON decode failed: {json_err}")
+            except Exception as je:
+                print(f"[track] yt-dlp JSON decode failed: {je!r}")
                 raise ValueError("Track not found (yt-dlp JSON error)")
-        except Exception as ytdlp_err:
-            print(f"[ERROR][track] yt-dlp failed: {ytdlp_err}")
-            raise ValueError("Track not found (yt-dlp fallback)")
-
-    # Validate result
+        except Exception as yte:
+            print(f"[track] yt-dlp failed: {yte!r}")
+            raise ValueError("Track not found (yt-dlp fallback error)")
     if not info:
-        print("[ERROR][track] No info found from any provider.")
-        raise ValueError("Track not found (both providers failed)")
+        print(f"[track] No info from API or yt-dlp")
+        raise ValueError("Track not found (no info returned)")
 
     thumb = (
-        info.get("thumbnail")
-        or (info.get("thumbnails", [{}])[0].get("url", "") if info.get("thumbnails") else "")
-    ).split("?")[0]
+        info.get("thumbnail") or info.get("thumbnails", [{}])[0].get("url", "")
+    ).split("?")[0] if info else ""
     details = {
         "title": info.get("title", ""),
-        "link": info.get("webpage_url", prepared_link),
+        "link": info.get("webpage_url", prepared),
         "vidid": info.get("id", ""),
         "duration_min": info.get("duration") if isinstance(info.get("duration"), str) else None,
         "thumb": thumb,
     }
-    print(
-        f"[DEBUG][track] returning details: {details}, vidid: {info.get('id', '')}")
+    print(f"[track] Details: {details}")
     return details, info.get("id", "")
+
 
     @capture_internal_err
     async def formats(
