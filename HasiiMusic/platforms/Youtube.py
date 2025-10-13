@@ -111,7 +111,7 @@ class YouTubeAPI:
             entities = msg.entities or msg.caption_entities or []
             for ent in entities:
                 if ent.type == MessageEntityType.URL:
-                    return text[ent.offset : ent.offset + ent.length]
+                    return text[ent.offset: ent.offset + ent.length]
                 if ent.type == MessageEntityType.TEXT_LINK:
                     return ent.url
         return None
@@ -217,36 +217,98 @@ class YouTubeAPI:
         items = stdout.decode().strip().split("\n") if stdout else []
         return [i for i in items if i]
 
+    # @capture_internal_err
+    # async def track(
+    #     self, link: str, videoid: Union[str, bool, None] = None
+    # ) -> Tuple[Dict, str]:
+    #     try:
+    #         info = await self._fetch_video_info(self._prepare_link(link, videoid))
+    #         if not info:
+    #             raise ValueError("Track not found via API")
+    #     except Exception:
+    #         prepared = self._prepare_link(link, videoid)
+    #         stdout, _ = await _exec_proc(
+    #             "yt-dlp", *(_cookies_args()), "--dump-json", prepared
+    #         )
+    #         if not stdout:
+    #             raise ValueError("Track not found (yt-dlp fallback)")
+    #         info = json.loads(stdout.decode())
+    #     thumb = (
+    #         info.get("thumbnail")
+    #         or info.get("thumbnails", [{}])[0].get("url", "")
+    #     ).split("?")[0]
+    #     details = {
+    #         "title": info.get("title", ""),
+    #         "link": info.get("webpage_url", self._prepare_link(link, videoid)),
+    #         "vidid": info.get("id", ""),
+    #         "duration_min": info.get("duration")
+    #         if isinstance(info.get("duration"), str)
+    #         else None,
+    #         "thumb": thumb,
+    #     }
+    #     return details, info.get("id", "")
+
     @capture_internal_err
-    async def track(
-        self, link: str, videoid: Union[str, bool, None] = None
-    ) -> Tuple[Dict, str]:
+async def track(self, link: str, videoid: Union[str, bool, None] = None) -> Tuple[Dict, str]:
+    # Debug: print what we’re about to look for
+    print(f"[DEBUG][track] search link: {link!r}, videoid: {videoid!r}")
+    prepared_link = self._prepare_link(link, videoid)
+    print(f"[DEBUG][track] prepared_link: {prepared_link}")
+
+    info = None
+    # First: Try YouTube API / youtube-search-python
+    try:
+        info = await self._fetch_video_info(prepared_link)
+        print(f"[DEBUG][track] youtube-search-python result: {info}")
+        if not info:
+            raise ValueError("Track not found via API")
+    except Exception as api_err:
+        print(f"[ERROR][track] youtube-search-python failed: {api_err}")
+
+        # Fallback: Try yt-dlp directly
         try:
-            info = await self._fetch_video_info(self._prepare_link(link, videoid))
-            if not info:
-                raise ValueError("Track not found via API")
-        except Exception:
-            prepared = self._prepare_link(link, videoid)
-            stdout, _ = await _exec_proc(
-                "yt-dlp", *(_cookies_args()), "--dump-json", prepared
+            stdout, stderr = await _exec_proc(
+                "yt-dlp",
+                *(_cookies_args()),
+                "--dump-json",
+                prepared_link
             )
+            print(f"[DEBUG][track] yt-dlp stdout: {stdout[:200]!r}")
+            print(f"[DEBUG][track] yt-dlp stderr: {stderr[:200]!r}")
+
             if not stdout:
                 raise ValueError("Track not found (yt-dlp fallback)")
-            info = json.loads(stdout.decode())
-        thumb = (
-            info.get("thumbnail")
-            or info.get("thumbnails", [{}])[0].get("url", "")
-        ).split("?")[0]
-        details = {
-            "title": info.get("title", ""),
-            "link": info.get("webpage_url", self._prepare_link(link, videoid)),
-            "vidid": info.get("id", ""),
-            "duration_min": info.get("duration")
-            if isinstance(info.get("duration"), str)
-            else None,
-            "thumb": thumb,
-        }
-        return details, info.get("id", "")
+
+            # Try decoding the output as JSON
+            try:
+                info = json.loads(stdout.decode())
+                print(f"[DEBUG][track] yt-dlp JSON info: {info}")
+            except json.JSONDecodeError as json_err:
+                print(f"[ERROR][track] yt-dlp JSON decode failed: {json_err}")
+                raise ValueError("Track not found (yt-dlp JSON error)")
+        except Exception as ytdlp_err:
+            print(f"[ERROR][track] yt-dlp failed: {ytdlp_err}")
+            raise ValueError("Track not found (yt-dlp fallback)")
+
+    # Validate result
+    if not info:
+        print("[ERROR][track] No info found from any provider.")
+        raise ValueError("Track not found (both providers failed)")
+
+    thumb = (
+        info.get("thumbnail")
+        or (info.get("thumbnails", [{}])[0].get("url", "") if info.get("thumbnails") else "")
+    ).split("?")[0]
+    details = {
+        "title": info.get("title", ""),
+        "link": info.get("webpage_url", prepared_link),
+        "vidid": info.get("id", ""),
+        "duration_min": info.get("duration") if isinstance(info.get("duration"), str) else None,
+        "thumb": thumb,
+    }
+    print(
+        f"[DEBUG][track] returning details: {details}, vidid: {info.get('id', '')}")
+    return details, info.get("id", "")
 
     @capture_internal_err
     async def formats(
@@ -271,7 +333,8 @@ class YouTubeAPI:
                 for fmt in info.get("formats", []):
                     if "dash" in str(fmt.get("format", "")).lower():
                         continue
-                    need = ("format", "filesize", "filesize_approx", "format_id", "ext", "format_note")
+                    need = ("format", "filesize", "filesize_approx",
+                            "format_id", "ext", "format_note")
                     if not any(k in fmt for k in ("filesize", "filesize_approx")):
                         continue
                     if not all(k in fmt for k in ("format", "format_id", "ext", "format_note")):
