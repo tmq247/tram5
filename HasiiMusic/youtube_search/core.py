@@ -3,7 +3,14 @@ from bs4 import BeautifulSoup
 
 def search_youtube(query, max_results=10):
     url = f"https://www.youtube.com/results?search_query={query}"
-    response = requests.get(url)
+    headers = {
+        'User-Agent': (
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+            'AppleWebKit/537.36 (KHTML, like Gecko) '
+            'Chrome/85.0.4183.102 Safari/537.36'
+        )
+    }
+    response = requests.get(url, headers=headers)
     soup = BeautifulSoup(response.text, 'html.parser')
     
     videos = []
@@ -22,5 +29,8 @@ def search_youtube(query, max_results=10):
 
 if __name__ == "__main__":
     results = search_youtube("telegram music bot")
-    for video in results:
-        print(video['title'], video['url'])
+    if not results:
+        print("No videos found. Try changing the search term or check your internet connection.")
+    else:
+        for video in results:
+            print(video['title'], video['url'])
