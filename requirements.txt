@@ -22,4 +22,7 @@ spotipy
 tgcrypto
 unidecode
 yt-dlp==2025.9.23
-git+https://github.com/CertifiedCoders/youtube-search-python
+# git+https://github.com/CertifiedCoders/youtube-search-python
+git+https://github.com/pytube/youtube-search-python
+
+
