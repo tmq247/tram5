@@ -270,33 +270,35 @@ reload_5: |
 
 
 admin_1: "❓ ᴅɪᴅ ʏᴏᴜ ʀᴇᴍᴇᴍʙᴇʀ ᴛᴏ ʀᴇsᴜᴍᴇ ᴛʜᴇ sᴛʀᴇᴀᴍ ?"
-admin_2: | 
-  <blockquote>⏸️ <b>𝗦𝘁𝗿𝗲𝗮𝗺 𝗣𝗮𝘂𝘀𝗲𝗱</b> 🎵</blockquote>
-  <blockquote>👤 <b>𝗕𝘆 :</b> {0} 🌸</blockquote>
+admin_2: |
+  <blockquote>⏸ <b>𝗦𝘁𝗿𝗲𝗮𝗺 𝗣𝗮𝘂𝘀𝗲𝗱 🎄</b>
+  │
+  └➽ <b>𝗕𝘆 :</b> {0} 🥀
+  </blockquote>
 
 admin_3: "❓ ᴅɪᴅ ʏᴏᴜ ʀᴇᴍᴇᴍʙᴇʀ ᴛᴏ ᴘᴀᴜsᴇ ᴛʜᴇ sᴛʀᴇᴀᴍ ?"
 admin_4: |
   <blockquote>
-  ▶️ <b>𝗦𝘁𝗿𝗲𝗮𝗺 𝗥𝗲𝘀𝘂𝗺𝗲𝗱</b> 🎧
+  ▶ <b>𝗦𝘁𝗿𝗲𝗮𝗺 𝗥𝗲𝘀𝘂𝗺𝗲𝗱</b>
   </blockquote>
   <blockquote>
-  💫 <b>𝗯𝘆 :</b> {0} 🌸
+  ➽ <b>𝗯𝘆 :</b> {0} 
   </blockquote>
 
 admin_5: |
   <blockquote>
-  ⏹️ <b>𝗦𝘁𝗿𝗲𝗮𝗺 𝗘𝗻𝗱𝗲𝗱 / 𝗦𝘁𝗼𝗽𝗽𝗲𝗱</b> 🎶
+  ◼ <b>𝗦𝘁𝗿𝗲𝗮𝗺 𝗘𝗻𝗱𝗲𝗱 / 𝗦𝘁𝗼𝗽𝗽𝗲𝗱</b>
   </blockquote>
   <blockquote>
-  💫 <b>𝗯𝘆 :</b> {0} 🌹
+  ➽ <b>𝗯𝘆 :</b> {0}
   </blockquote>
 
 admin_6: |
   <blockquote>
-  ⏭️ <b>𝗦𝘁𝗿𝗲𝗮𝗺 𝗦𝗸𝗶𝗽𝗽𝗲𝗱</b> 🎄
+  ⏭ <b>𝗦𝘁𝗿𝗲𝗮𝗺 𝗦𝗸𝗶𝗽𝗽𝗲𝗱</b>
   </blockquote>
   <blockquote>
-  👤 <b>𝗕𝘆 :</b> {0} 🥀
+  ➽ <b>𝗕𝘆 :</b> {0}
   </blockquote>
   <blockquote>
   <b>» 𝗡𝗼 𝗺𝗼𝗿𝗲 𝗾𝘂𝗲𝘂𝗲𝗱 𝘁𝗿𝗮𝗰𝗸𝘀 𝗶𝗻</b> {1}, <b>𝗹𝗲𝗮𝘃𝗶𝗻𝗴 𝘃𝗶𝗱𝗲𝗼𝗰𝗵𝗮𝘁.</b>
@@ -305,11 +307,50 @@ admin_6: |
 admin_7: "⚠️ ᴇʀʀᴏʀ ᴡʜɪʟᴇ ᴄʜᴀɴɢɪɴɢ sᴛʀᴇᴀᴍ ᴛᴏ {0}."
 admin_8: "❗ ᴘʟᴇᴀsᴇ ᴅɪsᴀʙʟᴇ ʟᴏᴏᴘ ᴘʟᴀʏ ᴠɪᴀ <code>/loop disable</code> ᴀɴᴅ ᴛʜᴇɴ ᴛʀʏ ᴛᴏ sᴋɪᴘ ᴀɢᴀɪɴ."
 admin_9: "🔢 ᴘʟᴇᴀsᴇ ᴜsᴇ sᴘᴇᴄɪғɪᴄ ɴᴜᴍʙᴇʀs ғᴏʀ sᴋɪᴘ, ʟɪᴋᴇ 1, 2, 4..."
-admin_10: "❗ ᴀᴛʟᴇᴀsᴛ 2 ᴛʀᴀᴄᴋs ɴᴇᴇᴅᴇᴅ ɪɴ ǫᴜᴇᴜᴇ ғᴏʀ sᴘᴇᴄɪғɪᴄ sᴋɪᴘ.\n\nᴄʜᴇᴄᴋ ǫᴜᴇᴜᴇ ʙʏ : /queue"
-admin_11: "⚠️ ɴᴏᴛ ᴇɴᴏᴜɢʜ ᴛʀᴀᴄᴋs ɪɴ ǫᴜᴇᴜᴇ ғᴏʀ sᴘᴇᴄɪғɪᴄ sᴋɪᴘ.\n\nᴘʟᴇᴀsᴇ sᴋɪᴘ ʙᴇᴛᴡᴇᴇɴ 1 ᴀɴᴅ {0}"
-admin_12: "❌ ғᴀɪʟᴇᴅ ᴛᴏ sᴋɪᴘ ᴛᴏ sᴘᴇᴄɪғɪᴄ ᴛʀᴀᴄᴋ.\n\nᴄʜᴇᴄᴋ ʟᴇғᴛ ǫᴜᴇᴜᴇ ʙʏ : /queue"
-admin_13: "🔄 ᴘʟᴇᴀsᴇ ʀᴇʟᴏᴀᴅ ᴀᴅᴍɪɴ ᴄᴀᴄʜᴇ ᴠɪᴀ : /reload"
-admin_14: "❌ ʏᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴘᴇʀᴍɪssɪᴏɴs ᴛᴏ ᴍᴀɴᴀɢᴇ ᴠɪᴅᴇᴏ ᴄʜᴀᴛs.\n\nʀᴇʟᴏᴀᴅ ᴀᴅᴍɪɴ ᴄᴀᴄʜᴇ ᴠɪᴀ : /reload"
+admin_10: |
+  <blockquote>
+  ❗ <b>𝗠𝗶𝗻𝗶𝗺𝘂𝗺 𝟮 𝗧𝗿𝗮𝗰𝗸𝘀 𝗡𝗲𝗲𝗱𝗲𝗱</b>
+  </blockquote>
+  <blockquote>
+  ᴀᴛ ʟᴇᴀsᴛ 𝟮 ᴛʀᴀᴄᴋs ᴀʀᴇ ʀᴇǫᴜɪʀᴇᴅ ɪɴ ǫᴜᴇᴜᴇ ғᴏʀ sᴘᴇᴄɪғɪᴄ sᴋɪᴘ.<br>
+  📜 ᴄʜᴇᴄᴋ ǫᴜᴇᴜᴇ ʙʏ : <code>/queue</code>
+  </blockquote>
+
+admin_11: |
+  <blockquote>
+  ⚠️ <b>𝗡𝗼𝘁 𝗘𝗻𝗼𝘂𝗴𝗵 𝗧𝗿𝗮𝗰𝗸𝘀</b>
+  </blockquote>
+  <blockquote>
+  ɴᴏᴛ ᴇɴᴏᴜɢʜ ᴛʀᴀᴄᴋs ɪɴ ǫᴜᴇᴜᴇ ғᴏʀ sᴘᴇᴄɪғɪᴄ sᴋɪᴘ.<br>
+  🎶 ᴘʟᴇᴀsᴇ sᴋɪᴘ ʙᴇᴛᴡᴇᴇɴ <b>1</b> ᴀɴᴅ <b>{0}</b>
+  </blockquote>
+
+admin_12: |
+  <blockquote>
+  ❌ <b>𝗦𝗸𝗶𝗽 𝗙𝗮𝗶𝗹𝗲𝗱</b>
+  </blockquote>
+  <blockquote>
+  ғᴀɪʟᴇᴅ ᴛᴏ sᴋɪᴘ ᴛᴏ sᴘᴇᴄɪғɪᴄ ᴛʀᴀᴄᴋ.<br>
+  📜 ᴄʜᴇᴄᴋ ʟᴇғᴛ ǫᴜᴇᴜᴇ ʙʏ : <code>/queue</code>
+  </blockquote>
+
+admin_13: |
+  <blockquote>
+  ♻️ <b>𝗥𝗲𝗹𝗼𝗮𝗱 𝗔𝗱𝗺𝗶𝗻 𝗖𝗮𝗰𝗵𝗲</b> 
+  </blockquote>
+  <blockquote>
+  ᴘʟᴇᴀsᴇ ʀᴇʟᴏᴀᴅ ᴀᴅᴍɪɴ ᴄᴀᴄʜᴇ ᴠɪᴀ : <code>/reload</code>
+  </blockquote>
+
+admin_14: |
+  <blockquote>
+  🚫 <b>𝗣𝗲𝗿𝗺𝗶𝘀𝘀𝗶𝗼𝗻 𝗗𝗲𝗻𝗶𝗲𝗱</b>
+  </blockquote>
+  <blockquote>
+  ʏᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴘᴇʀᴍɪssɪᴏɴs ᴛᴏ ᴍᴀɴᴀɢᴇ ᴠɪᴅᴇᴏ ᴄʜᴀᴛs.<br>
+  ♻️ ʀᴇʟᴏᴀᴅ ᴀᴅᴍɪɴ ᴄᴀᴄʜᴇ ᴠɪᴀ : <code>/reload</code>
+  </blockquote>
+
 admin_15: "❌ ғᴀɪʟᴇᴅ ᴛᴏ sʜᴜғғʟᴇ.\n\n<b>ᴄʜᴇᴄᴋ ǫᴜᴇᴜᴇ ʙʏ :</b> /queue"
 admin_16: "🎲 ǫᴜᴇᴜᴇ sʜᴜғғʟᴇᴅ ʙʏ {0}.\n\n<b>ᴄʜᴇᴄᴋ sʜᴜғғʟᴇᴅ ǫᴜᴇᴜᴇ ʙʏ :</b> /queue"
 admin_17: "<b>ᴇxᴀᴍᴘʟᴇ :</b>\n\n/loop <code>enable</code>/<code>disable</code>\n/loop <code>10</code>/<code>9</code>/<code>8</code>/<code>7</code>"
