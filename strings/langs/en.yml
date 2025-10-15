@@ -1,453 +1,451 @@
-name : 🇺🇸 English
+name :  🇻🇳 Tiếng Việt #🇺🇸 English
+
 
 general_1: |
   <blockquote>
-  👤 <b>𝗥𝗲𝗽𝗹𝘆 𝘁𝗼 𝗮 𝗨𝘀𝗲𝗿'𝘀 𝗠𝗲𝘀𝘀𝗮𝗴𝗲</b>
+  👤 <b>Trả lời tin nhắn của người dùng</b>
   </blockquote>
   <blockquote>
-  💡 𝗢𝗿 𝗽𝗿𝗼𝘃𝗶𝗱𝗲 𝗨𝘀𝗲𝗿𝗻𝗮𝗺𝗲 / 𝗨𝘀𝗲𝗿 𝗜𝗗.
+  💡 Hoặc cung cấp tên người dùng / ID người dùng.
   </blockquote>
 
 general_2: |
   <blockquote>
-  ⚠️ <b>𝗦𝗼𝗺𝗲𝘁𝗵𝗶𝗻𝗴 𝗪𝗲𝗻𝘁 𝗪𝗿𝗼𝗻𝗴</b>
+  ⚠️ <b>Đã xảy ra lỗi</b>
   </blockquote>
   <blockquote>
-  ❗ 𝗘𝘅𝗰𝗲𝗽𝘁𝗶𝗼𝗻: <code>{0}</code>
+  ❗ Ngoại lệ: <code>{0}</code>
   </blockquote>
 
 general_3: |
   <blockquote>
-  🔒 <b>𝗔𝗻𝗼𝗻𝘆𝗺𝗼𝘂𝘀 𝗔𝗱𝗺𝗶𝗻 𝗗𝗲𝘁𝗲𝗰𝘁𝗲𝗱</b>
+  🔒 <b>Phát hiện quản trị viên ẩn danh</b>
   </blockquote>
   <blockquote>
-  ↩️ 𝗥𝗲𝘃𝗲𝗿𝘁 𝗯𝗮𝗰𝗸 𝘁𝗼 𝘂𝘀𝗲𝗿 𝗮𝗰𝗰𝗼𝘂𝗻𝘁 𝘁𝗼 𝘂𝘀𝗲 𝗺𝗲.
+  ↩️ Hãy quay lại tài khoản người dùng để sử dụng tôi.
   </blockquote>
 
 general_4: |
   <blockquote>
-  🚫 <b>𝗣𝗲𝗿𝗺𝗶𝘀𝘀𝗶𝗼𝗻 𝗗𝗲𝗻𝗶𝗲𝗱</b>
+  🚫 <b>Quyền bị từ chối</b>
   </blockquote>
   <blockquote>
-  ⚙️ 𝗬𝗼𝘂 𝗰𝗮𝗻'𝘁 𝗺𝗮𝗻𝗮𝗴𝗲 𝘃𝗶𝗱𝗲𝗼𝗰𝗵𝗮𝘁𝘀.<br>
-  🔄 𝗨𝗽𝗱𝗮𝘁𝗲 𝗮𝗱𝗺𝗶𝗻 𝗰𝗮𝗰𝗵𝗲 𝘃𝗶𝗮 /reload
+  ⚙️ Bạn không thể quản lý video chat.<br>
+  🔄 Cập nhật bộ nhớ đệm quyền quản trị qua /reload
   </blockquote>
 
 general_5: |
   <blockquote>
-  🛑 <b>𝗡𝗼 𝗦𝘁𝗿𝗲𝗮𝗺 𝗔𝗰𝘁𝗶𝘃𝗲</b>
+  🛑 <b>Không có luồng đang hoạt động</b>
   </blockquote>
   <blockquote>
-  📡 𝗧𝗵𝗲 𝗯𝗼𝘁 𝗶𝘀𝗻'𝘁 𝘀𝘁𝗿𝗲𝗮𝗺𝗶𝗻𝗴 𝗼𝗻 𝘃𝗶𝗱𝗲𝗼𝗰𝗵𝗮𝘁.
+  📡 Bot hiện không phát trực tuyến trong video chat.
   </blockquote>
-
 
 tg_1: |
   <blockquote>
-  <u><b>{0} 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿</b></u>
+  <u><b>{0} Trình tải xuống</b></u>
   </blockquote>
   <blockquote>
-  📦 <b>𝗙𝗶𝗹𝗲 𝗦𝗶𝘇𝗲 :</b> {1}<br>
-  ✅ <b>𝗖𝗼𝗺𝗽𝗹𝗲𝘁𝗲𝗱 :</b> {2}<br>
-  📊 <b>𝗣𝗲𝗿𝗰𝗲𝗻𝘁𝗮𝗴𝗲 :</b> {3}%<br>
-  ⚡ <b>𝗦𝗽𝗲𝗲𝗱 :</b> {4}/s<br>
-  ⏱ <b>𝗘𝗧𝗔 :</b> {5}
+  📦 <b>Kích thước tệp:</b> {1}<br>
+  ✅ <b>Hoàn thành:</b> {2}<br>
+  📊 <b>Phần trăm:</b> {3}%<br>
+  ⚡ <b>Tốc độ:</b> {4}/s<br>
+  ⏱ <b>Thời gian còn lại:</b> {5}
   </blockquote>
 
 tg_2: |
   <blockquote>
-  ✅ <b>𝗦𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗱!</b>
+  ✅ <b>Tải xuống thành công!</b>
   </blockquote>
   <blockquote>
-  ⚙️ 𝗣𝗿𝗼𝗰𝗲𝘀𝘀𝗶𝗻𝗴 𝗙𝗶𝗹𝗲...<br>
-  ⏱ <b>𝗧𝗶𝗺𝗲 𝗘𝗹𝗮𝗽𝘀𝗲𝗱 :</b> {0}
+  ⚙️ Đang xử lý tệp...<br>
+  ⏱ <b>Thời gian đã trôi qua:</b> {0}
   </blockquote>
 
 tg_3: |
   <blockquote>
-  ❌ <b>𝗙𝗮𝗶𝗹𝗲𝗱 𝘁𝗼 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱 𝗠𝗲𝗱𝗶𝗮 𝗳𝗿𝗼𝗺 𝗧𝗲𝗹𝗲𝗴𝗿𝗮𝗺.</b>
+  ❌ <b>Không thể tải phương tiện từ Telegram.</b>
   </blockquote>
   <blockquote>
-  💡 𝗣𝗹𝗲𝗮𝘀𝗲 𝗧𝗿𝘆 𝗔𝗴𝗮𝗶𝗻...
+  💡 Vui lòng thử lại...
   </blockquote>
 
 tg_4: |
   <blockquote>
-  ℹ️ <b>𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱 𝗔𝗹𝗿𝗲𝗮𝗱𝘆 𝗖𝗼𝗺𝗽𝗹𝗲𝘁𝗲𝗱.</b>
+  ℹ️ <b>Tệp đã được tải xuống trước đó.</b>
   </blockquote>
 
 tg_5: |
   <blockquote>
-  ⚠️ <b>𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱 𝗔𝗹𝗿𝗲𝗮𝗱𝘆 𝗖𝗼𝗺𝗽𝗹𝗲𝘁𝗲𝗱 𝗼𝗿 𝗖𝗮𝗻𝗰𝗲𝗹𝗹𝗲𝗱.</b>
+  ⚠️ <b>Tệp đã được tải xong hoặc đã bị hủy.</b>
   </blockquote>
 
 tg_6: |
   <blockquote>
-  ⏹ <b>𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱 𝗖𝗮𝗻𝗰𝗲𝗹𝗹𝗲𝗱.</b>
+  ⏹ <b>Đã hủy tải xuống.</b>
   </blockquote>
 
 tg_7: |
   <blockquote>
-  ⏹ <b>𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱 𝗖𝗮𝗻𝗰𝗲𝗹𝗹𝗲𝗱 𝗯𝘆 :</b> {0}
+  ⏹ <b>Tải xuống bị hủy bởi:</b> {0}
   </blockquote>
 
 tg_8: |
   <blockquote>
-  ❌ <b>𝗙𝗮𝗶𝗹𝗲𝗱 𝘁𝗼 𝗦𝘁𝗼𝗽 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱.</b>
+  ❌ <b>Không thể dừng tải xuống.</b>
   </blockquote>
 
 tg_9: |
   <blockquote>
-  ❌ <b>𝗙𝗮𝗶𝗹𝗲𝗱 𝘁𝗼 𝗚𝗲𝘁 𝗧𝗵𝗲 𝗢𝗻𝗴𝗼𝗶𝗻𝗴 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱 𝗧𝗮𝘀𝗸...</b>
+  ❌ <b>Không thể lấy tác vụ tải xuống đang diễn ra...</b>
   </blockquote>
-
 
 call_1: |
   <blockquote>
-  🔗 <b>𝗕𝗼𝘁 𝗿𝗲𝗾𝘂𝗶𝗿𝗲𝘀 𝗜𝗻𝘃𝗶𝘁𝗲 𝗨𝘀𝗲𝗿𝘀 𝗣𝗲𝗿𝗺𝗶𝘀𝘀𝗶𝗼𝗻</b>
+  🔗 <b>Bot cần quyền mời người dùng</b>
   </blockquote>
   <blockquote>
-  ➤ 𝗜𝗻𝘃𝗶𝘁𝗲 𝘁𝗵𝗲 𝗮𝘀𝘀𝗶𝘀𝘁𝗮𝗻𝘁 𝘁𝗼 𝘆𝗼𝘂𝗿 𝗰𝗵𝗮𝘁 𝘃𝗶𝗮 𝗮 𝗹𝗶𝗻𝗸.
+  ➤ Hãy mời tài khoản trợ lý vào nhóm của bạn bằng liên kết.
   </blockquote>
 
 call_2: |
   <blockquote>
-  🚫 <u>{0} 𝗔𝘀𝘀𝗶𝘀𝘁𝗮𝗻𝘁 𝗶𝘀 𝗕𝗮𝗻𝗻𝗲𝗱 𝗶𝗻 𝘆𝗼𝘂𝗿 𝗚𝗿𝗼𝘂𝗽/𝗖𝗵𝗮𝗻𝗻𝗲𝗹</u>
+  🚫 <u>{0} trợ lý đã bị chặn trong nhóm/kênh của bạn</u>
   </blockquote>
   <blockquote>
-  <b>𝗜𝗗 :</b> <code>{1}</code><br>
-  <b>𝗡𝗮𝗺𝗲 :</b> {2}<br>
-  <b>𝗨𝘀𝗲𝗿𝗻𝗮𝗺𝗲 :</b> @{3}
+  <b>ID :</b> <code>{1}</code><br>
+  <b>Tên :</b> {2}<br>
+  <b>Tên người dùng :</b> @{3}
   </blockquote>
   <blockquote>
-  ⚠️ 𝗣𝗹𝗲𝗮𝘀𝗲 𝘂𝗻𝗯𝗮𝗻 𝗮𝗻𝗱 𝘁𝗿𝘆 𝗮𝗴𝗮𝗶𝗻.
+  ⚠️ Vui lòng bỏ chặn và thử lại.
   </blockquote>
 
 call_3: |
   <blockquote>
-  ❌ <b>𝗙𝗮𝗶𝗹𝗲𝗱 𝘁𝗼 𝗜𝗻𝘃𝗶𝘁𝗲 {0} 𝗔𝗻𝗮𝘀𝘀𝗶𝘀𝘁𝗮𝗻𝘁.</b>
+  ❌ <b>Không thể mời trợ lý {0}.</b>
   </blockquote>
   <blockquote>
-  📝 𝗥𝗲𝗮𝘀𝗼𝗻 : <code>{1}</code>
+  📝 Lý do : <code>{1}</code>
   </blockquote>
 
 call_4: |
   <blockquote>
-  ⏳ <b>𝗣𝗹𝗲𝗮𝘀𝗲 𝗪𝗮𝗶𝘁...</b>
+  ⏳ <b>Vui lòng chờ...</b>
   </blockquote>
   <blockquote>
-  ✉️ 𝗜𝗻𝘃𝗶𝘁𝗶𝗻𝗴 {0} 𝗮𝘀𝘀𝗶𝘀𝘁𝗮𝗻𝘁 𝘁𝗼 𝘆𝗼𝘂𝗿 𝗰𝗵𝗮𝘁...
+  ✉️ Đang mời trợ lý {0} vào nhóm của bạn...
   </blockquote>
 
 call_5: |
   <blockquote>
-  ✅ <b>{0} 𝗔𝘀𝘀𝗶𝘀𝘁𝗮𝗻𝘁 𝗝𝗼𝗶𝗻𝗲𝗱 𝗦𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆!</b>
+  ✅ <b>Trợ lý {0} đã tham gia thành công!</b>
   </blockquote>
   <blockquote>
-  ▶️ 𝗧𝗿𝘆𝗶𝗻𝗴 𝘁𝗼 𝗦𝘁𝗮𝗿𝘁 𝗦𝘁𝗿𝗲𝗮𝗺...
+  ▶️ Đang thử khởi động phát luồng...
   </blockquote>
 
 call_6: |
   <blockquote>
-  ⚠️ <b>𝗙𝗮𝗶𝗹𝗲𝗱 𝘁𝗼 𝗦𝘄𝗶𝘁𝗰𝗵 𝗦𝘁𝗿𝗲𝗮𝗺.</b>
+  ⚠️ <b>Không thể chuyển luồng.</b>
   </blockquote>
   <blockquote>
-  🔀 𝗨𝘀𝗲 /skip 𝘁𝗼 𝗰𝗵𝗮𝗻𝗴𝗲 𝘁𝗿𝗮𝗰𝗸 𝗮𝗴𝗮𝗶𝗻.
+  🔀 Hãy dùng /skip để đổi bài khác.
   </blockquote>
 
 call_7: |
   <blockquote>
-  ⏳ <b>𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗶𝗻𝗴 𝗻𝗲𝘅𝘁 𝘁𝗿𝗮𝗰𝗸 𝗳𝗿𝗼𝗺 𝗾𝘂𝗲𝘂𝗲...</b>
+  ⏳ <b>Đang tải bài hát tiếp theo trong hàng chờ...</b>
   </blockquote>
   <blockquote>
-  📥 𝗣𝗹𝗲𝗮𝘀𝗲 𝗛𝗼𝗹𝗱 𝗢𝗻.
+  📥 Vui lòng chờ trong giây lát.
   </blockquote>
 
 call_8: |
   <blockquote>
-  ❌ <b>𝗡𝗼 𝗔𝗰𝘁𝗶𝘃𝗲 𝗩𝗶𝗱𝗲𝗼𝗰𝗵𝗮𝘁 𝗙𝗼𝘂𝗻𝗱</b>
+  ❌ <b>Không tìm thấy video chat đang hoạt động</b>
   </blockquote>
   <blockquote>
-  🎬 𝗣𝗹𝗲𝗮𝘀𝗲 𝗦𝘁𝗮𝗿𝘁 𝗩𝗶𝗱𝗲𝗼𝗰𝗵𝗮𝘁 𝗮𝗻𝗱 𝗧𝗿𝘆 𝗔𝗴𝗮𝗶𝗻.
+  🎬 Hãy bắt đầu video chat và thử lại.
   </blockquote>
 
 call_9: |
   <blockquote>
-  ℹ️ <b>𝗔𝘀𝘀𝗶𝘀𝘁𝗮𝗻𝘁 𝗔𝗹𝗿𝗲𝗮𝗱𝘆 𝗶𝗻 𝗩𝗶𝗱𝗲𝗼𝗰𝗵𝗮𝘁</b>
+  ℹ️ <b>Trợ lý đã có mặt trong video chat</b>
   </blockquote>
   <blockquote>
-  ⚠️ 𝗜𝗳 𝗻𝗼𝘁 𝗽𝗿𝗲𝘀𝗲𝗻𝘁, 𝘀𝗲𝗻𝗱 <code>/reboot</code> 𝗮𝗻𝗱 𝘁𝗿𝘆 𝗮𝗴𝗮𝗶𝗻.
+  ⚠️ Nếu không thấy, hãy gửi lệnh <code>/reboot</code> rồi thử lại.
   </blockquote>
 
 call_10: |
   <blockquote>
-  ❌ <b>𝗧𝗲𝗹𝗲𝗴𝗿𝗮𝗺 𝗦𝗲𝗿𝘃𝗲𝗿 𝗘𝗿𝗿𝗼𝗿</b>
+  ❌ <b>Lỗi máy chủ Telegram</b>
   </blockquote>
   <blockquote>
-  ⚠️ 𝗧𝗲𝗹𝗲𝗴𝗿𝗮𝗺 𝗶𝘀 𝗵𝗮𝘃𝗶𝗻𝗴 𝗶𝗻𝘁𝗲𝗿𝗻𝗮𝗹 𝗽𝗿𝗼𝗯𝗹𝗲𝗺𝘀.<br>
-  🔄 𝗧𝗿𝘆 𝗽𝗹𝗮𝘆𝗶𝗻𝗴 𝗮𝗴𝗮𝗶𝗻 𝗼𝗿 𝗿𝗲𝘀𝘁𝗮𝗿𝘁 𝘃𝗶𝗱𝗲𝗼𝗰𝗵𝗮𝘁.
+  ⚠️ Telegram đang gặp sự cố nội bộ.<br>
+  🔄 Hãy thử phát lại hoặc khởi động lại video chat.
   </blockquote>
 
 # Authorize Users commands
 
 auth_1: |
   <blockquote>
-  ⚠️ 𝗬𝗼𝘂 𝗰𝗮𝗻 𝗼𝗻𝗹𝘆 𝗵𝗮𝘃𝗲 25 𝗮𝘂𝘁𝗵𝗼𝗿𝗶𝘇𝗲𝗱 𝘂𝘀𝗲𝗿𝘀 𝗶𝗻 𝘆𝗼𝘂𝗿 𝗴𝗿𝗼𝘂𝗽.
+  ⚠️ Bạn chỉ có thể có tối đa 25 người dùng được ủy quyền trong nhóm.
   </blockquote>
 
 auth_2: |
   <blockquote>
-  ✅ 𝗔𝗱𝗱𝗲𝗱 {0} 𝘁𝗼 𝗮𝘂𝘁𝗵𝗼𝗿𝗶𝘇𝗲𝗱 𝘂𝘀𝗲𝗿𝘀 𝗹𝗶𝘀𝘁.
+  ✅ Đã thêm {0} vào danh sách người dùng được ủy quyền.
   </blockquote>
 
 auth_3: |
   <blockquote>
-  ℹ️ {0} 𝗶𝘀 𝗮𝗹𝗿𝗲𝗮𝗱𝘆 𝗶𝗻 𝗮𝘂𝘁𝗵𝗼𝗿𝗶𝘇𝗲𝗱 𝘂𝘀𝗲𝗿𝘀 𝗹𝗶𝘀𝘁.
+  ℹ️ {0} đã có trong danh sách người dùng được ủy quyền.
   </blockquote>
 
 auth_4: |
   <blockquote>
-  🗑 𝗥𝗲𝗺𝗼𝘃𝗲𝗱 {0} 𝗳𝗿𝗼𝗺 𝗮𝘂𝘁𝗵𝗼𝗿𝗶𝘇𝗲𝗱 𝘂𝘀𝗲𝗿𝘀 𝗹𝗶𝘀𝘁.
+  🗑 Đã xóa {0} khỏi danh sách người dùng được ủy quyền.
   </blockquote>
 
 auth_5: |
   <blockquote>
-  ℹ️ {0} 𝗶𝘀 𝗻𝗼𝘁 𝗶𝗻 𝗮𝘂𝘁𝗵𝗼𝗿𝗶𝘇𝗲𝗱 𝘂𝘀𝗲𝗿𝘀 𝗹𝗶𝘀𝘁.
+  ℹ️ {0} không có trong danh sách người dùng được ủy quyền.
   </blockquote>
 
 auth_6: |
   <blockquote>
-  ⏳ 𝗙𝗲𝘁𝗰𝗵𝗶𝗻𝗴 𝗮𝘂𝘁𝗵𝗼𝗿𝗶𝘇𝗲𝗱 𝘂𝘀𝗲𝗿𝘀 𝗹𝗶𝘀𝘁...
+  ⏳ Đang lấy danh sách người dùng được ủy quyền...
   </blockquote>
 
 auth_7: |
   <blockquote>
-  📋 𝗟𝗶𝘀𝘁 𝗼𝗳 𝗮𝘂𝘁𝗵𝗼𝗿𝗶𝘇𝗲𝗱 𝘂𝘀𝗲𝗿𝘀 𝗶𝗻 {0} :
+  📋 Danh sách người dùng được ủy quyền trong {0} :
   </blockquote>
 
 auth_8: |
   <blockquote>
-  <b>↬ 𝗔𝗱𝗱𝗲𝗱 𝗕𝘆 :</b>
+  <b>↬ Thêm bởi :</b>
   </blockquote>
 
 
 reload_1: |
   <blockquote>
-  ⏳ 𝗬𝗼𝘂 𝗰𝗮𝗻 𝗼𝗻𝗹𝘆 𝗿𝗲𝗳𝗿𝗲𝘀𝗵 𝗮𝗱𝗺𝗶𝗻 𝗰𝗮𝗰𝗵𝗲 𝗼𝗻𝗰𝗲 𝗶𝗻 3 𝗺𝗶𝗻𝘂𝘁𝗲𝘀.
+  ⏳ Bạn chỉ có thể làm mới bộ nhớ đệm quyền quản trị mỗi 3 phút một lần.
   </blockquote>
   <blockquote>
-  🕒 𝗣𝗹𝗲𝗮𝘀𝗲 𝘁𝗿𝘆 𝗮𝗳𝘁𝗲𝗿 {0}.
+  🕒 Vui lòng thử lại sau {0}.
   </blockquote>
 
 reload_2: |
   <blockquote>
-  ✅ 𝗔𝗱𝗺𝗶𝗻 𝗖𝗮𝗰𝗵𝗲 𝗥𝗲𝗳𝗿𝗲𝘀𝗵𝗲𝗱 𝗦𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆.
+  ✅ Đã làm mới bộ nhớ đệm quyền quản trị thành công.
   </blockquote>
 
 reload_3: |
   <blockquote>
-  ❌ 𝗙𝗮𝗶𝗹𝗲𝗱 𝘁𝗼 𝗥𝗲𝗹𝗼𝗮𝗱 𝗔𝗱𝗺𝗶𝗻 𝗖𝗮𝗰𝗵𝗲.
+  ❌ Không thể tải lại bộ nhớ đệm quyền quản trị.
   </blockquote>
   <blockquote>
-  ⚠️ 𝗠𝗮𝗸𝗲 𝘀𝘂𝗿𝗲 𝘁𝗵𝗮𝘁 𝘁𝗵𝗲 𝗯𝗼𝘁 𝗶𝘀 𝗮𝗱𝗺𝗶𝗻 𝗶𝗻 𝘆𝗼𝘂𝗿 𝗰𝗵𝗮𝘁.
+  ⚠️ Hãy đảm bảo bot là quản trị viên trong nhóm/kênh của bạn.
   </blockquote>
 
 reload_4: |
   <blockquote>
-  ⏳ 𝗣𝗹𝗲𝗮𝘀𝗲 𝗪𝗮𝗶𝘁...
+  ⏳ Vui lòng chờ...
   </blockquote>
   <blockquote>
-  🔄 𝗥𝗲𝗯𝗼𝗼𝘁𝗶𝗻𝗴 {0} 𝗳𝗼𝗿 𝘆𝗼𝘂𝗿 𝗰𝗵𝗮𝘁...
+  🔄 Đang khởi động lại {0} cho nhóm/kênh của bạn...
   </blockquote>
 
 reload_5: |
   <blockquote>
-  ✅ 𝗦𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆 𝗥𝗲𝗯𝗼𝗼𝘁𝗲𝗱 {0} 𝗳𝗼𝗿 𝘆𝗼𝘂𝗿 𝗰𝗵𝗮𝘁.
+  ✅ Đã khởi động lại {0} thành công cho nhóm/kênh của bạn.
   </blockquote>
   <blockquote>
-  ▶️ 𝗦𝘁𝗮𝗿𝘁 𝗣𝗹𝗮𝘆𝗶𝗻𝗴 𝗔𝗴𝗮𝗶𝗻...
+  ▶️ Bắt đầu phát lại...
   </blockquote>
 
-
-admin_1: "❓ ᴅɪᴅ ʏᴏᴜ ʀᴇᴍᴇᴍʙᴇʀ ᴛᴏ ʀᴇsᴜᴍᴇ ᴛʜᴇ sᴛʀᴇᴀᴍ ?"
-admin_2: "⏸️ sᴛʀᴇᴀᴍ ᴘᴀᴜsᴇᴅ 🎄\n│ \n└ʙʏ : {0} 🥀"
-admin_3: "❓ ᴅɪᴅ ʏᴏᴜ ʀᴇᴍᴇᴍʙᴇʀ ᴛᴏ ᴘᴀᴜsᴇ ᴛʜᴇ sᴛʀᴇᴀᴍ ?"
-admin_4: "▶️ sᴛʀᴇᴀᴍ ʀᴇsᴜᴍᴇᴅ 🎄\n│ \n└ʙʏ : {0} 🥀"
-admin_5: "⏹️ sᴛʀᴇᴀᴍ ᴇɴᴅᴇᴅ/ѕᴛᴏᴩᴩᴇᴅ 🎄\n│ \n└ʙʏ : {0} 🥀"
-admin_6: "⏭️ sᴛʀᴇᴀᴍ sᴋɪᴩᴩᴇᴅ 🎄\n│ \n└ʙʏ : {0} 🥀\n\n<b>» ɴᴏ ᴍᴏʀᴇ ǫᴜᴇᴜᴇᴅ ᴛʀᴀᴄᴋs ɪɴ</b> {1}, <b>ʟᴇᴀᴠɪɴɢ ᴠɪᴅᴇᴏᴄʜᴀᴛ.</b>"
-admin_7: "⚠️ ᴇʀʀᴏʀ ᴡʜɪʟᴇ ᴄʜᴀɴɢɪɴɢ sᴛʀᴇᴀᴍ ᴛᴏ {0}."
-admin_8: "❗ ᴘʟᴇᴀsᴇ ᴅɪsᴀʙʟᴇ ʟᴏᴏᴘ ᴘʟᴀʏ ᴠɪᴀ <code>/loop disable</code> ᴀɴᴅ ᴛʜᴇɴ ᴛʀʏ ᴛᴏ sᴋɪᴘ ᴀɢᴀɪɴ."
-admin_9: "🔢 ᴘʟᴇᴀsᴇ ᴜsᴇ sᴘᴇᴄɪғɪᴄ ɴᴜᴍʙᴇʀs ғᴏʀ sᴋɪᴘ, ʟɪᴋᴇ 1, 2, 4..."
-admin_10: "❗ ᴀᴛʟᴇᴀsᴛ 2 ᴛʀᴀᴄᴋs ɴᴇᴇᴅᴇᴅ ɪɴ ǫᴜᴇᴜᴇ ғᴏʀ sᴘᴇᴄɪғɪᴄ sᴋɪᴘ.\n\nᴄʜᴇᴄᴋ ǫᴜᴇᴜᴇ ʙʏ : /queue"
-admin_11: "⚠️ ɴᴏᴛ ᴇɴᴏᴜɢʜ ᴛʀᴀᴄᴋs ɪɴ ǫᴜᴇᴜᴇ ғᴏʀ sᴘᴇᴄɪғɪᴄ sᴋɪᴘ.\n\nᴘʟᴇᴀsᴇ sᴋɪᴘ ʙᴇᴛᴡᴇᴇɴ 1 ᴀɴᴅ {0}"
-admin_12: "❌ ғᴀɪʟᴇᴅ ᴛᴏ sᴋɪᴘ ᴛᴏ sᴘᴇᴄɪғɪᴄ ᴛʀᴀᴄᴋ.\n\nᴄʜᴇᴄᴋ ʟᴇғᴛ ǫᴜᴇᴜᴇ ʙʏ : /queue"
-admin_13: "🔄 ᴘʟᴇᴀsᴇ ʀᴇʟᴏᴀᴅ ᴀᴅᴍɪɴ ᴄᴀᴄʜᴇ ᴠɪᴀ : /reload"
-admin_14: "❌ ʏᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴘᴇʀᴍɪssɪᴏɴs ᴛᴏ ᴍᴀɴᴀɢᴇ ᴠɪᴅᴇᴏ ᴄʜᴀᴛs.\n\nʀᴇʟᴏᴀᴅ ᴀᴅᴍɪɴ ᴄᴀᴄʜᴇ ᴠɪᴀ : /reload"
-admin_15: "❌ ғᴀɪʟᴇᴅ ᴛᴏ sʜᴜғғʟᴇ.\n\n<b>ᴄʜᴇᴄᴋ ǫᴜᴇᴜᴇ ʙʏ :</b> /queue"
-admin_16: "🎲 ǫᴜᴇᴜᴇ sʜᴜғғʟᴇᴅ ʙʏ {0}.\n\n<b>ᴄʜᴇᴄᴋ sʜᴜғғʟᴇᴅ ǫᴜᴇᴜᴇ ʙʏ :</b> /queue"
-admin_17: "<b>ᴇxᴀᴍᴘʟᴇ :</b>\n\n/loop <code>enable</code>/<code>disable</code>\n/loop <code>10</code>/<code>9</code>/<code>8</code>/<code>7</code>"
-admin_18: "🔁 ʟᴏᴏᴘ ᴇɴᴀʙʟᴇᴅ ғᴏʀ <code>{0}</code> ᴛɪᴍᴇs ʙʏ : {1}."
-admin_19: "❌ ʟᴏᴏᴘ ᴘʟᴀʏ ʜᴀs ʙᴇᴇɴ ᴅɪsᴀʙʟᴇᴅ ʙʏ : {0}."
-admin_20: "<b>ᴇxᴀᴍᴘʟᴇ :</b>\n\n/seek ᴏʀ /seekback [ᴅᴜʀᴀᴛɪᴏɴ ɪɴ sᴇᴄᴏɴᴅs]"
-admin_21: "🔢 ᴘʟᴇᴀsᴇ ᴜsᴇ ɴᴜᴍᴇʀɪᴄ ᴅɪɢɪᴛs ғᴏʀ sᴇᴇᴋɪɴɢ ɪɴ sᴇᴄᴏɴᴅs."
-admin_22: "⚠️ ʟɪᴠᴇ sᴛʀᴇᴀᴍs ᴄᴀɴ'ᴛ ʙᴇ sᴇᴇᴋᴇᴅ."
-admin_23: "⚠️ ᴛʀʏ sᴇᴇᴋɪɴɢ ᴡɪᴛʜ ᴀ ʟᴏᴡᴇʀ ᴅᴜʀᴀᴛɪᴏɴ.\n\nᴘʟᴀʏᴇᴅ <b>{0}</b> ᴏᴜᴛ ᴏғ <b>{1}</b> ᴍɪɴᴜᴛᴇs."
-admin_24: "🔄 <b>sᴇᴇᴋɪɴɢ...</b>\n\nᴘʟᴇᴀsᴇ ʜᴏʟᴅ ᴏɴ..."
-admin_25: "✅ sᴛʀᴇᴀᴍ sᴜᴄᴄᴇssғᴜʟʟʏ sᴇᴇᴋᴇᴅ.\n\n<b>ᴅᴜʀᴀᴛɪᴏɴ :</b> {0} ᴍɪɴᴜᴛᴇs\n<b>ʙʏ :</b> {1}"
-admin_26: "❌ ғᴀɪʟᴇᴅ ᴛᴏ sᴇᴇᴋ."
-admin_27: "⚠️ ᴏɴʟʏ ʏᴏᴜᴛᴜʙᴇ sᴛʀᴇᴀᴍ's sᴘᴇᴇᴅ ᴄᴀɴ ʙᴇ ᴄᴏɴᴛʀᴏʟʟᴇᴅ ᴄᴜʀʀᴇɴᴛʟʏ."
-admin_28: "🎛️ <b><u>{0} sᴘᴇᴇᴅ ᴄᴏɴᴛʀᴏʟ ᴘᴀɴᴇʟ</b></u>\n\nᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ʙᴇʟᴏᴡ ᴛᴏ ᴄʜᴀɴɢᴇ ᴛʜᴇ sᴘᴇᴇᴅ ᴏғ ᴄᴜʀʀᴇɴᴛʟʏ ᴘʟᴀʏɪɴɢ sᴛʀᴇᴀᴍ ᴏɴ ᴠɪᴅᴇᴏᴄʜᴀᴛ."
-admin_29: "⚡ ʙᴏᴛ ɪs ᴀʟʀᴇᴀᴅʏ ᴘʟᴀʏɪɴɢ ᴏɴ ɴᴏʀᴍᴀʟ sᴘᴇᴇᴅ."
-admin_30: "⏳ ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ...\n\nsᴏᴍᴇᴏɴᴇ ᴇʟsᴇ ɪs ᴛʀʏɪɴɢ ᴛᴏ ᴄʜᴀɴɢᴇ ᴛʜᴇ sᴘᴇᴇᴅ ᴏғ ᴛʜᴇ sᴛʀᴇᴀᴍ."
-admin_31: "🔄 ᴄʜᴀɴɢɪɴɢ sᴘᴇᴇᴅ..."
-admin_32: "⏳ ᴛʀʏɪɴɢ ᴛᴏ ᴄʜᴀɴɢᴇ ᴛʜᴇ sᴘᴇᴇᴅ ᴏғ ᴛʜᴇ ᴏɴɢᴏɪɴɢ sᴛʀᴇᴀᴍ...\n\n<b>ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ :</b> {0}"
-admin_33: "❌ ғᴀɪʟᴇᴅ ᴛᴏ ᴄʜᴀɴɢᴇ ᴛʜᴇ sᴘᴇᴇᴅ ᴏғ ᴛʜᴇ ᴏɴɢᴏɪɴɢ sᴛʀᴇᴀᴍ."
-admin_34: "⚡ ᴄʜᴀɴɢᴇᴅ ᴛʜᴇ sᴘᴇᴇᴅ ᴏғ ᴛʜᴇ ᴏɴɢᴏɪɴɢ sᴛʀᴇᴀᴍ ᴛᴏ {0}x\n\n<b>ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ :</b> {1}"
-admin_35: "🗳️ ᴛʜᴇ ᴠᴏᴛɪɴɢ ʜᴀs ᴇɴᴅᴇᴅ ʙᴇᴄᴀᴜsᴇ ᴛʜᴇ ᴛʀᴀᴄᴋ ʜᴀs ᴇɴᴅᴇᴅ ғᴏʀ ᴡʜɪᴄʜ ᴛʜᴇ ᴠᴏᴛɪɴɢ ᴡᴀs ᴘʀᴏᴠɪᴅᴇᴅ."
-admin_36: "❌ ғᴀɪʟᴇᴅ ᴛᴏ ᴘᴇʀғᴏʀᴍ ᴛʜɪs ᴀᴄᴛɪᴏɴ ʙᴇᴄᴀᴜsᴇ ғᴏʀ ᴡʜɪᴄʜ ᴛʀᴀᴄᴋ ᴛʜᴇ ᴠᴏᴛɪɴɢ ᴡᴀs ᴘʀᴏᴠɪᴅᴇᴅ ɪs ᴇɪᴛʜᴇʀ ᴇɴᴅᴇᴅ ᴏʀ sᴛᴏᴘᴘᴇᴅ."
-admin_37: "✅ sᴜᴄᴄᴇssғᴜʟʟʏ ɢᴏᴛ <code>{0}</code> ᴜᴘᴠᴏᴛᴇs."
-admin_38: "➕ ᴀᴅᴅᴇᴅ 1 ᴜᴘᴠᴏᴛᴇ."
-admin_39: "➖ ʀᴇᴍᴏᴠᴇᴅ 1 ᴜᴘᴠᴏᴛᴇ."
-admin_40: "✅ ᴜᴘᴠᴏᴛᴇᴅ."
-admin_41: "🔁 Loop enabled by {0} for **{1}** times. Bot will now repeat the current playing music on voice chat for **{1}** times"
-admin_42: "❌ Nothing inside queue to shuffle"
-admin_43: "❌ Failed to shuffle.\n\nCheck queue : /queue"
-admin_44: "🎲 **Queue Shuffled by {0}**\n\nCheck shuffled queue : /queue"
-admin_45: "🔇 Music is already muted."
-admin_46: "🎧 Voicechat Muted by {}!"
-admin_47: "🔊 Music is already unmuted."
-admin_48: "🎧 Voicechat Unmuted by {}!"
+admin_1: "❓ Bạn có nhớ tiếp tục luồng không?"
+admin_2: "⏸️ Đã tạm dừng luồng 🎄\n│ \n└bởi : {0} 🥀"
+admin_3: "❓ Bạn có nhớ tạm dừng luồng không?"
+admin_4: "▶️ Đã tiếp tục luồng 🎄\n│ \n└bởi : {0} 🥀"
+admin_5: "⏹️ Đã kết thúc/dừng luồng 🎄\n│ \n└bởi : {0} 🥀"
+admin_6: "⏭️ Đã bỏ qua bài đang phát 🎄\n│ \n└bởi : {0} 🥀\n\n<b>» không còn bài nào trong hàng chờ tại</b> {1}, <b>đang rời khỏi video chat.</b>"
+admin_7: "⚠️ Lỗi khi chuyển luồng sang {0}."
+admin_8: "❗ Vui lòng tắt phát lặp qua <code>/loop disable</code> rồi thử bỏ qua lại."
+admin_9: "🔢 Vui lòng dùng số cụ thể để bỏ qua, như 1, 2, 4..."
+admin_10: "❗ Cần ít nhất 2 bài trong hàng chờ để bỏ qua theo vị trí.\n\nKiểm tra hàng chờ bằng: /queue"
+admin_11: "⚠️ Không đủ số bài trong hàng chờ để bỏ qua theo vị trí.\n\nVui lòng chọn số từ 1 đến {0}"
+admin_12: "❌ Không thể bỏ qua tới bài chỉ định.\n\nKiểm tra phần hàng chờ còn lại bằng: /queue"
+admin_13: "🔄 Vui lòng tải lại bộ nhớ đệm quyền quản trị bằng: /reload"
+admin_14: "❌ Bạn không có quyền quản lý video chat.\n\nTải lại bộ nhớ đệm quyền quản trị bằng: /reload"
+admin_15: "❌ Không thể trộn hàng chờ.\n\n<b>Kiểm tra hàng chờ bằng:</b> /queue"
+admin_16: "🎲 Đã trộn hàng chờ bởi {0}.\n\n<b>Kiểm tra hàng chờ sau khi trộn bằng:</b> /queue"
+admin_17: "<b>ví dụ:</b>\n\n/loop <code>enable</code>/<code>disable</code>\n/loop <code>10</code>/<code>9</code>/<code>8</code>/<code>7</code>"
+admin_18: "🔁 Đã bật phát lặp <code>{0}</code> lần bởi: {1}."
+admin_19: "❌ Phát lặp đã bị tắt bởi: {0}."
+admin_20: "<b>ví dụ:</b>\n\n/seek hoặc /seekback [thời lượng tính bằng giây]"
+admin_21: "🔢 Vui lòng nhập số khi tua theo giây."
+admin_22: "⚠️ Không thể tua trên luồng trực tiếp."
+admin_23: "⚠️ Hãy thử tua với thời lượng nhỏ hơn.\n\nĐã phát <b>{0}</b> trên tổng <b>{1}</b> phút."
+admin_24: "🔄 <b>đang tua...</b>\n\nvui lòng chờ trong giây lát..."
+admin_25: "✅ Đã tua thành công.\n\n<b>thời lượng :</b> {0} phút\n<b>bởi :</b> {1}"
+admin_26: "❌ Không thể tua."
+admin_27: "⚠️ Hiện tại chỉ điều chỉnh được tốc độ của luồng youtube."
+admin_28: "🎛️ <b><u>bảng điều khiển tốc độ {0}</u></b>\n\nnhấn các nút bên dưới để đổi tốc độ luồng đang phát trong video chat."
+admin_29: "⚡ Bot đang phát ở tốc độ bình thường."
+admin_30: "⏳ vui lòng chờ...\n\nai đó đang cố thay đổi tốc độ của luồng."
+admin_31: "🔄 Đang đổi tốc độ..."
+admin_32: "⏳ Đang cố đổi tốc độ của luồng hiện tại...\n\n<b>yêu cầu bởi :</b> {0}"
+admin_33: "❌ Không thể đổi tốc độ của luồng hiện tại."
+admin_34: "⚡ Đã đổi tốc độ của luồng hiện tại thành {0}x\n\n<b>yêu cầu bởi :</b> {1}"
+admin_35: "🗳️ Bình chọn đã kết thúc vì bài hát tương ứng đã kết thúc."
+admin_36: "❌ Không thể thực hiện thao tác vì bài hát cho phiên bình chọn đã kết thúc hoặc đã dừng."
+admin_37: "✅ Đã nhận được <code>{0}</code> phiếu ủng hộ."
+admin_38: "➕ Đã thêm 1 phiếu ủng hộ."
+admin_39: "➖ Đã gỡ 1 phiếu ủng hộ."
+admin_40: "✅ Đã ủng hộ."
+admin_41: "🔁 Đã bật lặp bởi {0} trong **{1}** lần. Bot sẽ lặp lại bài nhạc đang phát trên voice chat **{1}** lần."
+admin_42: "❌ Không có gì trong hàng chờ để trộn"
+admin_43: "❌ Không thể trộn.\n\nKiểm tra hàng chờ: /queue"
+admin_44: "🎲 **Đã trộn hàng chờ bởi {0}**\n\nKiểm tra hàng chờ sau khi trộn: /queue"
+admin_45: "🔇 Âm nhạc đã được tắt tiếng."
+admin_46: "🎧 Đã tắt tiếng voice chat bởi {}!"
+admin_47: "🔊 Âm nhạc đang bật tiếng rồi."
+admin_48: "🎧 Đã bật tiếng voice chat bởi {}!"
 
 # Start Messages
 
 start_1: |
   <blockquote>
-  ✅ {0} 𝗶𝘀 𝗮𝗹𝗶𝘃𝗲, 𝗯𝗮𝗯𝘆!
+  ✅ {0} vẫn đang hoạt động!
   </blockquote>
   <blockquote>
-  ✫ 𝗨𝗽𝘁𝗶𝗺𝗲 : {1}
+  ✫ thời gian hoạt động: {1}
   </blockquote>
 
 start_2: |
   <blockquote>
-  👋 𝗛𝗲𝗹𝗹𝗼 {0}, 🥀
+  👋 xin chào {0}, 🥀
   </blockquote>
   <blockquote>
-  𝗜𝘁'𝘀 𝗺𝗲 {1} !
+  mình là {1}!
   </blockquote>
   <blockquote>
   ┏━━━━━━━━━━━━━━━━━⧫
-  ┠ ◆ 𝗦𝘂𝗽𝗽𝗼𝗿𝘁𝗶𝗻𝗴 𝗣𝗹𝗮𝘁𝗳𝗼𝗿𝗺𝘀 : 𝘆𝗼𝘂𝘁𝘂𝗯𝗲, 𝘀𝗽𝗼𝘁𝗶𝗳𝘆,
-  ┠ ◆ 𝗥𝗲𝘀𝘀𝗼, 𝗔𝗽𝗽𝗹𝗲𝗠𝘂𝘀𝗶𝗰, 𝗦𝗼𝘂𝗻𝗱𝗖𝗹𝗼𝘂𝗱 𝗲𝘁𝗰.
+  ┠ ◆ các nền tảng hỗ trợ: youtube, spotify,
+  ┠ ◆ resso, applemusic, soundcloud, v.v.
   ┗━━━━━━━━━━━━━━━━━⧫
   ┏━━━━━━━━━━━━━━━━━⧫
-  ┠ ➥ 𝗨𝗽𝘁𝗶𝗺𝗲 : {2}
-  ┠ ➥ 𝗦𝗲𝗿𝘃𝗲𝗿 𝗦𝘁𝗼𝗿𝗮𝗴𝗲 : {3}
-  ┠ ➥ 𝗖𝗣𝗨 𝗟𝗼𝗮𝗱 : {4}
-  ┠ ➥ 𝗥𝗔𝗠 𝗖𝗼𝗻𝘀𝘂𝗺𝗽𝘁𝗶𝗼𝗻 : {5}
-  ┠ ➥ 𝗨𝘀𝗲𝗿𝘀 : {6}
-  ┠ ➥ 𝗖𝗵𝗮𝘁𝘀 : {7}
+  ┠ ➥ thời gian hoạt động: {2}
+  ┠ ➥ dung lượng máy chủ: {3}
+  ┠ ➥ tải cpu: {4}
+  ┠ ➥ sử dụng ram: {5}
+  ┠ ➥ người dùng: {6}
+  ┠ ➥ đoạn chat: {7}
   ┗━━━━━━━━━━━━━━━━━⧫
-  🫧 𝗗𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿 🪽 ➪ <a href="https://t.me/CertifiedCoder">𝗖𝗲𝗿𝘁𝗶𝗳𝗶𝗲𝗱 𝗖𝗼𝗱𝗲𝗿 ✔︎</a>
+  🫧 nhà phát triển 🪽 ➪ <a href="https://t.me/COIHAYCOC">Còi ✔︎</a>
   
 start_3: |
   <blockquote>
-  🎵 𝗛𝗲𝘆 {0},
+  🎵 chào {0},
   </blockquote>
   <blockquote>
-  𝗧𝗵𝗶𝘀 𝗶𝘀 {1}!
+  đây là {1}!
   </blockquote>
   <blockquote>
-  🙏 𝗧𝗵𝗮𝗻𝗸𝘀 𝗳𝗼𝗿 𝗮𝗱𝗱𝗶𝗻𝗴 𝗺𝗲 𝗶𝗻 {2}. 𝗡𝗼𝘄 {3} 𝗰𝗮𝗻 𝗽𝗹𝗮𝘆 𝘀𝗼𝗻𝗴𝘀 𝗶𝗻 𝘁𝗵𝗶𝘀 𝗰𝗵𝗮𝘁.
+  🙏 cảm ơn bạn đã thêm mình vào {2}. giờ {3} có thể phát nhạc trong đoạn chat này.
   </blockquote>
 
 start_4: |
   <blockquote>
-  🎄 <b>𝗦𝘂𝗽𝗲𝗿𝗴𝗿𝗼𝘂𝗽 𝗡𝗲𝗲𝗱𝗲𝗱</b> 🎄
+  🎄 <b>cần chuyển thành supergroup</b> 🎄
   </blockquote>
   <blockquote>
-  𝗣𝗹𝗲𝗮𝘀𝗲 𝗰𝗼𝗻𝘃𝗲𝗿𝘁 𝘆𝗼𝘂𝗿 <b>𝗴𝗿𝗼𝘂𝗽</b> 𝘁𝗼 <b>𝘀𝘂𝗽𝗲𝗿𝗴𝗿𝗼𝘂𝗽</b> 𝗮𝗻𝗱 𝘁𝗵𝗲𝗻 𝗮𝗱𝗱 𝗺𝗲 𝗮𝗴𝗮𝗶𝗻.
+  vui lòng chuyển <b>nhóm</b> của bạn thành <b>supergroup</b> rồi thêm mình lại.
   </blockquote>
   <blockquote>
-  📝 𝗛𝗼𝘄 𝘁𝗼 𝗺𝗮𝗸𝗲 𝘀𝘂𝗽𝗲𝗿𝗴𝗿𝗼𝘂𝗽 ?
-  - 𝗠𝗮𝗸𝗲 𝘆𝗼𝘂𝗿 𝗴𝗿𝗼𝘂𝗽'𝘀 𝗰𝗵𝗮𝘁 𝗵𝗶𝘀𝘁𝗼𝗿𝘆 <b>𝘃𝗶𝘀𝗶𝗯𝗹𝗲</b> 𝗼𝗻𝗰𝗲.
+  📝 cách tạo supergroup?
+  - bật <b>xem được lịch sử chat</b> của nhóm một lần.
   </blockquote>
 
 start_5: |
   <blockquote>
-  🚫 <b>↝ 𝗕𝗹𝗮𝗰𝗸𝗹𝗶𝘀𝘁𝗲𝗱 𝗖𝗵𝗮𝘁 ↜</b>
+  🚫 <b>↝ đoạn chat bị đưa vào danh sách đen ↜</b>
   </blockquote>
   <blockquote>
-  𝗧𝗵𝗶𝘀 𝗰𝗵𝗮𝘁 𝗶𝘀 𝗯𝗹𝗮𝗰𝗸𝗹𝗶𝘀𝘁𝗲𝗱 𝗼𝗻 {0} 𝗱𝗮𝘁𝗮𝗯𝗮𝘀𝗲.
-  𝗥𝗲𝗾𝘂𝗲𝘀𝘁 𝗮 <a href={1}>𝗦𝘂𝗱𝗼 𝗨𝘀𝗲𝗿</a> 𝘁𝗼 𝘂𝗻𝗯𝗹𝗮𝗰𝗸𝗹𝗶𝘀𝘁 𝘆𝗼𝘂𝗿 𝗰𝗵𝗮𝘁 𝗼𝗿 𝘃𝗶𝘀𝗶𝘁 <a href={2}>𝗦𝘂𝗽𝗽𝗼𝗿𝘁 𝗖𝗵𝗮𝘁</a>.
+  đoạn chat này đang bị đưa vào danh sách đen trong cơ sở dữ liệu {0}.
+  hãy yêu cầu một <a href={1}>người dùng sudo</a> gỡ chặn đoạn chat của bạn hoặc truy cập <a href={2}>đoạn chat hỗ trợ</a>.
   </blockquote>
 
 start_6: |
   <blockquote>
-  🎶 <b>𝗧𝗿𝗮𝗰𝗸 𝗜𝗻𝗳𝗼𝗿𝗺𝗮𝘁𝗶𝗼𝗻</b> 🎶
+  🎶 <b>thông tin bài hát</b> 🎶
   </blockquote>
   <blockquote>
-  📌 <b>𝗧𝗶𝘁𝗹𝗲 :</b> {0}
-  ⏳ <b>𝗗𝘂𝗿𝗮𝘁𝗶𝗼𝗻 :</b> {1} 𝗺𝗶𝗻𝘂𝘁𝗲𝘀
-  👀 <b>𝗩𝗶𝗲𝘄𝘀 :</b> <code>{2}</code>
-  ⏰ <b>𝗣𝘂𝗯𝗹𝗶𝘀𝗵𝗲𝗱 𝗢𝗻 :</b> {3}
-  📎 <b>𝗖𝗵𝗮𝗻𝗻𝗲𝗹 :</b> <a href={4}>{5}</a>
+  📌 <b>tiêu đề:</b> {0}
+  ⏳ <b>thời lượng:</b> {1} phút
+  👀 <b>lượt xem:</b> <code>{2}</code>
+  ⏰ <b>phát hành vào:</b> {3}
+  📎 <b>kênh:</b> <a href={4}>{5}</a>
   </blockquote>
   <blockquote>
-  <u><b>🥀 𝗦𝗲𝗮𝗿𝗰𝗵 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 {6}</b></u>
+  <u><b>🥀 tìm kiếm được hỗ trợ bởi {6}</b></u>
   </blockquote>
 
-help_1: "❓ ᴄʜᴏᴏsᴇ ᴛʜᴇ ᴄᴀᴛᴇɢᴏʀʏ ғᴏʀ ᴡʜɪᴄʜ ʏᴏᴜ ᴡᴀɴɴᴀ ɢᴇᴛ ʜᴇʟᴩ.\n💬 ᴀsᴋ ʏᴏᴜʀ ᴅᴏᴜʙᴛs ᴀᴛ <a href={0}>sᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ</a>\n\n📝 ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ : <code>/</code>"
-help_2: "📌 ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ᴛᴏ ɢᴇᴛ ᴍʏ ʜᴇʟᴘ ᴍᴇɴᴜ ɪɴ ʏᴏᴜʀ ᴘᴍ."
+help_1: "❓ hãy chọn danh mục bạn muốn xem trợ giúp.\n💬 đặt câu hỏi của bạn tại <a href={0}>đoạn chat hỗ trợ</a>\n\n📝 tất cả lệnh có thể dùng với: <code>/</code>"
+help_2: "📌 nhấn nút bên dưới để nhận menu trợ giúp trong tin nhắn riêng của bạn."
 
-lang_1: "🌐 » ᴘʟᴇᴀsᴇ ᴄʜᴏᴏsᴇ ᴛʜᴇ ʟᴀɴɢᴜᴀɢᴇ ʏᴏᴜ ᴡᴀɴɴᴀ sᴇᴛ ᴀs ᴛʜɪs ɢʀᴏᴜᴘ's ᴅᴇғᴀᴜʟᴛ ʟᴀɴɢᴜᴀɢᴇ :"
-lang_2: "✅ ʟᴀɴɢᴜᴀɢᴇ ᴄʜᴀɴɢᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ."
-lang_3: "❌ ғᴀɪʟᴇᴅ ᴛᴏ ᴄʜᴀɴɢᴇ ʟᴀɴɢᴜᴀɢᴇ."
-lang_4: "⚠️ Yᴏᴜ'ʀᴇ ᴀʟʀᴇᴀᴅʏ ᴏɴ ᴛʜᴇ sᴀᴍᴇ ʟᴀɴɢᴜᴀɢᴇ."
+lang_1: "🌐 » vui lòng chọn ngôn ngữ bạn muốn đặt làm mặc định cho nhóm này:"
+lang_2: "✅ đã đổi ngôn ngữ thành công."
+lang_3: "❌ không thể đổi ngôn ngữ."
+lang_4: "⚠️ bạn đang dùng đúng ngôn ngữ đó rồi."
 
-setting_1: "🔧 <u><b>{0} sᴇᴛᴛɪɴɢs ᴘᴀɴᴇʟ</b></u>\n\n<b>ᴄʜᴀᴛ ɪᴅ :</b> <code>{1}</code>\n<b>ᴄʜᴀᴛ ᴛɪᴛʟᴇ :</b> {2}\n\nᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ʙᴇʟᴏᴡ ғᴏʀ ᴄʜᴀɴɢɪɴɢ sᴇᴛᴛɪɴɢs."
-setting_2: "🎵 » ᴅɪʀᴇᴄᴛ : ᴘʟᴀʏs sᴇᴀʀᴄʜ ǫᴜᴇʀɪᴇs ᴅɪʀᴇᴄᴛʟʏ.\n\n🎹 » ɪɴʟɪɴᴇ : ʀᴇᴛᴜʀɴs ɪɴʟɪɴᴇ ʙᴜᴛᴛᴏɴs ꜰᴏʀ ᴄʜᴏᴏsɪɴɢ ʙᴇᴛᴡᴇᴇɴ ᴠɪᴅᴇᴏ & ᴀᴜᴅɪᴏ."
-setting_3: "👥 » ᴇᴠᴇʀʏᴏɴᴇ : ᴀɴʏᴏɴᴇ ᴄᴀɴ ᴜsᴇ ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅs [sᴋɪᴘ, ᴘᴀᴜsᴇ, ʀᴇsᴜᴍᴇ ᴇᴛᴄ.] ᴘʀᴇsᴇɴᴛ ɪɴ ᴛʜɪs ɢʀᴏᴜᴘ.\n\n🛡️ » ᴀᴅᴍɪɴ ᴏɴʟʏ : ᴏɴʟʏ ᴀᴅᴍɪɴs ᴀɴᴅ ᴀᴜᴛʜᴏʀɪᴢᴇᴅ ᴜsᴇʀs ᴄᴀɴ ᴜsᴇ ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅs."
-setting_4: "❌ » ɴᴏ ᴀᴜᴛʜᴏʀɪᴢᴇᴅ ᴜsᴇʀs ꜰᴏᴜɴᴅ."
-setting_5: "🎶 » ɢʀᴏᴜᴘ : ᴘʟᴀʏs ᴍᴜsɪᴄ ɪɴ ᴛʜᴇ ɢʀᴏᴜᴘ ᴡʜᴇʀᴇ ᴛʜᴇ ᴄᴏᴍᴍᴀɴᴅ ɪs ɢɪᴠᴇɴ.\n\n📺 » ᴄʜᴀɴɴᴇʟ : ᴘʟᴀʏs ᴍᴜsɪᴄ ɪɴ ᴛʜᴇ ᴄʜᴀɴɴᴇʟ ʏᴏᴜ ᴡᴀɴᴛ. sᴇᴛ ᴄʜᴀɴɴᴇʟ ɪᴅ ᴠɪᴀ /channelplay"
-setting_6: "👤 » ᴇᴠᴇʀʏᴏɴᴇ : ᴀɴʏᴏɴᴇ ᴘʀᴇsᴇɴᴛ ɪɴ ᴛʜɪs ɢʀᴏᴜᴘ ᴄᴀɴ ᴘʟᴀʏ ᴍᴜsɪᴄ ʜᴇʀᴇ.\n\n🛡️ » ᴀᴅᴍɪɴ ᴏɴʟʏ: ᴏɴʟʏ ᴀᴅᴍɪɴs ᴄᴀɴ ᴘʟᴀʏ ᴛʜᴇ ᴍᴜsɪᴄ ɪɴ ᴛʜɪs ɢʀᴏᴜᴘ."
-setting_7: "⚠️ » ᴘʟᴇᴀsᴇ ᴅᴇғɪɴᴇ ᴄʜᴀɴɴᴇʟ ɪᴅ ᴠɪᴀ /channelplay"
-setting_8: "🗳️ ᴡʜᴇɴ ᴛʜɪs ᴍᴏᴅᴇ ɪs ᴇɴᴀʙʟᴇᴅ, ᴘᴇᴏᴘʟᴇ ᴡɪᴛʜᴏᴜᴛ ᴀᴅᴍɪɴ ʀɪɢʜᴛs ᴄᴀɴ ᴜsᴇ ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅs ᴀғᴛᴇʀ ᴀ ᴄᴇʀᴛᴀɪɴ ᴀᴍᴏᴜɴᴛ ᴏғ ᴠᴏᴛᴇs."
-setting_9: "📌 ᴄᴜʀʀᴇɴᴛ ᴜᴘᴠᴏᴛᴇs ʀᴇǫᴜɪʀᴇᴅ ғᴏʀ ᴜsɪɴɢ ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅs ᴀʀᴇ : {0}"
-setting_10: "❌ ᴠᴏᴛɪɴɢ ᴍᴏᴅᴇ ɪs ᴅɪsᴀʙʟᴇᴅ."
-setting_11: "⚠️ ʟᴏᴡᴇsᴛ ᴜᴘᴠᴏᴛᴇs ᴄᴏᴜɴᴛ ᴄᴀɴ ʙᴇ 2. ʏᴏᴜ ᴄᴀɴ'ᴛ sᴇᴛ ʙᴇʟᴏᴡ 2"
-setting_12: "⚠️ ʜɪɢʜᴇsᴛ ᴜᴘᴠᴏᴛᴇs ᴄᴏᴜɴᴛ ᴄᴀɴ ʙᴇ 15. ʏᴏᴜ ᴄᴀɴ'ᴛ sᴇᴛ ᴀʙᴏᴠᴇ 15"
+setting_1: "🔧 <u><b>bảng cài đặt {0}</b></u>\n\n<b>id chat:</b> <code>{1}</code>\n<b>tiêu đề chat:</b> {2}\n\nnhấn các nút bên dưới để thay đổi cài đặt."
+setting_2: "🎵 » trực tiếp: phát thẳng kết quả tìm kiếm.\n\n🎹 » inline: trả về nút lựa chọn giữa video & audio."
+setting_3: "👥 » mọi người: ai trong nhóm cũng có thể dùng lệnh quản trị [skip, pause, resume, v.v.].\n\n🛡️ » chỉ admin: chỉ quản trị viên và người dùng được ủy quyền mới được dùng lệnh quản trị."
+setting_4: "❌ » không tìm thấy người dùng được ủy quyền."
+setting_5: "🎶 » nhóm: phát nhạc trong nhóm nơi bạn gửi lệnh.\n\n📺 » kênh: phát nhạc trong kênh bạn muốn. đặt id kênh qua /channelplay"
+setting_6: "👤 » mọi người: bất kỳ ai trong nhóm cũng có thể phát nhạc ở đây.\n\n🛡️ » chỉ admin: chỉ quản trị viên mới được phát nhạc trong nhóm này."
+setting_7: "⚠️ » vui lòng đặt id kênh qua /channelplay"
+setting_8: "🗳️ khi bật chế độ này, người không có quyền admin vẫn có thể dùng lệnh quản trị sau khi đạt đủ số phiếu."
+setting_9: "📌 số phiếu ủng hộ hiện cần để dùng lệnh quản trị là: {0}"
+setting_10: "❌ đã tắt chế độ bỏ phiếu."
+setting_11: "⚠️ số phiếu tối thiểu là 2. bạn không thể đặt thấp hơn 2"
+setting_12: "⚠️ số phiếu tối đa là 15. bạn không thể đặt cao hơn 15"
 
-set_cb_1: "⏳ ɢᴇᴛᴛɪɴɢ ᴀᴜᴛʜ ᴜsᴇʀs ᴩᴀɴᴇʟ..."
-set_cb_2: "⏳ ɢᴇᴛᴛɪɴɢ ᴩʟᴀʏ ᴍᴏᴅᴇ ᴩᴀɴᴇʟ..."
-set_cb_3: "⚙️ sᴇᴛᴛɪɴɢ ᴜᴩ ᴄʜᴀɴɢᴇs..."
-set_cb_4: "📋 » ғᴇᴛᴄʜɪɴɢ ᴀᴜᴛʜᴏʀɪᴢᴇᴅ ᴜsᴇʀs ʟɪsᴛ..."
-set_cb_5: "🔙 » ɢᴇᴛᴛɪɴɢ ʙᴀᴄᴋ..."
+set_cb_1: "⏳ đang mở bảng người dùng được ủy quyền..."
+set_cb_2: "⏳ đang mở bảng chế độ phát..."
+set_cb_3: "⚙️ đang áp dụng thay đổi..."
+set_cb_4: "📋 » đang lấy danh sách người dùng được ủy quyền..."
+set_cb_5: "🔙 » quay lại..."
 
-gstats_1: "⏳ ɢᴇᴛᴛɪɴɢ {0} sᴛᴀᴛs ᴀɴᴅ ɪɴғᴏʀᴍᴀᴛɪᴏɴ...\nɪᴛ ᴍᴀʏ ᴛᴀᴋᴇ ᴀ ᴡʜɪʟᴇ, ᴘʟᴇᴀsᴇ ʜᴏʟᴅ ᴏɴ..."
-gstats_2: "🔘 ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ʙᴇʟᴏᴡ ᴛᴏ ᴄʜᴇᴄᴋ ᴛʜᴇ sᴛᴀᴛs ᴏғ {0}."
-gstats_3: "<b><u>{0} sᴛᴀᴛs ᴀɴᴅ ɪɴғᴏʀᴍᴀᴛɪᴏɴ :</u></b>\n\n<b>ᴀssɪsᴛᴀɴᴛs :</b> <code>{1}</code>\n<b>ʙʟᴏᴄᴋᴇᴅ :</b> <code>{2}</code>\n<b>ᴄʜᴀᴛs :</b> <code>{3}</code>\n<b>ᴜsᴇʀs :</b> <code>{4}</code>\n<b>ᴍᴏᴅᴜʟᴇs :</b> <code>{5}</code>\n<b>sᴜᴅᴏᴇʀs :</b> <code>{6}</code>\n\n<b>ᴀᴜᴛᴏ ʟᴇᴀᴠɪɴɢ ᴀssɪsᴛᴀɴᴛ :</b> {7}\n<b>ᴘʟᴀʏ ᴅᴜʀᴀᴛɪᴏɴ ʟɪᴍɪᴛ :</b> {8} ᴍɪɴᴜᴛᴇs"
-gstats_4: "🚫 ᴛʜɪs ʙᴜᴛᴛᴏɴ ɪs ᴏɴʟʏ ғᴏʀ sᴜᴅᴏᴇʀs."
-gstats_5: "<b><u>{0} sᴛᴀᴛs ᴀɴᴅ ɪɴғᴏʀᴍᴀᴛɪᴏɴ :</u></b>\n\n<b>ᴍᴏᴅᴜʟᴇs :</b> <code>{1}</code>\n<b>ᴘʟᴀᴛғᴏʀᴍ :</b> <code>{2}</code>\n<b>ʀᴀᴍ :</b> <code>{3}</code>\n<b>ᴘʜʏsɪᴄᴀʟ ᴄᴏʀᴇs :</b> <code>{4}</code>\n<b>ᴛᴏᴛᴀʟ ᴄᴏʀᴇs :</b> <code>{5}</code>\n<b>ᴄᴘᴜ ғʀᴇǫᴜᴇɴᴄʏ :</b> <code>{6}</code>\n\n<b>ᴘʏᴛʜᴏɴ :</b> <code>{7}</code>\n<b>ᴘʏʀᴏɢʀᴀᴍ :</b> <code>{8}</code>\n<b>ᴘʏ-ᴛɢᴄᴀʟʟs :</b> <code>{9}</code>\n\n<b>sᴛᴏʀᴀɢᴇ ᴀᴠᴀɪʟᴀʙʟᴇ :</b> <code>{10} ɢɪʙ</code>\n<b>sᴛᴏʀᴀɢᴇ ᴜsᴇᴅ :</b> <code>{11} ɢɪʙ</code>\n<b>sᴛᴏʀᴀɢᴇ ʟᴇғᴛ :</b> <code>{12} ɢɪʙ</code>\n\n<b>sᴇʀᴠᴇᴅ ᴄʜᴀᴛs :</b> <code>{13}</code>\n<b>sᴇʀᴠᴇᴅ ᴜsᴇʀs :</b> <code>{14}</code>\n<b>ʙʟᴏᴄᴋᴇᴅ ᴜsᴇʀs :</b> <code>{15}</code>\n<b>sᴜᴅᴏ ᴜsᴇʀs :</b> <code>{16}</code>\n\n<b>ᴛᴏᴛᴀʟ ᴅʙ sɪᴢᴇ :</b> <code>{17} ᴍʙ</code>\n<b>ᴛᴏᴛᴀʟ ᴅʙ sᴛᴏʀᴀɢᴇ :</b> <code>{18} ᴍʙ</code>\n<b>ᴛᴏᴛᴀʟ ᴅʙ ᴄᴏʟʟᴇᴄᴛɪᴏɴs :</b> <code>{19}</code>\n<b>ᴛᴏᴛᴀʟ ᴅʙ ᴋᴇʏs :</b> <code>{20}</code>"
+gstats_1: "⏳ đang lấy thống kê và thông tin {0}...\ncó thể mất một lúc, vui lòng chờ..."
+gstats_2: "🔘 nhấn các nút bên dưới để xem thống kê của {0}."
+gstats_3: "<b><u>thống kê và thông tin {0}:</u></b>\n\n<b>trợ lý:</b> <code>{1}</code>\n<b>bị chặn:</b> <code>{2}</code>\n<b>đoạn chat:</b> <code>{3}</code>\n<b>người dùng:</b> <code>{4}</code>\n<b>mô-đun:</b> <code>{5}</code>\n<b>sudoers:</b> <code>{6}</code>\n\n<b>trợ lý tự rời:</b> {7}\n<b>giới hạn thời lượng phát:</b> {8} phút"
+gstats_4: "🚫 nút này chỉ dành cho sudoers."
+gstats_5: "<b><u>thống kê và thông tin {0}:</u></b>\n\n<b>mô-đun:</b> <code>{1}</code>\n<b>nền tảng:</b> <code>{2}</code>\n<b>ram:</b> <code>{3}</code>\n<b>lõi vật lý:</b> <code>{4}</code>\n<b>tổng số lõi:</b> <code>{5}</code>\n<b>xung cpu:</b> <code>{6}</code>\n\n<b>python:</b> <code>{7}</code>\n<b>pyrogram:</b> <code>{8}</code>\n<b>py-tgcalls:</b> <code>{9}</code>\n\n<b>bộ nhớ còn trống:</b> <code>{10} gib</code>\n<b>đã dùng:</b> <code>{11} gib</code>\n<b>còn lại:</b> <code>{12} gib</code>\n\n<b>chat đang phục vụ:</b> <code>{13}</code>\n<b>người dùng đang phục vụ:</b> <code>{14}</code>\n<b>người dùng bị chặn:</b> <code>{15}</code>\n<b>người dùng sudo:</b> <code>{16}</code>\n\n<b>tổng dung lượng db:</b> <code>{17} mb</code>\n<b>tổng lưu trữ db:</b> <code>{18} mb</code>\n<b>tổng số collection:</b> <code>{19}</code>\n<b>tổng số key:</b> <code>{20}</code>"
 
-playcb_1: "❌ » ᴀᴡᴡ, ᴛʜɪs ɪs ɴᴏᴛ ғᴏʀ ʏᴏᴜ ʙᴀʙʏ."
-playcb_2: "⏳ » ɢᴇᴛᴛɪɴɢ ɴᴇxᴛ ʀᴇsᴜʟᴛ,\nᴘʟᴇᴀsᴇ ᴡᴀɪᴛ..."
+playcb_1: "❌ » xin lỗi, phần này không dành cho bạn."
+playcb_2: "⏳ » đang lấy kết quả tiếp theo,\nvui lòng chờ..."
 
-cplay_1 : "» ʏᴏᴜ ᴄᴀɴ ᴘʟᴀʏ ᴍᴜsɪᴄ ɪɴ ᴄʜᴀɴɴᴇʟs ғʀᴏᴍ {0} ᴛᴏ ᴀɴʏ ᴄʜᴀɴɴᴇʟ ᴏʀ ʏᴏᴜʀ ᴄʜᴀᴛ's ʟɪɴᴋᴇᴅ ᴄʜᴀɴɴᴇʟ.\n\n<b>ғᴏʀ ʟɪɴᴋᴇᴅ ᴄʜᴀɴɴᴇʟ :</b>\n<code>/channelplay linked</code>\n\n<b>ғᴏʀ ᴀɴʏ ᴏᴛʜᴇʀ ᴄʜᴀɴɴᴇʟ :</b>\n<code>/channelplay [ᴄʜᴀɴɴᴇʟ ɪᴅ]</code>"
-cplay_2 : "» ᴛʜɪs ᴄʜᴀᴛ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴀɴʏ ʟɪɴᴋᴇᴅ ᴄʜᴀɴɴᴇʟ."
-cplay_3 : "» ᴄʜᴀɴɴᴇʟ ᴅᴇғɪɴᴇᴅ ᴛᴏ {0}.\nᴄʜᴀɴɴᴇʟ ɪᴅ : <code>{1}</code>"
-cplay_4 : "» ғᴀɪʟᴇᴅ ᴛᴏ ɢᴇᴛ ᴄʜᴀɴɴᴇʟ.\n\nᴍᴀᴋᴇ sᴜʀᴇ ʏᴏᴜ'ᴠᴇ ᴀᴅᴅᴇᴅ ᴛʜᴇ ʙᴏᴛ ɪɴ ʏᴏᴜʀ ᴄʜᴀɴɴᴇʟ ᴀɴᴅ ᴘʀᴏᴍᴏᴛᴇᴅ ᴀs ᴀᴅᴍɪɴ."
-cplay_5 : "ᴏɴʟʏ ᴄʜᴀɴɴᴇʟs ᴀʀᴇ sᴜᴘᴘᴏʀᴛᴇᴅ."
-cplay_6 : "» ʏᴏᴜ ɴᴇᴇᴅ ᴛᴏ ʙᴇ ᴛʜᴇ <b>ᴏᴡɴᴇʀ</b> ᴏғ ᴛʜᴇ ᴄʜᴀɴɴᴇʟ {0} ᴛᴏ ᴄᴏɴɴᴇᴄᴛ ɪᴛ ᴡɪᴛʜ ᴛʜɪs ɢʀᴏᴜᴘ.\n<b>ᴄʜᴀɴɴᴇʟ's ᴏᴡɴᴇʀ :</b> @{1}\n\nᴀʟᴛᴇʀɴᴀᴛɪᴠᴇʟʏ ʏᴏᴜ ᴄᴀɴ ʟɪɴᴋ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴛᴏ ᴛʜᴀᴛ ᴄʜᴀɴɴᴇʟ ᴀɴᴅ ᴛʜᴇɴ ᴛʀʏ ᴄᴏɴɴɴᴇᴄᴛɪɴɢ ᴡɪᴛʜ <code>/channelplay linked</code>"
-cplay_7 : "» ᴄʜᴀɴɴᴇʟ ᴘʟᴀʏ ᴅɪsᴀʙʟᴇᴅ."
+cplay_1: "» bạn có thể phát nhạc từ {0} sang bất kỳ kênh nào hoặc kênh đã liên kết với nhóm của bạn.\n\n<b>đối với kênh liên kết:</b>\n<code>/channelplay linked</code>\n\n<b>đối với kênh bất kỳ khác:</b>\n<code>/channelplay [id kênh]</code>"
+cplay_2: "» đoạn chat này chưa liên kết kênh nào."
+cplay_3: "» đã đặt kênh thành {0}.\nid kênh: <code>{1}</code>"
+cplay_4: "» không thể lấy thông tin kênh.\n\nhãy đảm bảo bạn đã thêm bot vào kênh và nâng quyền làm quản trị viên."
+cplay_5: "chỉ hỗ trợ kênh."
+cplay_6: "» bạn cần là <b>chủ sở hữu</b> của kênh {0} để kết nối với nhóm này.\n<b>chủ kênh:</b> @{1}\n\nhoặc bạn có thể liên kết nhóm của bạn với kênh đó rồi kết nối bằng <code>/channelplay linked</code>"
+cplay_7: "» đã tắt phát trong kênh."
 
-play_1 : "🦋"
-play_2: "▶️ <b>➻ ᴄʜᴀɴɴᴇʟ ᴘʟᴀʏ ᴍᴏᴅᴇ</b>\nᴘʀᴏᴄᴇssɪɴɢ, ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ...\n<b>ʟɪɴᴋᴇᴅ ᴄʜᴀɴɴᴇʟ :</b> {0}"
+play_1: "🦋"
+play_2: "▶️ <b>➻ chế độ phát trong kênh</b>\nđang xử lý, vui lòng chờ...\n<b>kênh liên kết:</b> {0}"
 play_3: |
   <blockquote>
-  ⚠️ <b>➤ 𝗙𝗮𝗶𝗹𝗲𝗱 𝘁𝗼 𝗽𝗿𝗼𝗰𝗲𝘀𝘀 𝗾𝘂𝗲𝗿𝘆.</b>
+  ⚠️ <b>➤ không xử lý được truy vấn.</b>
   </blockquote>
-
+  
 # play_4: "🛡 <b>ᴀᴅᴍɪɴs ᴏɴʟʏ ᴘʟᴀʏ</b>\nᴏɴʟʏ ᴀᴅᴍɪɴs ᴏғ ᴛʜɪs ᴄʜᴀᴛ ᴀʀᴇ ᴀʟʟᴏᴡᴇᴅ ᴛᴏ ᴘʟᴀʏ\n\nᴄʜᴀɴɢᴇ ᴘʟᴀʏ ᴍᴏᴅᴇ ᴠɪᴀ /playmode"
 # play_5: "❌ » ғᴀɪʟᴇᴅ ᴛᴏ ᴘʀᴏᴄᴇss ᴀᴜᴅɪᴏ ғɪʟᴇ.\nᴀᴜᴅɪᴏ ғɪʟᴇ sɪᴢᴇ ɪs ʟᴀʀɢᴇʀ ᴛʜᴀɴ ᴛʜᴇ ᴅᴇғɪɴᴇᴅ ʟɪᴍɪᴛ."
 # play_6: "❌ » sᴛʀᴇᴀᴍ's ʟᴏɴɢᴇʀ ᴛʜᴀɴ {0} ᴀʀᴇɴ'ᴛ ᴀʟʟᴏᴡᴇᴅ ᴛᴏ ᴘʟᴀʏ ᴏɴ {1}"
@@ -469,138 +467,136 @@ play_3: |
 # play_22: "🎛 sᴇʟᴇᴄᴛ ᴛʜᴇ ᴍᴏᴅᴇ ᴛᴏ ᴘʟᴀʏ ᴛʜᴇ ǫᴜᴇʀɪᴇs ɪɴsɪᴅᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ : {0}"
 play_4: |
   <blockquote>
-  🛡 <b>𝗔𝗱𝗺𝗶𝗻𝘀 𝗢𝗻𝗹𝘆 𝗣𝗹𝗮𝘆</b>
+  🛡 <b>chỉ quản trị viên được phát</b>
   </blockquote>
   <blockquote>
-  𝗢𝗻𝗹𝘆 𝗮𝗱𝗺𝗶𝗻𝘀 𝗼𝗳 𝘁𝗵𝗶𝘀 𝗰𝗵𝗮𝘁 𝗮𝗿𝗲 𝗮𝗹𝗹𝗼𝘄𝗲𝗱 𝘁𝗼 𝗽𝗹𝗮𝘆.<br>
-  𝗖𝗵𝗮𝗻𝗴𝗲 𝗽𝗹𝗮𝘆 𝗺𝗼𝗱𝗲 𝘃𝗶𝗮 /playmode
+  chỉ quản trị viên của đoạn chat này mới được phát.<br>
+  đổi chế độ phát qua /playmode
   </blockquote>
 
 play_5: |
   <blockquote>
-  ❌ <b>» 𝗙𝗮𝗶𝗹𝗲𝗱 𝘁𝗼 𝗽𝗿𝗼𝗰𝗲𝘀𝘀 𝗮𝘂𝗱𝗶𝗼 𝗳𝗶𝗹𝗲.</b><br>
-  𝗔𝘂𝗱𝗶𝗼 𝗳𝗶𝗹𝗲 𝘀𝗶𝘇𝗲 𝗶𝘀 𝗹𝗮𝗿𝗴𝗲𝗿 𝘁𝗵𝗮𝗻 𝘁𝗵𝗲 𝗱𝗲𝗳𝗶𝗻𝗲𝗱 𝗹𝗶𝗺𝗶𝘁.
+  ❌ <b>» không xử lý được tệp âm thanh.</b><br>
+  kích thước tệp âm thanh lớn hơn giới hạn cho phép.
   </blockquote>
 
 play_6: |
   <blockquote>
-  ❌ <b>» 𝗦𝘁𝗿𝗲𝗮𝗺'𝘀 𝗹𝗼𝗻𝗴𝗲𝗿 𝘁𝗵𝗮𝗻 {0} 𝗮𝗿𝗲𝗻'𝘁 𝗮𝗹𝗹𝗼𝘄𝗲𝗱 𝘁𝗼 𝗽𝗹𝗮𝘆 𝗼𝗻 {1}</b>
+  ❌ <b>» luồng dài hơn {0} không được phép phát trên {1}</b>
   </blockquote>
 
 play_7: |
   <blockquote>
-  ❌ <b>» 𝗡𝗼𝘁 𝗮 𝘃𝗮𝗹𝗶𝗱 𝘃𝗶𝗱𝗲𝗼 𝗳𝗶𝗹𝗲 𝗲𝘅𝘁𝗲𝗻𝘀𝗶𝗼𝗻.</b><br>
-  <b>𝗦𝘂𝗽𝗽𝗼𝗿𝘁𝗲𝗱 𝗲𝘅𝘁𝗲𝗻𝘀𝗶𝗼𝗻𝘀 :</b> {0}
+  ❌ <b>» phần mở rộng tệp video không hợp lệ.</b><br>
+  <b>các phần mở rộng hỗ trợ:</b> {0}
   </blockquote>
 
 play_8: |
   <blockquote>
-  ❌ <b>» 𝗩𝗶𝗱𝗲𝗼 𝗳𝗶𝗹𝗲 𝘀𝗶𝘇𝗲 𝘀𝗵𝗼𝘂𝗹𝗱 𝗯𝗲 𝗹𝗲𝘀𝘀 𝘁𝗵𝗮𝗻 1𝗚𝗜𝗕.</b>
+  ❌ <b>» kích thước tệp video phải nhỏ hơn 1gib.</b>
   </blockquote>
 
 play_9: |
   <blockquote>
-  🎵 <b><u>𝗬𝗼𝘂𝗧𝘂𝗯𝗲 𝗣𝗹𝗮𝘆𝗹𝗶𝘀𝘁 𝗙𝗲𝗮𝘁𝘂𝗿𝗲</u></b><br>
-  𝗦𝗲𝗹𝗲𝗰𝘁 𝘁𝗵𝗲 𝗺𝗼𝗱𝗲 𝘁𝗼 𝗽𝗹𝗮𝘆 𝘁𝗵𝗲 𝘄𝗵𝗼𝗹𝗲 𝗬𝗼𝘂𝗧𝘂𝗯𝗲 𝗽𝗹𝗮𝘆𝗹𝗶𝘀𝘁.
+  🎵 <b><u>tính năng phát danh sách phát youtube</u></b><br>
+  hãy chọn chế độ để phát toàn bộ danh sách phát youtube.
   </blockquote>
 
 play_10: |
   <blockquote>
-  <b>𝗧𝗶𝘁𝗹𝗲 :</b> {0}<br>
-  <b>𝗗𝘂𝗿𝗮𝘁𝗶𝗼𝗻 :</b> {1} 𝗺𝗶𝗻𝘂𝘁𝗲𝘀
+  <b>tiêu đề:</b> {0}<br>
+  <b>thời lượng:</b> {1} phút
   </blockquote>
 
 play_11: |
   <blockquote>
-  🎧 <u><b>{0} 𝗦𝗽𝗼𝘁𝗶𝗳𝘆 𝗣𝗹𝗮𝘆𝗲𝗿</b></u><br>
-  <b>𝗥𝗲𝗾𝘂𝗲𝘀𝘁𝗲𝗱 𝗯𝘆 :</b> {1}
+  🎧 <u><b>{0} trình phát spotify</b></u><br>
+  <b>yêu cầu bởi:</b> {1}
   </blockquote>
 
 play_12: |
   <blockquote>
-  🍏 <u><b>{0} 𝗔𝗽𝗽𝗹𝗲 𝗣𝗹𝗮𝘆𝗲𝗿</b></u><br>
-  <b>𝗥𝗲𝗾𝘂𝗲𝘀𝘁𝗲𝗱 𝗯𝘆 :</b> {1}
+  🍏 <u><b>{0} trình phát apple</b></u><br>
+  <b>yêu cầu bởi:</b> {1}
   </blockquote>
 
 play_13: |
   <blockquote>
-  📡 » 𝗟𝗶𝘃𝗲 𝗦𝘁𝗿𝗲𝗮𝗺 𝗗𝗲𝘁𝗲𝗰𝘁𝗲𝗱.<br>
-  𝗔𝗿𝗲 𝘆𝗼𝘂 𝘀𝘂𝗿𝗲 𝘆𝗼𝘂 𝘄𝗮𝗻𝗻𝗮 𝗽𝗹𝗮𝘆 𝘁𝗵𝗶𝘀 𝗹𝗶𝘃𝗲 𝘀𝘁𝗿𝗲𝗮𝗺?
+  📡 » phát hiện luồng trực tiếp.<br>
+  bạn có chắc muốn phát luồng trực tiếp này không?
   </blockquote>
 
 play_14: |
   <blockquote>
-  ❌ 𝗙𝗮𝗶𝗹𝗲𝗱 𝘁𝗼 𝗳𝗲𝘁𝗰𝗵 𝘁𝗿𝗮𝗰𝗸 𝗱𝗲𝘁𝗮𝗶𝗹𝘀.<br>
-  𝗧𝗿𝘆 𝗽𝗹𝗮𝘆𝗶𝗻𝗴 𝗮𝗻𝘆 𝗼𝘁𝗵𝗲𝗿.
+  ❌ không thể lấy chi tiết bài hát.<br>
+  hãy thử phát bài khác.
   </blockquote>
 
 play_15: |
   <blockquote>
-  ❌ <b>» 𝗙𝗮𝗶𝗹𝗲𝗱 𝘁𝗼 𝗽𝗿𝗼𝗰𝗲𝘀𝘀 𝗾𝘂𝗲𝗿𝘆.</b><br>
-  𝗜 𝗰𝗮𝗻 𝗼𝗻𝗹𝘆 𝗽𝗹𝗮𝘆 𝗦𝗽𝗼𝘁𝗶𝗳𝘆 𝘁𝗿𝗮𝗰𝗸𝘀, 𝗮𝗹𝗯𝘂𝗺𝘀, 𝗮𝗿𝘁𝗶𝘀𝘁𝘀 𝗮𝗻𝗱 𝗽𝗹𝗮𝘆𝗹𝗶𝘀𝘁𝘀.
+  ❌ <b>» không xử lý được truy vấn.</b><br>
+  mình chỉ có thể phát bài hát, album, nghệ sĩ và danh sách phát của spotify.
   </blockquote>
 
 play_16: |
   <blockquote>
-  ❌ 𝗡𝗼 𝗮𝗰𝘁𝗶𝘃𝗲 𝘃𝗼𝗶𝗰𝗲 𝗰𝗵𝗮𝘁.<br>
-  𝗧𝗼 𝘂𝘀𝗲 𝗳𝗼𝗿𝗰𝗲 𝗽𝗹𝗮𝘆, 𝘁𝗵𝗲𝗿𝗲 𝗺𝘂𝘀𝘁 𝗯𝗲 𝗮𝗻 𝗮𝗰𝘁𝗶𝘃𝗲 𝘃𝗼𝗶𝗰𝗲𝗰𝗵𝗮𝘁.
+  ❌ không có voice chat đang hoạt động.<br>
+  để dùng phát cưỡng bức, cần có một voice chat đang hoạt động.
   </blockquote>
 
 play_17: |
   <blockquote>
-  ❌ 𝗣𝗹𝗲𝗮𝘀𝗲 𝘁𝘂𝗿𝗻 𝗼𝗻 𝘃𝗶𝗱𝗲𝗼𝗰𝗵𝗮𝘁, 𝗜'𝗺 𝘂𝗻𝗮𝗯𝗹𝗲 𝘁𝗼 𝘀𝘁𝗿𝗲𝗮𝗺 𝘂𝗿𝗹𝘀.
+  ❌ vui lòng bật video chat, mình không thể phát url khi video chat tắt.
   </blockquote>
 
 play_18: |
   <blockquote>
-  ℹ️ <b>𝗨𝘀𝗮𝗴𝗲 :</b> /play [𝗦𝗼𝗻𝗴 𝗡𝗮𝗺𝗲/𝗬𝗼𝘂𝗧𝘂𝗯𝗲 𝗨𝗿𝗹/𝗥𝗲𝗽𝗹𝘆 𝘁𝗼 𝗮 𝗔𝘂𝗱𝗶𝗼/𝗩𝗶𝗱𝗲𝗼 𝗙𝗶𝗹𝗲]
+  ℹ️ <b>cách dùng:</b> /play [tên bài hát/url youtube/trả lời một tệp âm thanh hoặc video]
   </blockquote>
 
 play_19: |
   <blockquote>
-  🎶 𝗤𝘂𝗲𝘂𝗲𝗱 𝗣𝗹𝗮𝘆𝗹𝗶𝘀𝘁 :
+  🎶 danh sách phát đã xếp hàng:
   </blockquote>
 
 play_20: |
   <blockquote>
-  📌 𝗤𝘂𝗲𝘂𝗲𝗱 𝗣𝗼𝘀𝗶𝘁𝗶𝗼𝗻-
+  📌 vị trí trong hàng đợi -
   </blockquote>
 
 play_21: |
   <blockquote>
-  ✅ 𝗔𝗱𝗱𝗲𝗱 {0} 𝘁𝗿𝗮𝗰𝗸𝘀 𝘁𝗼 𝗾𝘂𝗲𝘂𝗲.<br>
-  <b>𝗖𝗵𝗲𝗰𝗸 :</b> <a href={1}>𝗖𝗹𝗶𝗰𝗸 𝗛𝗲𝗿𝗲</a>
+  ✅ đã thêm {0} bài vào hàng đợi.<br>
+  <b>kiểm tra:</b> <a href={1}>nhấn vào đây</a>
   </blockquote>
 
 play_22: |
   <blockquote>
-  🎛 𝗦𝗲𝗹𝗲𝗰𝘁 𝘁𝗵𝗲 𝗺𝗼𝗱𝗲 𝘁𝗼 𝗽𝗹𝗮𝘆 𝘁𝗵𝗲 𝗾𝘂𝗲𝗿𝗶𝗲𝘀 𝗶𝗻𝘀𝗶𝗱𝗲 𝘆𝗼𝘂𝗿 𝗴𝗿𝗼𝘂𝗽 : {0}
+  🎛 chọn chế độ để phát các truy vấn trong nhóm của bạn: {0}
   </blockquote>
-
-
 
 str_1: |
   <blockquote>
-  📂 <b>𝗣𝗹𝗲𝗮𝘀𝗲 𝗽𝗿𝗼𝘃𝗶𝗱𝗲 𝗠𝟯𝗨𝟴 𝗼𝗿 𝗜𝗻𝗱𝗲𝘅 𝗹𝗶𝗻𝗸𝘀</b> 🔗
+  📂 <b>vui lòng cung cấp liên kết m3u8 hoặc index</b> 🔗
   </blockquote>
 
 str_2: |
   <blockquote>
-  ✅ <b>𝗩𝗮𝗹𝗶𝗱 𝘀𝘁𝗿𝗲𝗮𝗺 𝘃𝗲𝗿𝗶𝗳𝗶𝗲𝗱!</b>
+  ✅ <b>đã xác thực luồng hợp lệ!</b>
   </blockquote>
   <blockquote>
-  ⚙️ 𝗣𝗿𝗼𝗰𝗲𝘀𝘀𝗶𝗻𝗴...
+  ⚙️ đang xử lý...
   </blockquote>
 
 str_3: |
   <blockquote>
-  ❌ <b>𝗙𝗮𝗶𝗹𝗲𝗱:</b> 𝗖𝗮𝗻'𝘁 𝘀𝘁𝗿𝗲𝗮𝗺 𝗬𝗼𝘂𝗧𝘂𝗯𝗲 𝗟𝗶𝘃𝗲 — 𝗻𝗼 𝗹𝗶𝘃𝗲 𝗳𝗼𝗿𝗺𝗮𝘁 𝗳𝗼𝘂𝗻𝗱.
+  ❌ <b>không thành công:</b> không thể phát youtube live — không tìm thấy định dạng live.
   </blockquote>
 
 
 ping_1: |
   <blockquote>
-  🛰️ <b>{0} 𝗶𝘀 𝗽𝗶𝗻𝗴𝗶𝗻𝗴...</b>
+  🛰️ <b>{0} đang ping...</b>
   </blockquote>
 
 ping_2: |
@@ -608,48 +604,47 @@ ping_2: |
   {1}
   </blockquote>
   <blockquote>
-  🏓 <b>𝗣𝗶𝗻𝗴:</b> {0} 𝗺𝘀<br>
-  ➻ <b>𝗦𝘆𝘀𝘁𝗲𝗺 𝗦𝘁𝗮𝘁𝘀:</b><br>
-  ↬ 𝗨𝗽𝘁𝗶𝗺𝗲: {2}<br>
-  ↬ 𝗥𝗔𝗠: {3}<br>
-  ↬ 𝗖𝗣𝗨: {4}<br>
-  ↬ 𝗗𝗶𝘀𝗸: {5}<br>
-  ↬ 𝗣𝘆-𝗧𝗚𝗖𝗮𝗹𝗹𝘀: {6} 𝗺𝘀
+  🏓 <b>độ trễ:</b> {0} ms<br>
+  ➻ <b>thống kê hệ thống:</b><br>
+  ↬ thời gian hoạt động: {2}<br>
+  ↬ ram: {3}<br>
+  ↬ cpu: {4}<br>
+  ↬ ổ đĩa: {5}<br>
+  ↬ py-tgcalls: {6} ms
   </blockquote>
   <blockquote>
-  🥀 𝗕𝘆 » 𝗝𝗔𝗥𝗩𝗜𝗦 ♡︎
+  🥀 bởi » jarvis ♡︎
   </blockquote>
-
 
 queue_1: |
   <blockquote>
-  🔎 <b>𝗙𝗲𝘁𝗰𝗵𝗶𝗻𝗴 𝗾𝘂𝗲𝘂𝗲...</b>
+  🔎 <b>đang lấy danh sách phát...</b>
   </blockquote>
   <blockquote>
-  ⌛ 𝗣𝗹𝗲𝗮𝘀𝗲 𝗵𝗼𝗹𝗱 𝗼𝗻, 𝘄𝗲'𝗿𝗲 𝗽𝗿𝗲𝗽𝗮𝗿𝗶𝗻𝗴 𝘆𝗼𝘂𝗿 𝘁𝗿𝗮𝗰𝗸𝘀!
+  ⌛ vui lòng chờ, chúng tôi đang chuẩn bị các bản nhạc của bạn!
   </blockquote>
 
 queue_2: |
   <blockquote>
-  ⚠️ <b>𝗤𝘂𝗲𝘂𝗲 𝗲𝗺𝗽𝘁𝘆</b>
+  ⚠️ <b>danh sách phát trống</b>
   </blockquote>
   <blockquote>
-  ➕ 𝗔𝗱𝗱 𝘀𝗼𝗺𝗲 𝘁𝗿𝗮𝗰𝗸𝘀 𝘁𝗼 𝘀𝘁𝗮𝗿𝘁 𝘁𝗵𝗲 𝘃𝗶𝗯𝗲𝘀 🎶
+  ➕ thêm vài bài để bắt đầu không khí 🎶
   </blockquote>
 
 queue_3: |
   <blockquote>
-  📜 <u>𝗖𝗹𝗶𝗰𝗸 𝗵𝗲𝗿𝗲 𝘁𝗼 𝗰𝗵𝗲𝗰𝗸 𝘁𝗵𝗲 𝗳𝘂𝗹𝗹 𝗾𝘂𝗲𝘂𝗲:</u> 👉 <a href={0}>𝗛𝗲𝗿𝗲</a>
+  📜 <u>nhấn vào đây để xem toàn bộ danh sách phát:</u> 👉 <a href={0}>tại đây</a>
   </blockquote>
 
 queue_4: |
   <blockquote>
-  ➥ <b>𝗦𝗼𝗻𝗴 𝘀𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆 𝗮𝗱𝗱𝗲𝗱 𝗶𝗻𝘁𝗼 𝗾𝘂𝗲𝘂𝗲 𝗽𝗼𝘀𝗶𝘁𝗶𝗼𝗻: {0}</b>
+  ➥ <b>bài hát đã được thêm thành công vào vị trí hàng đợi: {0}</b>
   </blockquote>
   <blockquote>
-  → <b>𝗧𝗶𝘁𝗹𝗲:</b> {1}
-  → <b>𝗗𝘂𝗿𝗮𝘁𝗶𝗼𝗻:</b> {2} 𝗺𝗶𝗻𝘂𝘁𝗲𝘀
-  → <b>𝗥𝗲𝗾𝘂𝗲𝘀𝘁𝗲𝗱 𝗯𝘆:</b> {3}
+  → <b>tiêu đề:</b> {1}<br>
+  → <b>thời lượng:</b> {2} phút<br>
+  → <b>yêu cầu bởi:</b> {3}
   </blockquote>
 
 # queue_5: "ℹ️ <b>ᴏɴʟʏ ᴏɴᴇ ǫᴜᴇᴜᴇᴅ ᴛʀᴀᴄᴋ</b>\n\n💡 ᴀᴅᴅ ᴍᴏʀᴇ ᴛʀᴀᴄᴋs ᴛᴏ sᴇᴇ ᴛʜᴇ ʟɪsᴛ!"
@@ -657,199 +652,213 @@ queue_4: |
 # queue_7: "📌 ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ᴛᴏ ᴠɪᴇᴡ ᴀʟʟ ǫᴜᴇᴜᴇᴅ ᴛʀᴀᴄᴋs 🔗"
 queue_5: |
   <blockquote>
-  ℹ️ <b>𝗢𝗻𝗹𝘆 𝗼𝗻𝗲 𝗾𝘂𝗲𝘂𝗲𝗱 𝘁𝗿𝗮𝗰𝗸</b>
+  ℹ️ <b>chỉ có một bài trong hàng đợi</b>
   </blockquote>
   <blockquote>
-  💡 𝗔𝗱𝗱 𝗺𝗼𝗿𝗲 𝘁𝗿𝗮𝗰𝗸𝘀 𝘁𝗼 𝘀𝗲𝗲 𝘁𝗵𝗲 𝗹𝗶𝘀𝘁!
+  💡 thêm nhiều bài hơn để xem danh sách!
   </blockquote>
 
 queue_6: |
   <blockquote>
-  🕚 <b>𝗗𝘂𝗿𝗮𝘁𝗶𝗼𝗻:</b> 𝗨𝗻𝗸𝗻𝗼𝘄𝗻 (𝗹𝗶𝘃𝗲 𝘀𝘁𝗿𝗲𝗮𝗺)
+  🕚 <b>thời lượng:</b> không xác định (phát trực tiếp)
   </blockquote>
   <blockquote>
-  📌 𝗖𝗹𝗶𝗰𝗸 𝗯𝗲𝗹𝗼𝘄 𝘁𝗼 𝘃𝗶𝗲𝘄 𝗳𝘂𝗹𝗹 𝗾𝘂𝗲𝘂𝗲
+  📌 nhấn bên dưới để xem toàn bộ danh sách phát
   </blockquote>
 
 queue_7: |
   <blockquote>
-  📌 𝗖𝗹𝗶𝗰𝗸 𝗯𝗲𝗹𝗼𝘄 𝘁𝗼 𝘃𝗶𝗲𝘄 𝗮𝗹𝗹 𝗾𝘂𝗲𝘂𝗲𝗱 𝘁𝗿𝗮𝗰𝗸𝘀 🔗
+  📌 nhấn bên dưới để xem tất cả bài trong hàng đợi 🔗
   </blockquote>
 
 queue_8: |
   <blockquote>
-  🎶 <b>{0} 𝗣𝗹𝗮𝘆𝗲𝗿</b>
+  🎶 <b>{0} trình phát</b>
   </blockquote>
   <blockquote>
-  ▶️ <b>𝗦𝘁𝗿𝗲𝗮𝗺𝗶𝗻𝗴:</b> {1}<br>
-  🌍 <b>𝗦𝘁𝗿𝗲𝗮𝗺 𝗧𝘆𝗽𝗲:</b> {2}<br>
-  🙋 <b>𝗥𝗲𝗾𝘂𝗲𝘀𝘁𝗲𝗱 𝗯𝘆:</b> {3}<br>
+  ▶️ <b>đang phát:</b> {1}<br>
+  🌍 <b>kiểu luồng:</b> {2}<br>
+  🙋 <b>yêu cầu bởi:</b> {3}<br>
   {4}
   </blockquote>
 
-
 stream_1: |
   <blockquote>
-  ➥ <b>𝗧𝗵𝗲 𝗥𝗲𝗾𝘂𝗲𝘀𝘁𝗲𝗱 𝗦𝘁𝗿𝗲𝗮𝗺 𝗦𝘁𝗮𝗿𝘁𝗲𝗱</b>  🔴
+  ➥ <b>luồng yêu cầu đã bắt đầu</b> 🔴
   </blockquote>
   <blockquote>
-  ➻ <b>𝗧𝗶𝘁𝗹𝗲 :</b> <a href={0}>{1}</a>
-  ➻ <b>𝗗𝘂𝗿𝗮𝘁𝗶𝗼𝗻 :</b> {2} 𝗺𝗶𝗻𝘂𝘁𝗲𝘀
-  ➻ <b>𝗥𝗲𝗾𝘂𝗲𝘀𝘁𝗲𝗱 𝗯𝘆 :</b> {3}
+  ➻ <b>tiêu đề :</b> <a href={0}>{1}</a><br>
+  ➻ <b>thời lượng :</b> {2} phút<br>
+  ➻ <b>yêu cầu bởi :</b> {3}
   </blockquote>
 
 stream_2: |
   <blockquote>
-  ➥ <b>𝗟𝗶𝘃𝗲 𝗦𝘁𝗿𝗲𝗮𝗺𝗶𝗻𝗴 𝗦𝘁𝗮𝗿𝘁𝗲𝗱 𝗼𝗻 𝗥𝗲𝗾𝘂𝗲𝘀𝘁</b>  🚨
+  ➥ <b>phát trực tiếp theo yêu cầu đã bắt đầu</b> 🚨
   </blockquote>
   <blockquote>
-  ➻ <b>𝗦𝘁𝗿𝗲𝗮𝗺 𝗧𝘆𝗽𝗲 :</b> 🌐 𝗟𝗶𝘃𝗲 𝗦𝘁𝗿𝗲𝗮𝗺 [𝘂𝗿𝗹]
-  ➻ <b>𝗥𝗲𝗾𝘂𝗲𝘀𝘁𝗲𝗱 𝗯𝘆 :</b> 🙋 {0}
+  ➻ <b>kiểu luồng :</b> 🌐 phát trực tiếp [url]<br>
+  ➻ <b>yêu cầu bởi :</b> 🙋 {0}
   </blockquote>
 
-S_B_1 : "˹ᴋɪᴅɴᴀᴘ ᴍᴇ ʙᴀʙᴇs˼"
-S_B_2 : "🍂 ᴄʜᴀɴɴᴇʟ 🍂"
-S_B_3 : "ʜᴇʟᴘ & ᴄᴏᴍᴍᴀɴᴅs ❓"
-S_B_4 : "❄️sᴜᴘᴘᴏʀᴛ❄️"
-S_B_5 : "💗 sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ 💗"
-S_B_6 : "ʏᴏᴜᴛᴜʙᴇ"
-S_B_7 : "ᴄᴇʀᴛɪғɪᴇᴅ ᴄᴏᴅᴇʀ ✔︎"
+S_B_1 : "˹bắt cóc mình đi bé˼"
+S_B_2 : "🍂 kênh 🍂"
+S_B_3 : "trợ giúp & lệnh ❓"
+S_B_4 : "❄️hỗ trợ❄️"
+S_B_5 : "💗 mã nguồn 💗"
+S_B_6 : "youtube"
+S_B_7 : "certified coder ✔︎"
 
-CLOSE_BUTTON: "✖ ᴄʟᴏsᴇ"
-BACK_BUTTON: "⮌ ʙᴀᴄᴋ"
+CLOSE_BUTTON: "✖ đóng"
+BACK_BUTTON: "⮌ quay lại"
 
-H_B_1: "🛠️ ᴀᴅᴍɪɴ"
-H_B_2: "🔑 ᴀᴜᴛʜ"
-H_B_3: "📡 ɢ-ᴄᴀsᴛ"
-H_B_4: "🛑 ʙʟ-ᴄʜᴀᴛ"
-H_B_5: "🚫 ʙʟ-ᴜsᴇʀ"
-H_B_6: "🎵 ᴄ-ᴘʟᴀʏ"
-H_B_7: "⛔ ɢ-ʙᴀɴ"
-H_B_8: "🔁 ʟᴏᴏᴘ"
-H_B_9: "📜 ʟᴏɢ"
-H_B_10: "🏓 ᴘɪɴɢ"
-H_B_11: "▶️ ᴘʟᴀʏ"
-H_B_12: "🔀 sʜᴜғғʟᴇ"
-H_B_13: "⏩ sᴇᴇᴋ"
-H_B_14: "🎶 sᴏɴɢ"
-H_B_15: "⚡ sᴘᴇᴇᴅ"
+H_B_1: "🛠️ quản trị"
+H_B_2: "🔑 ủy quyền"
+H_B_3: "📡 g-cast"
+H_B_4: "🛑 chặn đoạn chat"
+H_B_5: "🚫 chặn người dùng"
+H_B_6: "🎵 phát trong kênh"
+H_B_7: "⛔ g-ban"
+H_B_8: "🔁 lặp lại"
+H_B_9: "📜 nhật ký"
+H_B_10: "🏓 ping"
+H_B_11: "▶️ phát"
+H_B_12: "🔀 xáo trộn"
+H_B_13: "⏩ tua"
+H_B_14: "🎶 bài hát"
+H_B_15: "⚡ tốc độ"
 
-P_B_1: "🎧 ᴀᴜᴅɪᴏ"
-P_B_2: "📹 ᴠɪᴅᴇᴏ"
-P_B_3: "📡 ʟɪᴠᴇ sᴛʀᴇᴀᴍ"
-P_B_4: "🆗 ɴᴏʀᴍᴀʟ"
+P_B_1: "🎧 âm thanh"
+P_B_2: "📹 video"
+P_B_3: "📡 phát trực tiếp"
+P_B_4: "🆗 bình thường"
 
-ST_B_1: "🔑 ᴀᴜᴛʜ ᴜsᴇʀs"
-ST_B_2: "🎵 ᴘʟᴀʏ ᴍᴏᴅᴇ"
-ST_B_3: "🌐 ʟᴀɴɢᴜᴀɢᴇ"
-ST_B_4: "🗳️ ᴠᴏᴛɪɴɢ ᴍᴏᴅᴇ"
-ST_B_5: "✅ ᴏɴ"
-ST_B_6: "❌ ᴏғғ"
-ST_B_7: "🔑 ᴀᴜᴛʜ ᴜsᴇʀs ➜"
-ST_B_8: "🛠️ ᴀᴅᴍɪɴs"
-ST_B_9: "👥 ᴇᴠᴇʀʏᴏɴᴇ"
-ST_B_10: "🔍 sᴇᴀʀᴄʜ ᴍᴏᴅᴇ ➜"
-ST_B_11: "▶️ ᴅɪʀᴇᴄᴛ"
-ST_B_12: "📝 ɪɴʟɪɴᴇ"
-ST_B_13: "🛠️ ᴀᴅᴍɪɴ ᴄᴍᴅs ➜"
-ST_B_14: "🎶 ᴘʟᴀʏ ᴛʏᴘᴇ ➜"
+ST_B_1: "🔑 người dùng được ủy quyền"
+ST_B_2: "🎵 chế độ phát"
+ST_B_3: "🌐 ngôn ngữ"
+ST_B_4: "🗳️ chế độ bỏ phiếu"
+ST_B_5: "✅ bật"
+ST_B_6: "❌ tắt"
+ST_B_7: "🔑 người dùng được ủy quyền ➜"
+ST_B_8: "🛠️ quản trị viên"
+ST_B_9: "👥 mọi người"
+ST_B_10: "🔍 chế độ tìm kiếm ➜"
+ST_B_11: "▶️ trực tiếp"
+ST_B_12: "📝 nội tuyến"
+ST_B_13: "🛠️ lệnh quản trị ➜"
+ST_B_14: "🎶 kiểu phát ➜"
 
-SA_B_1: "📊 ᴏᴠᴇʀᴀʟʟ sᴛᴀᴛs"
-SA_B_2: "⚙️ ɢᴇɴᴇʀᴀʟ"
-SA_B_3: "🌟 ᴏᴠᴇʀᴀʟʟ"
+SA_B_1: "📊 thống kê tổng thể"
+SA_B_2: "⚙️ chung"
+SA_B_3: "🌟 tổng thể"
 
-QU_B_1 : "ǫᴜᴇᴜᴇ"
+QU_B_1 : "hàng đợi"
 QU_B_2 : " {0} —————————— {1}"
 
-sudo_1: "⚠️ » {0} ɪs ᴀʟʀᴇᴀᴅʏ ɪɴ sᴜᴅᴏ ᴜsᴇʀs ʟɪsᴛ."
-sudo_2: "✅ » ᴀᴅᴅᴇᴅ {0} ᴛᴏ sᴜᴅᴏ ᴜsᴇʀs ʟɪsᴛ."
-sudo_3: "❌ » {0} ɪs ɴᴏᴛ ɪɴ sᴜᴅᴏ ᴜsᴇʀs ʟɪsᴛ."
-sudo_4: "🗑️ » ʀᴇᴍᴏᴠᴇᴅ {0} ғʀᴏᴍ sᴜᴅᴏ ᴜsᴇʀs ʟɪsᴛ."
-sudo_5: "<u><b>🥀 ᴏᴡɴᴇʀ :</b></u>\n"
-sudo_6: "\n<u><b>✨ sᴜᴅᴏ ᴜsᴇʀs :</b></u>\n"
-sudo_7: "ℹ️ » ɴᴏ sᴜᴅᴏ ᴜsᴇʀs ғᴏᴜɴᴅ."
-sudo_8: "❌ ғᴀɪʟᴇᴅ."
+sudo_1: "⚠️ » {0} đã có trong danh sách người dùng sudo."
+sudo_2: "✅ » đã thêm {0} vào danh sách người dùng sudo."
+sudo_3: "❌ » {0} không có trong danh sách người dùng sudo."
+sudo_4: "🗑️ » đã xóa {0} khỏi danh sách người dùng sudo."
+sudo_5: "<u><b>🥀 chủ sở hữu :</b></u>\n"
+sudo_6: "\n<u><b>✨ người dùng sudo :</b></u>\n"
+sudo_7: "ℹ️ » không tìm thấy người dùng sudo."
+sudo_8: "❌ không thành công."
 
-block_1: "❌ » {0} ɪs ᴀʟʀᴇᴀᴅʏ ʙʟᴏᴄᴋᴇᴅ ғʀᴏᴍ ᴛʜᴇ ʙᴏᴛ."
-block_2: "✅ » ᴀᴅᴅᴇᴅ {0} ᴛᴏ ʙʟᴏᴄᴋᴇᴅ ᴜsᴇʀs ʟɪsᴛ."
-block_3: "⚠️ » {0} ɪs ɴᴏᴛ ɪɴ ʙʟᴏᴄᴋᴇᴅ ᴜsᴇʀs ʟɪsᴛ."
-block_4: "🗑️ » ʀᴇᴍᴏᴠᴇᴅ {0} ғʀᴏᴍ ʙʟᴏᴄᴋᴇᴅ ᴜsᴇʀs ʟɪsᴛ."
-block_5: "ℹ️ » ɴᴏ ʙʟᴏᴄᴋᴇᴅ ᴜsᴇʀs ғᴏᴜɴᴅ."
-block_6: "🔄 » ɢᴇᴛᴛɪɴɢ ʙʟᴏᴄᴋᴇᴅ ᴜsᴇʀs ʟɪsᴛ..."
-block_7: "🚫 <b>ʙʟᴏᴄᴋᴇᴅ ᴜsᴇʀs :</b>\n\n"
+block_1: "❌ » {0} đã bị chặn khỏi bot."
+block_2: "✅ » đã thêm {0} vào danh sách bị chặn."
+block_3: "⚠️ » {0} không có trong danh sách bị chặn."
+block_4: "🗑️ » đã xóa {0} khỏi danh sách bị chặn."
+block_5: "ℹ️ » không tìm thấy người dùng bị chặn."
+block_6: "🔄 » đang lấy danh sách người dùng bị chặn..."
+block_7: "🚫 <b>người dùng bị chặn :</b>\n\n"
 
-black_1: "📌 <b>ᴇxᴀᴍᴘʟᴇ :</b>\n\n/blacklistchat [ᴄʜᴀᴛ ɪᴅ]"
-black_2: "⚠️ » ᴛʜɪs ᴄʜᴀᴛ ɪs ᴀʟʀᴇᴀᴅʏ ʙʟᴀᴄᴋʟɪsᴛᴇᴅ."
-black_3: "✅ » sᴜᴄᴄᴇssғᴜʟʟʏ ᴀᴅᴅᴇᴅ ᴛᴏ ʙʟᴀᴄᴋʟɪsᴛᴇᴅ ᴄʜᴀᴛs."
-black_4: "📌 <b>ᴇxᴀᴍᴘʟᴇ :</b>\n\n/whitelistchat [ᴄʜᴀᴛ ɪᴅ]"
-black_5: "ℹ️ » ᴛʜɪs ᴄʜᴀᴛ ɪs ɴᴏᴛ ʙʟᴀᴄᴋʟɪsᴛᴇᴅ."
-black_6: "🗑️ » sᴜᴄᴄᴇssғᴜʟʟʏ ʀᴇᴍᴏᴠᴇᴅ ғʀᴏᴍ ʙʟᴀᴄᴋʟɪsᴛᴇᴅ ᴄʜᴀᴛs."
-black_7: "📋 » ʟɪsᴛ ᴏғ ʙʟᴀᴄᴋʟɪsᴛᴇᴅ ᴄʜᴀᴛs :\n\n"
-black_8: "ℹ️ » ɴᴏ ʙʟᴀᴄᴋʟɪsᴛᴇᴅ ᴄʜᴀᴛs ᴏɴ {0}."
-black_9: "❌ » sᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ ᴡʀᴏɴɢ."
+black_1: "📌 <b>ví dụ :</b>\n\n/blacklistchat [chat id]"
+black_2: "⚠️ » đoạn chat này đã bị đưa vào danh sách đen."
+black_3: "✅ » đã thêm vào danh sách chat bị chặn."
+black_4: "📌 <b>ví dụ :</b>\n\n/whitelistchat [chat id]"
+black_5: "ℹ️ » đoạn chat này không nằm trong danh sách đen."
+black_6: "🗑️ » đã xóa khỏi danh sách chat bị chặn."
+black_7: "📋 » danh sách các chat bị chặn :\n\n"
+black_8: "ℹ️ » không có chat bị chặn trên {0}."
+black_9: "❌ » đã có lỗi xảy ra."
 
-maint_1: "🛠️ <b>ᴇxᴀᴍᴘʟᴇ :</b>\n/maintenance [ᴇɴᴀʙʟᴇ | ᴅɪsᴀʙʟᴇ]"
-maint_2: "✅ » {0} ᴍᴀɪɴᴛᴇɴᴀɴᴄᴇ ᴍᴏᴅᴇ ᴇɴᴀʙʟᴇᴅ."
-maint_3: "❌ » {0} ᴍᴀɪɴᴛᴇɴᴀɴᴄᴇ ᴍᴏᴅᴇ ᴅɪsᴀʙʟᴇᴅ."
-maint_4: "⚠️ » ᴍᴀɪɴᴛᴇɴᴀɴᴄᴇ ᴍᴏᴅᴇ ɪs ᴀʟʀᴇᴀᴅʏ ᴇɴᴀʙʟᴇᴅ."
-maint_5: "⚠️ » ᴍᴀɪɴᴛᴇɴᴀɴᴄᴇ ᴍᴏᴅᴇ ɪs ᴀʟʀᴇᴀᴅʏ ᴅɪsᴀʙʟᴇᴅ."
+maint_1: "🛠️ <b>ví dụ :</b>\n/maintenance [enable | disable]"
+maint_2: "✅ » đã bật chế độ bảo trì cho {0}."
+maint_3: "❌ » đã tắt chế độ bảo trì cho {0}."
+maint_4: "⚠️ » chế độ bảo trì đã được bật."
+maint_5: "⚠️ » chế độ bảo trì đã được tắt."
 
-log_1: "📜 <b>ᴇxᴀᴍᴘʟᴇ :</b>\n/logger [ᴇɴᴀʙʟᴇ | ᴅɪsᴀʙʟᴇ]"
-log_2: "✅ ᴇɴᴀʙʟᴇᴅ ʟᴏɢɢɪɴɢ."
-log_3: "❌ ᴅɪsᴀʙʟᴇᴅ ʟᴏɢɢɪɴɢ."
+log_1: "📜 <b>ví dụ :</b>\n/logger [enable | disable]"
+log_2: "✅ đã bật ghi nhật ký."
+log_3: "❌ đã tắt ghi nhật ký."
 
-broad_1: "📢 » sᴛᴀʀᴛᴇᴅ ʙʀᴏᴀᴅᴄᴀsᴛɪɴɢ..."
-broad_2: "📝 <b>ᴇxᴀᴍᴘʟᴇ :</b>\n/broadcast [ᴍᴇssᴀɢᴇ ᴏʀ ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ]"
-broad_3: "✅ » ʙʀᴏᴀᴅᴄᴀsᴛᴇᴅ ᴍᴇssᴀɢᴇ ᴛᴏ {0} ᴄʜᴀᴛs ᴡɪᴛʜ {1} ᴘɪɴs ғʀᴏᴍ ᴛʜᴇ ʙᴏᴛ."
-broad_4: "✅ » ʙʀᴏᴀᴅᴄᴀsᴛᴇᴅ ᴍᴇssᴀɢᴇ ᴛᴏ {0} ᴜsᴇʀs."
-broad_5: "📢 » sᴛᴀʀᴛɪɴɢ ᴀssɪsᴛᴀɴᴛ ʙʀᴏᴀᴅᴄᴀsᴛ..."
-broad_6: "➻ ᴀssɪsᴛᴀɴᴛ ʙʀᴏᴀᴅᴄᴀsᴛ :\n\n"
-broad_7: "↬ ᴀssɪsᴛᴀɴᴛ {0} ʙʀᴏᴀᴅᴄᴀsᴛᴇᴅ ɪɴ {1} ᴄʜᴀᴛs."
-broad_8: "⚠️ » ᴘʟᴇᴀsᴇ ᴘʀᴏᴠɪᴅᴇ sᴏᴍᴇ ᴛᴇxᴛ ᴛᴏ ʙʀᴏᴀᴅᴄᴀsᴛ."
+broad_1: "📢 » đã bắt đầu phát tin..."
+broad_2: "📝 <b>ví dụ :</b>\n/broadcast [nội dung hoặc trả lời một tin nhắn]"
+broad_3: "✅ » đã phát tin đến {0} chat với {1} ghim từ bot."
+broad_4: "✅ » đã phát tin đến {0} người dùng."
+broad_5: "📢 » đang bắt đầu phát tin bằng trợ lý..."
+broad_6: "➻ phát tin qua trợ lý :\n\n"
+broad_7: "↬ trợ lý {0} đã phát trong {1} chat."
+broad_8: "⚠️ » vui lòng nhập nội dung để phát."
 
-server_1: "❌ » ғᴀɪʟᴇᴅ ᴛᴏ ɢᴇᴛ ʟᴏɢs."
-server_2: "⚠️ ᴘʟᴇᴀsᴇ ᴍᴀᴋᴇ sᴜʀᴇ ʏᴏᴜʀ ʜᴇʀᴏᴋᴜ ᴀᴘɪ ᴋᴇʏ ᴀɴᴅ ᴀᴘᴘ ɴᴀᴍᴇ ᴀʀᴇ ᴄᴏɴғɪɢᴜʀᴇᴅ ᴄᴏʀʀᴇᴄᴛʟʏ."
-server_3: "🔄 ᴄʜᴇᴄᴋɪɴɢ ꜰᴏʀ ᴀᴠᴀɪʟᴀʙʟᴇ ᴜᴘᴅᴀᴛᴇs..."
-server_4: "❌ ɢɪᴛ ᴄᴏᴍᴍᴀɴᴅ ᴇʀʀᴏʀ."
-server_5: "❌ ɪɴᴠᴀʟɪᴅ ɢɪᴛ ʀᴇᴘsɪᴛᴏʀʏ."
-server_6: "✅ » ʙᴏᴛ ɪs ᴜᴘ-ᴛᴏ-ᴅᴀᴛᴇ."
-server_7: "✅ » ʙᴏᴛ ᴜᴩᴅᴀᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ !\nɴᴏᴡ ᴡᴀɪᴛ ғᴏʀ ғᴇᴡ ᴍɪɴᴜᴛᴇs ᴜɴᴛɪʟ ᴛʜᴇ ʙᴏᴛ ʀᴇsᴛᴀʀᴛs ᴀɴᴅ ᴩᴜsʜ ᴄʜᴀɴɢᴇs !"
-server_8: "♻️ {0} ɪs ʀᴇsᴛᴀʀᴛɪɴɢ...\nʏᴏᴜ ᴄᴀɴ sᴛᴀʀᴛ ᴩʟᴀʏɪɴɢ ᴀɢᴀɪɴ ᴀғᴛᴇʀ 15-20 sᴇᴄᴏɴᴅs."
-server_9: "❌ sᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ ᴡʀᴏɴɢ, ᴩʟᴇᴀsᴇ ᴄʜᴇᴄᴋ ʟᴏɢs."
-server_10: "⚠️ ᴀɴ ᴇxᴄᴇᴩᴛɪᴏɴ ᴏᴄᴄᴜʀᴇᴅ ᴀᴛ #ᴜᴩᴅᴀᴛᴇʀ ᴅᴜᴇ ᴛᴏ : <code>{0}</code>"
-server_11: "⏱️ » ʀᴜɴɴɪɴɢ ᴀ sᴘᴇᴇᴅᴛᴇsᴛ..."
-server_12: "⇆ <b>ʀᴜɴɴɪɴɢ ᴅᴏᴡɴʟᴏᴀᴅ sᴩᴇᴇᴅᴛᴇsᴛ...</b>"
-server_13: "⇆ <b>ʀᴜɴɴɪɴɢ ᴜᴩʟᴏᴀᴅ sᴩᴇᴇᴅᴛᴇsᴛ...</b>"
-server_14: "↻ <b>sʜᴀʀɪɴɢ sᴩᴇᴇᴅᴛᴇsᴛ ʀᴇsᴜʟᴛs...</b>"
-server_15: "✯ <b>sᴩᴇᴇᴅᴛᴇsᴛ ʀᴇsᴜʟᴛs</b> ✯\n\n<u><b>ᴄʟɪᴇɴᴛ :</b></u>\n<b>» ɪsᴩ :</b> {0}\n<b>» ᴄᴏᴜɴᴛʀʏ :</b> {1}\n\n<u><b>sᴇʀᴠᴇʀ :</b></u>\n<b>» ɴᴀᴍᴇ :</b> {2}\n<b>» ᴄᴏᴜɴᴛʀʏ :</b> {3}, {4}\n<b>» sᴩᴏɴsᴏʀ :</b> {5}\n<b>» ʟᴀᴛᴇɴᴄʏ :</b> {6}\n<b>» ᴩɪɴɢ :</b> {7}"
+server_1: "❌ » không thể lấy nhật ký."
+server_2: "⚠️ hãy đảm bảo khóa api heroku và tên ứng dụng được cấu hình đúng."
+server_3: "🔄 đang kiểm tra cập nhật khả dụng..."
+server_4: "❌ lỗi lệnh git."
+server_5: "❌ kho git không hợp lệ."
+server_6: "✅ » bot đã ở phiên bản mới nhất."
+server_7: "✅ » bot đã cập nhật thành công!\nđợi vài phút để bot khởi động lại và áp dụng thay đổi!"
+server_8: "♻️ {0} đang khởi động lại...\nbạn có thể phát lại sau 15–20 giây."
+server_9: "❌ đã có lỗi xảy ra, vui lòng kiểm tra nhật ký."
+server_10: "⚠️ đã xảy ra ngoại lệ tại #updater do : <code>{0}</code>"
+server_11: "⏱️ » đang chạy kiểm tra tốc độ..."
+server_12: "⇆ <b>đang kiểm tra tốc độ tải xuống...</b>"
+server_13: "⇆ <b>đang kiểm tra tốc độ tải lên...</b>"
+server_14: "↻ <b>đang chia sẻ kết quả đo tốc độ...</b>"
+server_15: "✯ <b>kết quả đo tốc độ</b> ✯\n\n<u><b>khách :</b></u>\n<b>» isp :</b> {0}\n<b>» quốc gia :</b> {1}\n\n<u><b>máy chủ :</b></u>\n<b>» tên :</b> {2}\n<b>» quốc gia :</b> {3}, {4}\n<b>» nhà tài trợ :</b> {5}\n<b>» độ trễ :</b> {6}\n<b>» ping :</b> {7}"
 
-gban_1: "😳 » ᴡʜʏ ᴅɪᴅ ʏᴏᴜ ᴡᴀɴɴᴀ ɢʙᴀɴ ʏᴏᴜʀsᴇʟғ ʙᴀʙʏ ?"
-gban_2: "😅 » ᴡʜʏ sʜᴏᴜʟᴅ ɪ ɢʙᴀɴ ᴍʏsᴇʟғ ?"
-gban_3: "❌ » ʏᴏᴜ ᴄᴀɴ'ᴛ ɢʙᴀɴ ᴍʏ sᴜᴅᴏᴇʀs."
-gban_4: "⚠️ » {0} ɪs ᴀʟʀᴇᴀᴅʏ ɢʟᴏʙᴀʟʟʏ ʙᴀɴɴᴇᴅ ғʀᴏᴍ ᴛʜᴇ ʙᴏᴛ."
-gban_5: "🔒 » ɪɴɪᴛɪᴀʟɪᴢɪɴɢ ɢʟᴏʙᴀʟ ʙᴀɴ ᴏɴ {0}.\n<b>ᴛɪᴍᴇ ᴇxᴘᴇᴄᴛᴇᴅ :</b> {1}"
-gban_6: "🌐 <b><u>ɴᴇᴡ ɢʟᴏʙᴀʟ ʙᴀɴ ᴏɴ {0} :</u></b>\n\n<b>ᴏʀɪɢɪɴᴀᴛᴇᴅ ғʀᴏᴍ :</b> {1} [<code>{2}</code>]\n<b>ᴜsᴇʀ :</b> {3}\n<b>ᴜsᴇʀ ɪᴅ :</b> {4}\n\n<b>ʙᴀɴɴᴇᴅ ʙʏ :</b> {5}\n<b>ᴄʜᴀᴛs :</b> </code>{6}</code>"
-gban_7: "❌ » {0} ɪs ɴᴏᴛ ɢʙᴀɴɴᴇᴅ ғʀᴏᴍ ᴛʜᴇ ʙᴏᴛ."
-gban_8: "🔓 » ʟɪғᴛɪɴɢ ɢʟᴏʙᴀʟ ʙᴀɴ ғʀᴏᴍ {0}.\n<b>ᴇxᴘᴇᴄᴛᴇᴅ ᴛɪᴍᴇ :</b> {1}"
-gban_9: "✅ » ʟɪғᴛᴇᴅ ɢʟᴏʙᴀʟ ʙᴀɴ ғʀᴏᴍ {0}.\nᴜɴʙᴀɴɴᴇᴅ ɪɴ {1} ᴄʜᴀᴛs."
-gban_10: "⚠️ » ɴᴏ ᴏɴᴇ ɪs ɢʟᴏʙᴀʟʟʏ ʙᴀɴɴᴇᴅ ғʀᴏᴍ ᴛʜᴇ ʙᴏᴛ."
-gban_11: "🔍 » ғᴇᴛᴄʜɪɴɢ ɢʙᴀɴɴᴇᴅ ᴜsᴇʀs ʟɪsᴛ..."
-gban_12: "🙂 <b>ɢʟᴏʙᴀʟʟʏ ʙᴀɴɴᴇᴅ ᴜsᴇʀs :</b>\n\n"
+gban_1: "😳 » tại sao bạn muốn tự gban chính mình vậy?"
+gban_2: "😅 » tại sao mình phải tự gban bản thân?"
+gban_3: "❌ » bạn không thể gban các sudoer của mình."
+gban_4: "⚠️ » {0} đã bị cấm toàn cục khỏi bot."
+gban_5: "🔒 » đang khởi tạo cấm toàn cục trên {0}.\n<b>thời gian dự kiến :</b> {1}"
+gban_6: "🌐 <b><u>cấm toàn cục mới trên {0} :</u></b>\n\n<b>xuất phát từ :</b> {1} [<code>{2}</code>]\n<b>người dùng :</b> {3}\n<b>id người dùng :</b> {4}\n\n<b>cấm bởi :</b> {5}\n<b>các chat :</b> </code>{6}</code>"
+gban_7: "❌ » {0} không bị cấm toàn cục khỏi bot."
+gban_8: "🔓 » đang gỡ cấm toàn cục cho {0}.\n<b>thời gian dự kiến :</b> {1}"
+gban_9: "✅ » đã gỡ cấm toàn cục cho {0}.\nđã bỏ chặn trong {1} chat."
+gban_10: "⚠️ » không ai bị cấm toàn cục khỏi bot."
+gban_11: "🔍 » đang lấy danh sách người bị cấm toàn cục..."
+gban_12: "🙂 <b>người dùng bị cấm toàn cục :</b>\n\n"
 
 #Song
-SG_B_1 : "• ᴄʟɪᴄᴋ ʜᴇʀᴇ •"
-SG_B_2 : "🎧 ᴀᴜᴅɪᴏ 🎧"
-SG_B_3 : "🎥 ᴠɪᴅᴇᴏ 🎥"
+SG_B_1 : "• nhấn vào đây •"
+SG_B_2 : "🎧 âm thanh 🎧"
+SG_B_3 : "🎥 video 🎥"
 
 # Song
-song_1: "🎵 ʏᴏᴜ ᴄᴀɴ ᴅᴏᴡɴʟᴏᴀᴅ ᴍᴜsɪᴄ ᴏʀ ᴠɪᴅᴇᴏ ꜰʀᴏᴍ ʏᴏᴜᴛᴜʙᴇ ᴏɴʟʏ ɪɴ ᴘʀɪᴠᴀᴛᴇ ᴄʜᴀᴛ. ᴘʟᴇᴀsᴇ sᴛᴀʀᴛ ᴍᴇ ɪɴ ᴘʀɪᴠᴀᴛᴇ ᴄʜᴀᴛ."
-song_2: "💡 **ᴜsᴀɢᴇ:**\n\n/song [ᴍᴜsɪᴄ ɴᴀᴍᴇ] ᴏʀ [ʏᴏᴜᴛᴜʙᴇ ʟɪɴᴋ]"
-song_3: "⚠️ ʟɪᴠᴇ ʟɪɴᴋ ᴅᴇᴛᴇᴄᴛᴇᴅ. ɪ ᴀᴍ ɴᴏᴛ ᴀʙʟᴇ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪᴠᴇ ʏᴏᴜᴛᴜʙᴇ ᴠɪᴅᴇᴏs."
-song_4: "📌 **ᴛɪᴛʟᴇ**: {0}\n\nsᴇʟᴇᴄᴛ ᴛʜᴇ ᴛʏᴘᴇ ɪɴ ᴡʜɪᴄʜ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ."
-song_5: "❌ ɴᴏᴛ ᴀ ᴠᴀʟɪᴅ ʏᴏᴜᴛᴜʙᴇ ʟɪɴᴋ."
-song_6: "⏳ ɢᴇᴛᴛɪɴɢ ꜰᴏʀᴍᴀᴛs...\nᴘʟᴇᴀsᴇ ᴡᴀɪᴛ..."
-song_7: "❌ ꜰᴀɪʟᴇᴅ ᴛᴏ ɢᴇᴛ ᴀᴠᴀɪʟᴀʙʟᴇ ꜰᴏʀᴍᴀᴛs ꜰᴏʀ ᴛʜᴇ ᴠɪᴅᴇᴏ. ᴘʟᴇᴀsᴇ ᴛʀʏ ᴀɴʏ ᴏᴛʜᴇʀ ᴛʀᴀᴄᴋ."
-song_8: "⬇️ ᴅᴏᴡɴʟᴏᴀᴅ sᴛᴀʀᴛᴇᴅ\n\nᴘʟᴇᴀsᴇ ʜᴏʟᴅ ᴏɴ ғᴏʀ ғᴇᴡ sᴇᴄᴏɴᴅs..."
-song_9: "❌ ꜰᴀɪʟᴇᴅ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ sᴏɴɢ ꜰʀᴏᴍ ʏᴛ-ᴅʟ\n\n**ʀᴇᴀsᴏɴ:** {0}"
-song_10: "❌ ꜰᴀɪʟᴇᴅ ᴛᴏ ᴜᴘʟᴏᴀᴅ ᴏɴ ᴛᴇʟᴇɢʀᴀᴍ sᴇʀᴠᴇʀs."
-song_11: "⬆️ ᴜᴘʟᴏᴀᴅɪɴɢ sᴛᴀʀᴛᴇᴅ ʙᴀʙʏ\n\nᴘʟᴇᴀsᴇ ʜᴏʟᴅ ᴏɴ..."
+song_1: "🎵 bạn chỉ có thể tải nhạc hoặc video từ youtube trong tin nhắn riêng. vui lòng bắt đầu trò chuyện riêng với mình."
+song_2: "💡 **cách dùng:**\n\n/song [tên bài hát] hoặc [liên kết youtube]"
+song_3: "⚠️ phát hiện liên kết live. mình không thể tải xuống video youtube đang phát trực tiếp."
+song_4: "📌 **tiêu đề**: {0}\n\nhãy chọn loại bạn muốn tải xuống."
+song_5: "❌ liên kết youtube không hợp lệ."
+song_6: "⏳ đang lấy định dạng...\nvui lòng chờ..."
+song_7: "❌ không thể lấy các định dạng khả dụng cho video này. vui lòng thử bài khác."
+song_8: "⬇️ bắt đầu tải xuống\n\nvui lòng chờ trong giây lát..."
+song_9: "❌ không thể tải bài từ yt-dl\n\n**lý do:** {0}"
+song_10: "❌ không thể tải lên máy chủ telegram."
+song_11: "⬆️ đang bắt đầu tải lên\n\nvui lòng chờ..."
+
+# Private Bot Mode
+pbot_1: "**CÁCH DÙNG:**\n/authorize [CHAT_ID]"
+pbot_2: "**CÁCH DÙNG:**\n/unauthorize [CHAT_ID]"
+pbot_3: "✅ Đã thêm cuộc trò chuyện vào danh sách được ủy quyền."
+pbot_4: "✅ Đã xóa cuộc trò chuyện khỏi danh sách được ủy quyền."
+pbot_5: "🔒 Cuộc trò chuyện đã có trong danh sách được ủy quyền từ trước."
+pbot_6: "🚫 Không có cuộc trò chuyện nào như vậy trong danh sách được ủy quyền."
+pbot_7: "❌ Không thể xác minh chat_id.\n\nHãy đảm bảo đó là một số và đúng định dạng. Không sử dụng tên người dùng hoặc liên kết nhóm."
+pbot_8: "⏳ Vui lòng đợi... Đang lấy danh sách các cuộc trò chuyện được ủy quyền..."
+pbot_9: "**<b>Danh sách cuộc trò chuyện đã lấy:</b>**\n\n"
+pbot_10: "🤖 Cuộc trò chuyện riêng tư"
+pbot_11: "🔍 Không tìm thấy cuộc trò chuyện nào được ủy quyền."
+pbot_12: "🚫 Chế độ bot riêng tư hiện đang tắt.\n\nĐể sử dụng bot ở chế độ riêng tư, hãy đặt **PRIVATE_BOT_MODE** = **TRUE**"
+pbot_13: "\n**<b>Các cuộc trò chuyện chưa được lấy:</b>**\n\n"
