@@ -48,11 +48,11 @@ async def join_userbot(app, chat_id, chat_username=None):
             except ChatAdminRequired:
                 return "**❌ I need unban permission to add the assistant.**"
         if member.status in ACTIVE_STATUSES:
-            return "**🤖 Assistant is already in the chat.**"
+            return "**🤖 Trợ lý đã có trong cuộc trò chuyện này.**"
     except UserNotParticipant:
         pass
     except PeerIdInvalid:
-        return "**❌ Invalid chat ID.**"
+        return "**❌ ID cuộc trò chuyện không hợp lệ.**"
 
     invite = None
     if chat_username:
@@ -62,22 +62,22 @@ async def join_userbot(app, chat_id, chat_username=None):
             link = await app.create_chat_invite_link(chat_id)
             invite = link.invite_link
         except ChatAdminRequired:
-            return "**❌ I need permission to create invite links or a public @username to add the assistant.**"
+            return "**❌ Tôi cần quyền tạo liên kết mời hoặc cần có tên người dùng công khai (@username) để thêm trợ lý.**"
 
     try:
         await userbot.join_chat(invite)
-        return "**✅ Assistant joined successfully.**"
+        return "**✅ Trợ lý đã tham gia thành công.**"
     except UserAlreadyParticipant:
-        return "**🤖 Assistant is already a participant.**"
+        return "**🤖 Trợ lý đã là thành viên trong cuộc trò chuyện.**"
     except FloodWait as e:
         await asyncio.sleep(e.value)
         try:
             await userbot.join_chat(invite)
-            return "**✅ Assistant joined successfully.**"
+            return "**✅ Trợ lý đã tham gia thành công.**"
         except Exception as ex:
-            return f"**❌ Failed to add assistant after wait:** `{str(ex)}`"
+            return f"**❌ Không thể thêm trợ lý sau khi chờ:** `{str(ex)}`"
     except Exception as e:
-        return f"**❌ Failed to add assistant:** `{str(e)}`"
+        return f"**❌ Không thể thêm trợ lý:** `{str(e)}`"
 
 
 @app.on_chat_join_request()
@@ -101,7 +101,7 @@ async def approve_join_request(client, chat_join_request: ChatJoinRequest):
             except UserAlreadyParticipant:
                 return
         try:
-            await client.send_message(chat_id, "**✅ Assistant has been approved and joined the chat.**")
+            await client.send_message(chat_id, "**✅ Trợ lý đã được phê duyệt và tham gia vào cuộc trò chuyện.**")
         except ChatWriteForbidden:
             pass
     except ChatAdminRequired:
@@ -120,19 +120,19 @@ async def approve_join_request(client, chat_join_request: ChatJoinRequest):
 )
 async def join_group(app, message):
     chat_id = message.chat.id
-    status_message = await message.reply("**⏳ Please wait, inviting assistant...**")
+    status_message = await message.reply("**⏳ Vui lòng chờ, đang mời trợ lý....**")
 
     try:
         me = await app.get_me()
         chat_member = await app.get_chat_member(chat_id, me.id)
         if chat_member.status != ChatMemberStatus.ADMINISTRATOR:
-            await status_message.edit_text("**❌ I need to be admin to invite the assistant.**")
+            await status_message.edit_text("**❌ Tôi cần quyền quản trị viên để mời trợ lý.**")
             return
     except ChatAdminRequired:
-        await status_message.edit_text("**❌ I don't have permission to check admin status in this chat.**")
+        await status_message.edit_text("**❌ Tôi không có quyền kiểm tra trạng thái quản trị viên trong cuộc trò chuyện này.**")
         return
     except Exception as e:
-        await status_message.edit_text(f"**❌ Failed to verify permissions:** `{str(e)}`")
+        await status_message.edit_text(f"**❌ Không thể xác minh quyền hạn:** `{str(e)}`")
         return
 
     chat_username = message.chat.username or None
