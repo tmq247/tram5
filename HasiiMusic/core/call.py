@@ -165,7 +165,7 @@ class Call:
     @capture_internal_err
     async def speedup_stream(self, chat_id: int, file_path: str, speed: float, playing: list) -> None:
         if not isinstance(playing, list) or not playing or not isinstance(playing[0], dict):
-            raise AssistantErr("Invalid stream info for speedup.")
+            raise AssistantErr("Thông tin luồng không hợp lệ để tăng tốc độ.")
 
         assistant = await group_assistant(self, chat_id)
         base = os.path.basename(file_path)
@@ -189,7 +189,7 @@ class Call:
         if chat_id in db and db[chat_id] and db[chat_id][0].get("file") == file_path:
             await assistant.play(chat_id, stream)
         else:
-            raise AssistantErr("Stream mismatch during speedup.")
+            raise AssistantErr("Không khớp luồng trong quá trình tăng tốc.")
 
         db[chat_id][0].update({
             "played": con_seconds,
@@ -236,7 +236,7 @@ class Call:
             raise AssistantErr(_["call_10"])
         except Exception as e:
             raise AssistantErr(
-                f"ᴜɴᴀʙʟᴇ ᴛᴏ ᴊᴏɪɴ ᴛʜᴇ ɢʀᴏᴜᴘ ᴄᴀʟʟ.\nRᴇᴀsᴏɴ: {e}"
+                f"Không thể tham gia cuộc gọi nhóm.\nLý do: {e}"
             )
         self.active_calls.add(chat_id)
         await add_active_chat(chat_id)
