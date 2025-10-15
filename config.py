@@ -7,29 +7,29 @@ from pyrogram import filters
 load_dotenv()
 
 # ── Core bot config ────────────────────────────────────────────────────────────
-API_ID = int(getenv("API_ID", 27798659))
-API_HASH = getenv("API_HASH", "26100c77cee02e5e34b2bbee58440f86")
+API_ID = int(getenv("API_ID"))
+API_HASH = getenv("API_HASH", "")
 BOT_TOKEN = getenv("BOT_TOKEN")
 
-OWNER_ID = int(getenv("OWNER_ID", 7044783841))
-OWNER_USERNAME = getenv("OWNER_USERNAME", "@Hasindu_Lakshan")
-BOT_USERNAME = getenv("BOT_USERNAME", "HasiiXRobot")
-BOT_NAME = getenv("BOT_NAME", "˹𝐇ᴀsɪɪ ✘ 𝙼ᴜsɪᴄ˼")
-ASSUSERNAME = getenv("ASSUSERNAME", "musicxhasii")
-EVALOP = list(map(int, getenv("EVALOP", "6797202080").split()))
+OWNER_ID = int(getenv("OWNER_ID", 6337933296))
+OWNER_USERNAME = getenv("OWNER_USERNAME", "@COIHAYCOC")
+BOT_USERNAME = getenv("BOT_USERNAME", "muoimuoiamnhac_Bot")
+BOT_NAME = getenv("BOT_NAME", "Muội Muội")
+ASSUSERNAME = getenv("ASSUSERNAME", "COIHAYCOC")
+EVALOP = list(map(int, getenv("EVALOP", "6337933296").split()))
 
 # ───── Mongo & Logging ───── #
 MONGO_DB_URI = getenv("MONGO_DB_URI")
-LOGGER_ID = int(getenv("LOGGER_ID", -1002014167331))
+LOGGER_ID = int(getenv("LOGGER_ID"))
 
 # ── Limits (durations in min/sec; sizes in bytes) ──────────────────────────────
-DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 300))
-SONG_DOWNLOAD_DURATION = int(getenv("SONG_DOWNLOAD_DURATION", "1200"))
+DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 3000))
+SONG_DOWNLOAD_DURATION = int(getenv("SONG_DOWNLOAD_DURATION", "12000"))
 SONG_DOWNLOAD_DURATION_LIMIT = int(
     getenv("SONG_DOWNLOAD_DURATION_LIMIT", "1800"))
-TG_AUDIO_FILESIZE_LIMIT = int(getenv("TG_AUDIO_FILESIZE_LIMIT", "157286400"))
-TG_VIDEO_FILESIZE_LIMIT = int(getenv("TG_VIDEO_FILESIZE_LIMIT", "1288490189"))
-PLAYLIST_FETCH_LIMIT = int(getenv("PLAYLIST_FETCH_LIMIT", "30"))
+TG_AUDIO_FILESIZE_LIMIT = int(getenv("TG_AUDIO_FILESIZE_LIMIT", "157286400000"))
+TG_VIDEO_FILESIZE_LIMIT = int(getenv("TG_VIDEO_FILESIZE_LIMIT", "12884901890000"))
+PLAYLIST_FETCH_LIMIT = int(getenv("PLAYLIST_FETCH_LIMIT", "50"))
 
 # ── External APIs ──────────────────────────────────────────────────────────────
 COOKIE_URL = getenv("COOKIE_URL")  # required (paste link)
@@ -42,13 +42,13 @@ HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 
 # ───── Git & Updates ───── #
 UPSTREAM_REPO = getenv(
-    "UPSTREAM_REPO", "https://github.com/hasindu-nagolla/HasiiMusicBot")
+    "UPSTREAM_REPO", "https://github.com/tmq247/tram5")
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "Master")
 GIT_TOKEN = getenv("GIT_TOKEN")
 
 # ───── Support & Community ───── #
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/musicxhasii")
-SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/musicxhasii")
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/muoimuoimusicbot")
+SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/muoimuoimusicbot")
 
 # ───── Assistant Auto Leave ───── #
 AUTO_LEAVING_ASSISTANT = False
