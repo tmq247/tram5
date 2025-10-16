@@ -39,7 +39,7 @@ from HasiiMusic.utils.stream.stream import stream
             "vplayforce",
             "cplayforce",
             "cvplayforce",
-        ]
+        ], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]
     )
     & filters.group
     & ~BANNED_USERS
@@ -623,10 +623,10 @@ async def play_music(client, CallbackQuery, _):
 async def anonymous_check(client, CallbackQuery):
     try:
         await CallbackQuery.answer(
-            "» ʀᴇᴠᴇʀᴛ ʙᴀᴄᴋ ᴛᴏ ᴜsᴇʀ ᴀᴄᴄᴏᴜɴᴛ :\n\n"
-            "ᴏᴘᴇɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ sᴇᴛᴛɪɴɢs.\n"
-            "-> ᴀᴅᴍɪɴɪsᴛʀᴀᴛᴏʀs\n-> ᴄʟɪᴄᴋ ᴏɴ ʏᴏᴜʀ ɴᴀᴍᴇ\n"
-            "-> ᴜɴᴄʜᴇᴄᴋ ᴀɴᴏɴʏᴍᴏᴜs ᴀᴅᴍɪɴ ᴘᴇʀᴍɪssɪᴏɴs.",
+            "» ᴄʜᴜʏᴇ̂̉ɴ ʟᴀ̣ɪ sᴀɴɢ ᴛᴀ̀ɪ ᴋʜᴏᴀ̉ɴ ɴɢᴜ̛ᴏ̛̀ɪ ᴅᴜ̀ɴɢ :\n\n"
+            "ᴍᴏ̛̉ ᴄᴀ̀ɪ đᴀ̣̆ᴛ ɴʜᴏ́ᴍ ᴄᴜ̉ᴀ ʙᴀ̣ɴ.\n"
+            "-> ǫᴜᴀ̉ɴ ᴛʀɪ̣ ᴠɪᴇ̂ɴ\n-> ɴʜᴀ̂́ɴ ᴠᴀ̀ᴏ ᴛᴇ̂ɴ ᴄᴜ̉ᴀ ʙᴀ̣ɴ\n"
+            "-> ʙᴏ̉ ᴄʜᴏ̣ɴ ǫᴜʏᴇ̂̀ɴ ǫᴜᴀ̉ɴ ᴛʀɪ̣ ẩn ᴅᴀɴʜ.",
             show_alert=True,
         )
     except Exception:
