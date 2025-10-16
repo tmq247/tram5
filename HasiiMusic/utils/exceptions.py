@@ -5,6 +5,7 @@ class AssistantErr(Exception):
         super().__init__(errr)
 
 IGNORED_ERROR_KEYWORDS = [
+    "Không tìm thấy cuộc gọi video đang hoạt động"
     "Nᴏ ᴀᴄᴛɪᴠᴇ ᴠɪᴅᴇᴏᴄʜᴀᴛ ғᴏᴜɴᴅ",
     "لم يتم العثور على مكالمة فيديو نشطة",
     "Активный видеочат не найден",
