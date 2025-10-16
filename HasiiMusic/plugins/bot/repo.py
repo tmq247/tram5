@@ -15,17 +15,17 @@ repo_caption = """**
 ɪꜰ ʏᴏᴜ ꜰᴀᴄᴇ ᴀɴʏ ᴘʀᴏʙʟᴇᴍ, ꜱᴇɴᴅ ꜱꜱ ɪɴ ꜱᴜᴘᴘᴏʀᴛ
 **"""
 
-@app.on_message(filters.command("repo"))
+@app.on_message(filters.command("repo0000000000"))
 async def show_repo(_, msg):
     buttons = [
         [InlineKeyboardButton("➕ ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ ✨", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
         [
-            InlineKeyboardButton("👑 ᴏᴡɴᴇʀ", url="https://t.me/Hasindu_Lakshan"),
-            InlineKeyboardButton("💬 ꜱᴜᴘᴘᴏʀᴛ", url="https://t.me/Hasindu_Lakshan")
+            InlineKeyboardButton("👑 ᴏᴡɴᴇʀ", url="https://t.me/COIHAYCOC"),
+            InlineKeyboardButton("💬 ꜱᴜᴘᴘᴏʀᴛ", url="https://t.me/COIHAYCOC")
         ],
         [
-            InlineKeyboardButton("🛠️ ꜱᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ", url="https://t.me/musicxhasii"),
-            InlineKeyboardButton("🎵 ɢɪᴛʜᴜʙ", url="https://github.com/hasindu-nagolla/HasiiMusicBot")
+            InlineKeyboardButton("🛠️ ꜱᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ", url="https://t.me/COIHAYCOC"),
+            InlineKeyboardButton("🎵 ɢɪᴛʜᴜʙ", url="https://github.com")
         ]
     ]
 
