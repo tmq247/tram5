@@ -72,11 +72,11 @@ def AdminRightsCheck(mystic):
                     if message.from_user.id not in admins:
                         if await is_skipmode(message.chat.id):
                             upvote = await get_upvote_count(chat_id)
-                            text = f"""<b>ᴀᴅᴍɪɴ ʀɪɢʜᴛs ɴᴇᴇᴅᴇᴅ</b>
+                            text = f"""<b>ᴄᴀ̂̀ɴ ǫᴜʏᴇ̂̀ɴ ǫᴜᴀ̉ɴ ᴛʀɪ̣</b>
 
-ʀᴇғʀᴇsʜ ᴀᴅᴍɪɴ ᴄᴀᴄʜᴇ ᴠɪᴀ : /reload
+ᴄᴀ̣̂ᴘ ɴʜᴀ̣̂ᴛ ʙᴏ̣̂ ɴʜớ ǫᴜᴀ̉ɴ ᴛʀɪ̣" : /reload
 
-» {upvote} ᴠᴏᴛᴇs ɴᴇᴇᴅᴇᴅ ғᴏʀ ᴘᴇʀғᴏʀᴍɪɴɢ ᴛʜɪs ᴀᴄᴛɪᴏɴ."""
+» {upvote} ᴄᴀ̂̀ɴ sᴏ̂́ ᴘʜɪᴇ̂́ᴜ ʙᴀ̂̀ᴜ ᴄᴀ̂̀ɴ ᴛʜɪᴇ̂́ᴛ ᴅᴇ̂̉ ᴛʜᴜ̛̣ᴄ ʜɪᴇ̣̂ɴ ʜᴀ̀ɴʜ ᴅᴏ̣̂ɴɢ ɴᴀ̀ʏ."""
 
                             command = message.command[0]
                             if command[0] == "c":
