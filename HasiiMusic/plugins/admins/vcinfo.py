@@ -16,7 +16,7 @@ async def vc_info(client, message: Message):
         participants = await assistant.get_participants(chat_id)
 
         if not participants:
-            return await message.reply_text("❌ No users found in the voice chat.")
+            return await message.reply_text("❌ không tìm thấy người dùng nào trong cuộc gọi thoại.")
 
         msg_lines = ["🎧 <b>VC Members Info:</b>\n"]
         for p in participants:
@@ -38,4 +38,4 @@ async def vc_info(client, message: Message):
         msg_lines.append(f"\n👥 Total: <b>{len(participants)}</b>")
         await message.reply_text("\n".join(msg_lines))
     except Exception as e:
-        await message.reply_text(f"❌ Failed to fetch VC info.\n<b>Error:</b> {e}")
+        await message.reply_text(f"❌ không thể lấy thông tin cuộc gọi thoại.\n<b>Error:</b> {e}")
