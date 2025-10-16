@@ -109,12 +109,12 @@ async def unban_assistant(_, callback: CallbackQuery):
     try:
         await app.unban_chat_member(chat_id, userbot.id)
         await callback.answer(
-            "ᴍʏ ᴀssɪsᴛᴀɴᴛ ɪᴅ ᴜɴʙᴀɴɴᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ🥰🥳\n\n➻ ɴᴏᴡ ʏᴏᴜ ᴄᴀɴ ᴘʟᴀʏ sᴏɴɢs🫠🔉\n\nTʜᴀɴᴋ ʏᴏᴜ💗",
+            "ᴛʀᴏ̛̣ ʟʏ́ ᴄᴜ̉ᴀ ᴛᴏ̂ɪ đã được gỡ ban thành công 🥰🥳\n\n➻ bây giờ bạn có thể phát nhạc 🫠🔉\n\ncảm ơn 💖",
             show_alert=True,
         )
     except Exception:
         await callback.answer(
-            "Fᴀɪʟᴇᴅ ᴛᴏ ᴜɴʙᴀɴ ᴍʏ ᴀssɪsᴛᴀɴᴛ ʙᴇᴄᴀᴜsᴇ ɪ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ʙᴀɴ ᴘᴏᴡᴇʀ\n\n➻ Pʟᴇᴀsᴇ ᴘʀᴏᴠɪᴅᴇ ᴍᴇ ʙᴀɴ ᴘᴏᴡᴇʀ sᴏ ᴛʜᴀᴛ ɪ ᴄᴀɴ ᴜɴʙᴀɴ ᴍʏ ᴀssɪsᴛᴀɴᴛ ɪᴅ",
+            "ᴋʜᴏ̂ɴɢ ᴛʜᴇ̂̉ gỡ ban ᴛʀᴏ̛̣ ʟʏ́ ᴄᴜ̉ᴀ ᴛᴏ̂ɪ ᴠɪ̀ ᴛᴏ̂ɪ ᴋʜᴏ̂ɴɢ ᴄᴏ́ ǫᴜʏᴇ̂̀ɴ ʙᴀɴ\n\n➻ ᴠᴜɪ ʟòɴɢ ᴄᴀ̂́ᴘ ᴄʜᴏ ᴛᴏ̂ɪ ǫᴜʏᴇ̂̀ɴ ʙᴀɴ đᴇ̂̉ ᴛᴏ̂ɪ ᴄᴏ́ ᴛʜᴇ̂̉ gỡ ban ɪᴅ ᴛʀᴏ̛̣ ʟʏ́ ᴄᴜ̉ᴀ ᴛᴏ̂ɪ",
             show_alert=True,
         )
 
@@ -219,7 +219,7 @@ async def handle_skip_replay(callback: CallbackQuery, _, chat_id: int, command: 
         return await callback.answer(_["queue_2"], show_alert=True)
 
     if command == "Skip":
-        text_msg = f"➻ sᴛʀᴇᴀᴍ sᴋɪᴩᴩᴇᴅ 🎄\n│ \n└ʙʏ : {user_mention} 🥀"
+        text_msg = f"➻ sᴛʀᴇᴀᴍ đã ʙɪ̣ ʙỏ ǫᴜᴀ 🎄\n│ \n└ʙởɪ : {user_mention} 🥀"
         try:
             popped = playlist.pop(0)
             if popped:
@@ -242,7 +242,7 @@ async def handle_skip_replay(callback: CallbackQuery, _, chat_id: int, command: 
             except Exception:
                 return
     else:
-        text_msg = f"➻ sᴛʀᴇᴀᴍ ʀᴇ-ᴘʟᴀʏᴇᴅ 🎄\n│ \n└ʙʏ : {user_mention} 🥀"
+        text_msg = f"➻ sᴛʀᴇᴀᴍ đã ᴘʜᴀ́t ʟᴀ̣ɪ 🎄\n│ \n└ʙởɪ : {user_mention} 🥀"
 
     await callback.answer()
 
@@ -392,8 +392,8 @@ async def handle_seek(callback: CallbackQuery, _, chat_id: int, command: str, us
         if (duration_played - duration_to_skip) <= 10:
             bet = seconds_to_min(duration_played)
             return await callback.answer(
-                f"» ʙᴏᴛ ɪs ᴜɴᴀʙʟᴇ ᴛᴏ sᴇᴇᴋ ʙᴇᴄᴀᴜsᴇ ᴛʜᴇ ᴅᴜʀᴀᴛɪᴏɴ ᴇxᴄᴇᴇᴅs.\n\n"
-                f"ᴄᴜʀʀᴇɴᴛʟʏ ᴩʟᴀʏᴇᴅ :** {bet}** ᴍɪɴᴜᴛᴇs ᴏᴜᴛ ᴏғ **{duration}** ᴍɪɴᴜᴛᴇs.",
+                f"» ʙᴏᴛ ᴋʜᴏ̂ɴɢ ᴛʜᴇ̂̉ tua ᴠɪ̀ ᴛʜᴏ̛̀ɪ ʟᴜ̛ᴏ̛̣ɴɢ ᴠᴜ̛ợt ǫᴜᴀ́ ɢɪớɪ ʜᴀ̣ɴ.\n\n"
+                f"ʜɪᴇ̣̂ɴ ᴛᴀ̣ɪ đã ᴘʜᴀ́t :** {bet}** ᴘʜᴜ́ᴛ ᴛʀᴏɴɢ sᴏ̂́ **{duration}** ᴘʜᴜ́ᴛ.",
                 show_alert=True
             )
         to_seek = duration_played - duration_to_skip + 1
@@ -401,8 +401,8 @@ async def handle_seek(callback: CallbackQuery, _, chat_id: int, command: str, us
         if (duration_seconds - (duration_played + duration_to_skip)) <= 10:
             bet = seconds_to_min(duration_played)
             return await callback.answer(
-                f"» ʙᴏᴛ ɪs ᴜɴᴀʙʟᴇ ᴛᴏ sᴇᴇᴋ ʙᴇᴄᴀᴜsᴇ ᴛʜᴇ ᴅᴜʀᴀᴛɪᴏɴ ᴇxᴄᴇᴇᴅs.\n\n"
-                f"ᴄᴜʀʀᴇɴᴛʟʏ ᴩʟᴀʏᴇᴅ :** {bet}** ᴍɪɴᴜᴛᴇs ᴏᴜᴛ ᴏғ **{duration}** ᴍɪɴᴜᴛᴇs.",
+                f"» ʙᴏᴛ ᴋʜᴏ̂ɴɢ ᴛʜᴇ̂̉ tua ᴠɪ̀ ᴛʜᴏ̛̀ɪ ʟᴜ̛ᴏ̛̣ɴɢ ᴠᴜ̛ợt ǫᴜᴀ́ ɢɪớɪ ʜᴀ̣ɴ.\n\n"
+                f"ʜɪᴇ̣̂ɴ ᴛᴀ̣ɪ đã ᴘʜᴀ́t :** {bet}** ᴘʜᴜ́ᴛ ᴛʀᴏɴɢ ᴛᴏ̂̉ɴɢ sᴏ̂́ **{duration}** ᴘʜᴜ́ᴛ.",
                 show_alert=True
             )
         to_seek = duration_played + duration_to_skip + 1
@@ -428,7 +428,7 @@ async def handle_seek(callback: CallbackQuery, _, chat_id: int, command: str, us
     else:
         db[chat_id][0]["played"] += duration_to_skip
     seek_message = _["admin_25"].format(seconds_to_min(to_seek))
-    await mystic.edit_text(f"{seek_message}\n\nᴄʜᴀɴɢᴇs ᴅᴏɴᴇ ʙʏ : {user_mention} !")
+    await mystic.edit_text(f"{seek_message}\n\nᴄᴀ́ᴄ ᴛʜᴀʏ đổɪ đượᴄ ᴛʜựᴄ ʜɪệ̂ɴ ʙởɪ : {user_mention} !")
 
 
 async def markup_timer():
@@ -478,7 +478,7 @@ async def close_menu(_, query: CallbackQuery):
     try:
         await query.answer()
         await query.message.delete()
-        msg = await query.message.reply_text(f"✅ ᴄʟᴏꜱᴇᴅ ʙʏ : {query.from_user.mention}")
+        msg = await query.message.reply_text(f"✅ đᴀ̃ ᴅᴏ́ɴɢ ʙởɪ : {query.from_user.mention}")
         await asyncio.sleep(2)
         await msg.delete()
     except:
