@@ -46,48 +46,15 @@ counter = {}
         #video_flags=(MediaStream.Flags.AUTO_DETECT if video else MediaStream.Flags.IGNORE),
         #ffmpeg_parameters=ffmpeg_params,
     #)
-# === BEGIN PATCH dynamic_media_stream ===
 def dynamic_media_stream(path: str, video: bool = False, ffmpeg_params: str = None) -> MediaStream:
-    """
-    - Giữ video nhưng ép cấu hình 'nhẹ' để tránh đụng SIMD/encoder nặng.
-    - Cho phép override qua ENV:
-        VIDEO_MAX_RES:  "240" | "360" (mặc định 360)
-        VIDEO_FPS:      số nguyên, mặc định 15
-        VIDEO_BR_K:     bitrate kbps, mặc định 600
-        VIDEO_SAFE:     "1" để luôn chèn ffmpeg_parameters an toàn
-    """
-    # --- defaults an toàn ---
-    max_res = os.getenv("VIDEO_MAX_RES", "360")
-    fps = int(os.getenv("VIDEO_FPS", "15"))
-    br_k = int(os.getenv("VIDEO_BR_K", "600"))
-    force_safe = os.getenv("VIDEO_SAFE", "0") == "1"
-
-    # Chọn enum chất lượng thấp thay vì HD_720p
-    vq = VideoQuality.SD_360p if (video and max_res == "360") else (
-         VideoQuality.SD_240p if video else VideoQuality.SD_480p
-    )
-    aq = AudioQuality.MEDIUM if video else AudioQuality.STUDIO
-
-    # FFmpeg “nhẹ”, baseline, zerolatency; khoá GOP đều để decoder dễ thở
-    safe_ffmpeg = (
-        f'-vf "scale=-2:{max_res},fps={fps}" '
-        f'-pix_fmt yuv420p '
-        f'-c:v libx264 -profile:v baseline -level 3.1 '
-        f'-preset veryfast -tune zerolatency '
-        f'-g {fps*2} -keyint_min {fps*2} -sc_threshold 0 '
-        f'-b:v {br_k}k -maxrate {br_k+100}k -bufsize {max_res=="360" and 1200 or 800}k '
-        f'-c:a aac -b:a 96k -ac 2 -ar 48000'
-    )
-
     return MediaStream(
         audio_path=path,
         media_path=path,
-        audio_parameters=aq,
-        video_parameters=vq if video else VideoQuality.SD_480p,
+        audio_parameters=AudioQuality.MEDIUM if video else AudioQuality.STUDIO,
+        video_parameters=VideoQuality.HD_720p if video else VideoQuality.SD_480p,
         video_flags=(MediaStream.Flags.AUTO_DETECT if video else MediaStream.Flags.IGNORE),
-        ffmpeg_parameters=(ffmpeg_params or safe_ffmpeg) if (video and (force_safe or not ffmpeg_params)) else ffmpeg_params,
+        ffmpeg_parameters=ffmpeg_params,
     )
-# === END PATCH dynamic_media_stream ===
 
 async def _clear_(chat_id: int) -> None:
     popped = db.pop(chat_id, None)
