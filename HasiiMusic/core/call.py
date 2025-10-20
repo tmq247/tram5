@@ -60,11 +60,11 @@ def dynamic_media_stream(path: str, video: bool = False, ffmpeg_params: str = No
     max_res = os.getenv("VIDEO_MAX_RES", "360")
     fps = int(os.getenv("VIDEO_FPS", "15"))
     br_k = int(os.getenv("VIDEO_BR_K", "600"))
-    force_safe = os.getenv("VIDEO_SAFE", "0") == "1"
+    force_safe = os.getenv("VIDEO_SAFE", "1") == "1"
 
     # Chọn enum chất lượng thấp thay vì HD_720p
     vq = VideoQuality.SD_360p if (video and max_res == "360") else (
-         VideoQuality.SD_240p
+         VideoQuality.SD_240p if video else VideoQuality.SD_480p
     )
     aq = AudioQuality.MEDIUM if video else AudioQuality.STUDIO
 
