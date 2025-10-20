@@ -47,41 +47,78 @@ counter = {}
         #ffmpeg_parameters=ffmpeg_params,
     #)
 # === BEGIN PATCH dynamic_media_stream ===
-def dynamic_media_stream(path: str, video: bool = False, ffmpeg_params: str = None) -> MediaStream:
+def dynamic_media_stream(path: str, video: bool = False, ffmpeg_params: str | None = None) -> MediaStream:
     """
     - Giữ video nhưng ép cấu hình 'nhẹ' để tránh đụng SIMD/encoder nặng.
-    - Cho phép override qua ENV:
-        VIDEO_MAX_RES:  "240" | "360" (mặc định 360)
-        VIDEO_FPS:      số nguyên, mặc định 15
-        VIDEO_BR_K:     bitrate kbps, mặc định 600
+    - ENV override:
+        VIDEO_MAX_RES:  "240" | "360" | "480" (mặc định 360)
+        VIDEO_FPS:      int, mặc định 15
+        VIDEO_BR_K:     int kbps, mặc định 600
         VIDEO_SAFE:     "1" để luôn chèn ffmpeg_parameters an toàn
     """
     # --- defaults an toàn ---
-    max_res = os.getenv("VIDEO_MAX_RES", "360")
-    fps = int(os.getenv("VIDEO_FPS", "15"))
-    br_k = int(os.getenv("VIDEO_BR_K", "600"))
+    try:
+        max_res = int(os.getenv("VIDEO_MAX_RES", "360"))
+    except ValueError:
+        max_res = 360
+    fps   = int(os.getenv("VIDEO_FPS", "15"))
+    br_k  = int(os.getenv("VIDEO_BR_K", "600"))
     force_safe = os.getenv("VIDEO_SAFE", "1") == "1"
 
-    # Chọn enum chất lượng thấp thay vì HD_720p
-    vq = VideoQuality.SD_360p if (video and max_res == "360") else (
-         VideoQuality.SD_240p if video else VideoQuality.SD_480p
-    )
+    # clamp một chút cho an toàn decoder yếu
+    if fps < 10: fps = 10
+    if fps > 30: fps = 30
+    if max_res not in (240, 360, 480):
+        max_res = 360
+
+    # Chọn enum video quality hợp lý theo max_res
+    if video:
+        if max_res == 240:
+            vq = VideoQuality.SD_240p
+        elif max_res == 360:
+            vq = VideoQuality.SD_360p
+        else:  # 480
+            vq = VideoQuality.SD_480p
+    else:
+        vq = VideoQuality.SD_480p  # không dùng tới nếu video=False
+
+    # Audio: khi có video thì giảm chất lượng cho nhẹ; audio-only thì tốt hơn
     aq = AudioQuality.MEDIUM if video else AudioQuality.STUDIO
 
-    # FFmpeg “nhẹ”, baseline, zerolatency; khoá GOP đều để decoder dễ thở
-    # FFmpeg “nhẹ” + GIỮ LUỒNG SỐNG
-    safe_ffmpeg = (
+    # ===== FFmpeg options =====
+    # Input options (đặt TRƯỚC -i). Dùng nếu backend cho phép cấu hình input-args.
+    safe_ffmpeg_in = (
+        "-analyzeduration 2M -probesize 2M "
+        "-reconnect 1 -reconnect_streamed 1 "
+        "-reconnect_on_network_error 1 -reconnect_delay_max 2 "
+        "-fflags +genpts"
+    )
+
+    # Output options (đặt SAU -i). Đây là thứ bạn chắc chắn có thể truyền qua ffmpeg_parameters.
+    gop = fps * 2
+    maxrate_k = br_k + 100
+    buf_k = 800 if max_res == 240 else (1200 if max_res == 360 else 1600)
+
+    # Dùng x264-params cho keyint/scenecut, ổn định hơn nhiều build FFmpeg
+    x264_params = f"keyint={gop}:min-keyint={gop}:scenecut=0:nal-hrd=cbr"
+
+    safe_ffmpeg_out = (
         f'-vf "scale=-2:{max_res},fps={fps}" '
         f'-pix_fmt yuv420p '
-        f'-c:v libx264 -profile:v baseline -level 3.1 '
+        f'-c:v libx264 -profile:v baseline -level:v 3.1 '
         f'-preset veryfast -tune zerolatency '
-        f'-g {fps*2} -keyint_min {fps*2} -sc_threshold 0 '
-        f'-b:v {br_k}k -maxrate {br_k+100}k -bufsize {1200 if max_res=="360" else 800}k '
+        f'-x264-params "{x264_params}" '
+        f'-b:v {br_k}k -maxrate {maxrate_k}k -bufsize {buf_k}k '
         f'-c:a aac -b:a 96k -ac 2 -ar 48000 '
-        f'-fflags +genpts -flags +global_header -flush_packets 1 '
-        f'-analyzeduration 2M -probesize 2M '
-        f'-reconnect 1 -reconnect_streamed 1 -reconnect_on_network_error 1 -reconnect_delay_max 2'
+        f'-flags +global_header -flush_packets 1'
     )
+
+    # Nếu bạn BIẾT chắc MediaStream sẽ ghép ffmpeg_parameters ở phần output,
+    # thì chỉ nên truyền safe_ffmpeg_out vào. Nếu lib có chỗ cho input-args,
+    # hãy nối safe_ffmpeg_in vào đúng vị trí trước -i.
+    chosen_ffmpeg = ffmpeg_params
+    if video and (force_safe or not ffmpeg_params):
+        chosen_ffmpeg = safe_ffmpeg_out
 
     return MediaStream(
         audio_path=path,
@@ -89,7 +126,9 @@ def dynamic_media_stream(path: str, video: bool = False, ffmpeg_params: str = No
         audio_parameters=aq,
         video_parameters=vq if video else VideoQuality.SD_480p,
         video_flags=(MediaStream.Flags.AUTO_DETECT if video else MediaStream.Flags.IGNORE),
-        ffmpeg_parameters=(ffmpeg_params or safe_ffmpeg) if (video and (force_safe or not ffmpeg_params)) else ffmpeg_params,
+        ffmpeg_parameters=chosen_ffmpeg,
+        # Nếu có tham số riêng cho input ffmpeg (tuỳ lib), hãy thêm:
+        # ffmpeg_input_parameters=safe_ffmpeg_in if (video and (force_safe or not ffmpeg_params)) else None,
     )
 # === END PATCH dynamic_media_stream ===
 
