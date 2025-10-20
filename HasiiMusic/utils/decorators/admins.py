@@ -83,11 +83,11 @@ def AdminRightsCheck(mystic):
                     # Normal user — block or start vote, depending on skipmode
                     if await is_skipmode(message.chat.id):
                         upvote = await get_upvote_count(chat_id)
-                        text = (
-                            f"<b>ᴀᴅᴍɪɴ ʀɪɢʜᴛs ɴᴇᴇᴅᴇᴅ</b>\n\n"
-                            f"ʀᴇғʀᴇsʜ ᴀᴅᴍɪɴ ᴄᴀᴄʜᴇ ᴠɪᴀ : /reload\n\n"
-                            f"» {upvote} ᴠᴏᴛᴇs ɴᴇᴇᴅᴇᴅ ғᴏʀ ᴘᴇʀғᴏʀᴍɪɴɢ ᴛʜɪs ᴀᴄᴛɪᴏɴ."
-                        )
+                        text = f"""<b>ᴄᴀ̂̀ɴ ǫᴜʏᴇ̂̀ɴ ǫᴜᴀ̉ɴ ᴛʀɪ̣</b>
+
+ᴄᴀ̣̂ᴘ ɴʜᴀ̣̂ᴛ ʙᴏ̣̂ ɴʜớ ǫᴜᴀ̉ɴ ᴛʀɪ̣" : /reload
+
+» {upvote} ᴄᴀ̂̀ɴ sᴏ̂́ ᴘʜɪᴇ̂́ᴜ ʙᴀ̂̀ᴜ ᴄᴀ̂̀ɴ ᴛʜɪᴇ̂́ᴛ ᴅᴇ̂̉ ᴛʜᴜ̛̣ᴄ ʜɪᴇ̣̂ɴ ʜᴀ̀ɴʜ ᴅᴏ̣̂ɴɢ ɴᴀ̀ʏ."""
                         command = message.command[0].lstrip("c")
                         if command == "speed":
                             return await message.reply_text(_["admin_14"])
