@@ -69,14 +69,18 @@ def dynamic_media_stream(path: str, video: bool = False, ffmpeg_params: str = No
     aq = AudioQuality.MEDIUM if video else AudioQuality.STUDIO
 
     # FFmpeg “nhẹ”, baseline, zerolatency; khoá GOP đều để decoder dễ thở
+    # FFmpeg “nhẹ” + GIỮ LUỒNG SỐNG
     safe_ffmpeg = (
         f'-vf "scale=-2:{max_res},fps={fps}" '
         f'-pix_fmt yuv420p '
         f'-c:v libx264 -profile:v baseline -level 3.1 '
         f'-preset veryfast -tune zerolatency '
         f'-g {fps*2} -keyint_min {fps*2} -sc_threshold 0 '
-        f'-b:v {br_k}k -maxrate {br_k+100}k -bufsize {max_res=="360" and 1200 or 800}k '
-        f'-c:a aac -b:a 96k -ac 2 -ar 48000'
+        f'-b:v {br_k}k -maxrate {br_k+100}k -bufsize {1200 if max_res=="360" else 800}k '
+        f'-c:a aac -b:a 96k -ac 2 -ar 48000 '
+        f'-fflags +genpts -flags +global_header -flush_packets 1 '
+        f'-analyzeduration 2M -probesize 2M '
+        f'-reconnect 1 -reconnect_streamed 1 -reconnect_on_network_error 1 -reconnect_delay_max 2'
     )
 
     return MediaStream(
@@ -192,13 +196,16 @@ class Call:
             await assistant.play(chat_id, stream)
         except Exception:
             ultra_ffmpeg = (
-                '-vf "scale=-2:240,fps=15" -pix_fmt yuv420p '
-                '-c:v libx264 -profile:v baseline -level 3.0 '
-                '-preset ultrafast -tune zerolatency '
-                '-g 30 -keyint_min 30 -sc_threshold 0 '
-                '-b:v 450k -maxrate 500k -bufsize 800k '
-                '-c:a aac -b:a 96k -ac 2 -ar 48000'
-            )
+    '-vf "scale=-2:240,fps=15" -pix_fmt yuv420p '
+    '-c:v libx264 -profile:v baseline -level 3.0 '
+    '-preset ultrafast -tune zerolatency '
+    '-g 30 -keyint_min 30 -sc_threshold 0 '
+    '-b:v 450k -maxrate 500k -bufsize 800k '
+    '-c:a aac -b:a 96k -ac 2 -ar 48000 '
+    '-fflags +genpts -flags +global_header -flush_packets 1 '
+    '-analyzeduration 2M -probesize 2M '
+    '-reconnect 1 -reconnect_streamed 1 -reconnect_on_network_error 1 -reconnect_delay_max 2'
+)
             stream2 = dynamic_media_stream(path=link, video=bool(video), ffmpeg_params=ultra_ffmpeg)
             await assistant.play(chat_id, stream2)
 
@@ -313,13 +320,16 @@ class Call:
         except Exception as e:
             # Nếu encoder nổ (SIGILL / invalid opcode), thử hạ chất lượng xuống 240p
             ultra_ffmpeg = (
-                '-vf "scale=-2:240,fps=15" -pix_fmt yuv420p '
-                '-c:v libx264 -profile:v baseline -level 3.0 '
-                '-preset ultrafast -tune zerolatency '
-                '-g 30 -keyint_min 30 -sc_threshold 0 '
-                '-b:v 450k -maxrate 500k -bufsize 800k '
-                '-c:a aac -b:a 96k -ac 2 -ar 48000'
-            )
+    '-vf "scale=-2:240,fps=15" -pix_fmt yuv420p '
+    '-c:v libx264 -profile:v baseline -level 3.0 '
+    '-preset ultrafast -tune zerolatency '
+    '-g 30 -keyint_min 30 -sc_threshold 0 '
+    '-b:v 450k -maxrate 500k -bufsize 800k '
+    '-c:a aac -b:a 96k -ac 2 -ar 48000 '
+    '-fflags +genpts -flags +global_header -flush_packets 1 '
+    '-analyzeduration 2M -probesize 2M '
+    '-reconnect 1 -reconnect_streamed 1 -reconnect_on_network_error 1 -reconnect_delay_max 2'
+)
             try:
                 stream2 = dynamic_media_stream(path=link, video=bool(video), ffmpeg_params=ultra_ffmpeg)
                 await assistant.play(chat_id, stream2)
@@ -415,13 +425,16 @@ class Call:
                     await client.play(chat_id, stream)
                 except Exception as e:
                     ultra_ffmpeg = (
-                    '-vf "scale=-2:240,fps=15" -pix_fmt yuv420p '
-                    '-c:v libx264 -profile:v baseline -level 3.0 '
-                    '-preset ultrafast -tune zerolatency '
-                    '-g 30 -keyint_min 30 -sc_threshold 0 '
-                    '-b:v 450k -maxrate 500k -bufsize 800k '
-                    '-c:a aac -b:a 96k -ac 2 -ar 48000'
-                    )
+    '-vf "scale=-2:240,fps=15" -pix_fmt yuv420p '
+    '-c:v libx264 -profile:v baseline -level 3.0 '
+    '-preset ultrafast -tune zerolatency '
+    '-g 30 -keyint_min 30 -sc_threshold 0 '
+    '-b:v 450k -maxrate 500k -bufsize 800k '
+    '-c:a aac -b:a 96k -ac 2 -ar 48000 '
+    '-fflags +genpts -flags +global_header -flush_packets 1 '
+    '-analyzeduration 2M -probesize 2M '
+    '-reconnect 1 -reconnect_streamed 1 -reconnect_on_network_error 1 -reconnect_delay_max 2'
+)
                     try:
                         stream2 = dynamic_media_stream(path=..., video=video, ffmpeg_params=ultra_ffmpeg)
                         await client.play(chat_id, stream2)
@@ -471,13 +484,16 @@ class Call:
                     await client.play(chat_id, stream)
                 except Exception as e:
                     ultra_ffmpeg = (
-                    '-vf "scale=-2:240,fps=15" -pix_fmt yuv420p '
-                    '-c:v libx264 -profile:v baseline -level 3.0 '
-                    '-preset ultrafast -tune zerolatency '
-                    '-g 30 -keyint_min 30 -sc_threshold 0 '
-                    '-b:v 450k -maxrate 500k -bufsize 800k '
-                    '-c:a aac -b:a 96k -ac 2 -ar 48000'
-                    )
+    '-vf "scale=-2:240,fps=15" -pix_fmt yuv420p '
+    '-c:v libx264 -profile:v baseline -level 3.0 '
+    '-preset ultrafast -tune zerolatency '
+    '-g 30 -keyint_min 30 -sc_threshold 0 '
+    '-b:v 450k -maxrate 500k -bufsize 800k '
+    '-c:a aac -b:a 96k -ac 2 -ar 48000 '
+    '-fflags +genpts -flags +global_header -flush_packets 1 '
+    '-analyzeduration 2M -probesize 2M '
+    '-reconnect 1 -reconnect_streamed 1 -reconnect_on_network_error 1 -reconnect_delay_max 2'
+)
                     try:
                         stream2 = dynamic_media_stream(path=..., video=video, ffmpeg_params=ultra_ffmpeg)
                         await client.play(chat_id, stream2)
@@ -514,13 +530,16 @@ class Call:
                     await client.play(chat_id, stream)
                 except Exception as e:
                     ultra_ffmpeg = (
-                    '-vf "scale=-2:240,fps=15" -pix_fmt yuv420p '
-                    '-c:v libx264 -profile:v baseline -level 3.0 '
-                    '-preset ultrafast -tune zerolatency '
-                    '-g 30 -keyint_min 30 -sc_threshold 0 '
-                    '-b:v 450k -maxrate 500k -bufsize 800k '
-                    '-c:a aac -b:a 96k -ac 2 -ar 48000'
-                    )
+    '-vf "scale=-2:240,fps=15" -pix_fmt yuv420p '
+    '-c:v libx264 -profile:v baseline -level 3.0 '
+    '-preset ultrafast -tune zerolatency '
+    '-g 30 -keyint_min 30 -sc_threshold 0 '
+    '-b:v 450k -maxrate 500k -bufsize 800k '
+    '-c:a aac -b:a 96k -ac 2 -ar 48000 '
+    '-fflags +genpts -flags +global_header -flush_packets 1 '
+    '-analyzeduration 2M -probesize 2M '
+    '-reconnect 1 -reconnect_streamed 1 -reconnect_on_network_error 1 -reconnect_delay_max 2'
+)
                     try:
                         stream2 = dynamic_media_stream(path=..., video=video, ffmpeg_params=ultra_ffmpeg)
                         await client.play(chat_id, stream2)
@@ -550,13 +569,16 @@ class Call:
                     await client.play(chat_id, stream)
                 except Exception as e:
                     ultra_ffmpeg = (
-                    '-vf "scale=-2:240,fps=15" -pix_fmt yuv420p '
-                    '-c:v libx264 -profile:v baseline -level 3.0 '
-                    '-preset ultrafast -tune zerolatency '
-                    '-g 30 -keyint_min 30 -sc_threshold 0 '
-                    '-b:v 450k -maxrate 500k -bufsize 800k '
-                    '-c:a aac -b:a 96k -ac 2 -ar 48000'
-                    )
+    '-vf "scale=-2:240,fps=15" -pix_fmt yuv420p '
+    '-c:v libx264 -profile:v baseline -level 3.0 '
+    '-preset ultrafast -tune zerolatency '
+    '-g 30 -keyint_min 30 -sc_threshold 0 '
+    '-b:v 450k -maxrate 500k -bufsize 800k '
+    '-c:a aac -b:a 96k -ac 2 -ar 48000 '
+    '-fflags +genpts -flags +global_header -flush_packets 1 '
+    '-analyzeduration 2M -probesize 2M '
+    '-reconnect 1 -reconnect_streamed 1 -reconnect_on_network_error 1 -reconnect_delay_max 2'
+)
                     try:
                         stream2 = dynamic_media_stream(path=..., video=video, ffmpeg_params=ultra_ffmpeg)
                         await client.play(chat_id, stream2)
