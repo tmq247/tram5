@@ -51,7 +51,7 @@ def dynamic_media_stream(path: str, video: bool = False, ffmpeg_params: str = No
         audio_path=path,
         media_path=path,
         audio_parameters=AudioQuality.MEDIUM if video else AudioQuality.STUDIO,
-        video_parameters=VideoQuality.SD_480p, #HD_720p if video else VideoQuality.SD_480p,
+        video_parameters=VideoQuality.SD_360p, #HD_720p if video else VideoQuality.SD_480p,
         video_flags=(MediaStream.Flags.AUTO_DETECT if video else MediaStream.Flags.IGNORE),
         ffmpeg_parameters=ffmpeg_params,
     )
