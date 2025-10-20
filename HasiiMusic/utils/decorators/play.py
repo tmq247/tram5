@@ -22,6 +22,7 @@ from HasiiMusic.utils.database import (
     get_playtype,
     is_active_chat,
     is_maintenance,
+    is_served_private_chat,
 )
 from HasiiMusic.utils.inline import botplaylist_markup
 
