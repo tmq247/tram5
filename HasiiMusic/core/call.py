@@ -267,8 +267,35 @@ class Call:
     async def stream_call(self, link: str) -> None:
         assistant = await group_assistant(self, config.LOGGER_ID)
         try:
-            await assistant.play(config.LOGGER_ID, MediaStream(link))
+            # Tham số ffmpeg “nhẹ” giúp ffmpeg check sớm kết thúc:
+            # -t 3: giới hạn chạy 3s trong bước check
+            # -analyzeduration/-probesize: giảm thời gian dò
+            # các cờ reconnect: ổn định link mạng
+            ff_fast = (
+                '-t 2 -analyzeduration 1M -probesize 1M -nostdin '
+                '-reconnect 1 -reconnect_streamed 1 -reconnect_on_network_error 1 -reconnect_delay_max 2'
+            )
+            stream = dynamic_media_stream(path=link, video=False, ffmpeg_params=ff_fast)
+            await assistant.play(config.LOGGER_ID, stream)
             await asyncio.sleep(8)
+        except Exception:
+            # Thử lần 2 với cấu hình “siêu nhẹ” 240p nếu là video test
+            ultra = (
+                '-t 2-vf "scale=-2:240,fps=15" -pix_fmt yuv420p '
+                '-c:v libx264 -profile:v baseline -level 3.0 -preset ultrafast -tune zerolatency '
+                '-g 30 -keyint_min 30 -sc_threshold 0 '
+                '-b:v 450k -maxrate 500k -bufsize 800k '
+                '-c:a aac -b:a 96k -ac 2 -ar 48000 '
+                '-analyzeduration 1M -probesize 1M -nostdin '
+                '-reconnect 1 -reconnect_streamed 1 -reconnect_on_network_error 1 -reconnect_delay_max 2'
+            )
+            try:
+                vstream = dynamic_media_stream(path=link, video=True, ffmpeg_params=ultra)
+                await assistant.play(config.LOGGER_ID, vstream)
+                await asyncio.sleep(8)
+            except Exception:
+                # Cuối cùng: bỏ qua bước test nếu mạng kém/nguồn treo
+                pass
         finally:
             try:
                 await assistant.leave_call(config.LOGGER_ID)
