@@ -188,7 +188,19 @@ class Call:
     async def skip_stream(self, chat_id: int, link: str, video: Union[bool, str] = None, image: Union[bool, str] = None) -> None:
         assistant = await group_assistant(self, chat_id)
         stream = dynamic_media_stream(path=link, video=bool(video))
-        await assistant.play(chat_id, stream)
+        try:
+            await assistant.play(chat_id, stream)
+        except Exception:
+            ultra_ffmpeg = (
+                '-vf "scale=-2:240,fps=15" -pix_fmt yuv420p '
+                '-c:v libx264 -profile:v baseline -level 3.0 '
+                '-preset ultrafast -tune zerolatency '
+                '-g 30 -keyint_min 30 -sc_threshold 0 '
+                '-b:v 450k -maxrate 500k -bufsize 800k '
+                '-c:a aac -b:a 96k -ac 2 -ar 48000'
+            )
+            stream2 = dynamic_media_stream(path=link, video=bool(video), ffmpeg_params=ultra_ffmpeg)
+            await assistant.play(chat_id, stream2)
 
     @capture_internal_err
     async def vc_users(self, chat_id: int) -> list:
@@ -269,9 +281,32 @@ class Call:
         lang = await get_lang(chat_id)
         _ = get_string(lang)
         stream = dynamic_media_stream(path=link, video=bool(video))
-
         try:
             await assistant.play(chat_id, stream)
+        except Exception as e:
+            # Nếu encoder nổ (SIGILL / invalid opcode), thử hạ chất lượng xuống 240p
+            ultra_ffmpeg = (
+                '-vf "scale=-2:240,fps=15" -pix_fmt yuv420p '
+                '-c:v libx264 -profile:v baseline -level 3.0 '
+                '-preset ultrafast -tune zerolatency '
+                '-g 30 -keyint_min 30 -sc_threshold 0 '
+                '-b:v 450k -maxrate 500k -bufsize 800k '
+                '-c:a aac -b:a 96k -ac 2 -ar 48000'
+            )
+            try:
+                stream2 = dynamic_media_stream(path=link, video=bool(video), ffmpeg_params=ultra_ffmpeg)
+                await assistant.play(chat_id, stream2)
+            except Exception as e2:
+                # fallback audio-only
+                if video:
+                    safe_audio = dynamic_media_stream(path=link, video=False)
+                    await assistant.play(chat_id, safe_audio)
+                    await app.send_message(
+                        original_chat_id,
+                        "⚠️ CPU không hỗ trợ video (AVX). Đang phát audio-only."
+                    )
+                else:
+                    raise
         except (NoActiveGroupCall, ChatAdminRequired):
             raise AssistantErr(_["call_8"])
         except TelegramServerError:
@@ -351,8 +386,28 @@ class Call:
                 stream = dynamic_media_stream(path=link, video=video)
                 try:
                     await client.play(chat_id, stream)
-                except Exception:
-                    return await app.send_message(original_chat_id, text=_["call_6"])
+                except Exception as e:
+                    ultra_ffmpeg = (
+                    '-vf "scale=-2:240,fps=15" -pix_fmt yuv420p '
+                    '-c:v libx264 -profile:v baseline -level 3.0 '
+                    '-preset ultrafast -tune zerolatency '
+                    '-g 30 -keyint_min 30 -sc_threshold 0 '
+                    '-b:v 450k -maxrate 500k -bufsize 800k '
+                    '-c:a aac -b:a 96k -ac 2 -ar 48000'
+                    )
+                    try:
+                        stream2 = dynamic_media_stream(path=..., video=video, ffmpeg_params=ultra_ffmpeg)
+                        await client.play(chat_id, stream2)
+                    except Exception:
+                        if video:
+                            audio_safe = dynamic_media_stream(path=..., video=False)
+                            await client.play(chat_id, audio_safe)
+                            await app.send_message(
+                            original_chat_id,
+                            "⚠️ CPU yếu, tự động chuyển audio-only."
+                        )
+                        else:
+                            raise
 
                 img = await get_thumb(videoid)
                 button = stream_markup(_, chat_id)
@@ -384,12 +439,31 @@ class Call:
                         _["call_6"], disable_web_page_preview=True
                     )
 
-                stream = dynamic_media_stream(path=file_path, video=video)
+                stream = dynamic_media_stream(path=link, video=video)
                 try:
                     await client.play(chat_id, stream)
-                except:
-                    return await app.send_message(original_chat_id, text=_["call_6"])
-
+                except Exception as e:
+                    ultra_ffmpeg = (
+                    '-vf "scale=-2:240,fps=15" -pix_fmt yuv420p '
+                    '-c:v libx264 -profile:v baseline -level 3.0 '
+                    '-preset ultrafast -tune zerolatency '
+                    '-g 30 -keyint_min 30 -sc_threshold 0 '
+                    '-b:v 450k -maxrate 500k -bufsize 800k '
+                    '-c:a aac -b:a 96k -ac 2 -ar 48000'
+                    )
+                    try:
+                        stream2 = dynamic_media_stream(path=..., video=video, ffmpeg_params=ultra_ffmpeg)
+                        await client.play(chat_id, stream2)
+                    except Exception:
+                        if video:
+                            audio_safe = dynamic_media_stream(path=..., video=False)
+                            await client.play(chat_id, audio_safe)
+                            await app.send_message(
+                            original_chat_id,
+                            "⚠️ CPU yếu, tự động chuyển audio-only."
+                        )
+                        else:
+                            raise
                 img = await get_thumb(videoid)
                 button = stream_markup(_, chat_id)
                 await mystic.delete()
@@ -408,12 +482,31 @@ class Call:
                 db[chat_id][0]["markup"] = "stream"
 
             elif "index_" in queued:
-                stream = dynamic_media_stream(path=videoid, video=video)
+                stream = dynamic_media_stream(path=link, video=video)
                 try:
                     await client.play(chat_id, stream)
-                except:
-                    return await app.send_message(original_chat_id, text=_["call_6"])
-
+                except Exception as e:
+                    ultra_ffmpeg = (
+                    '-vf "scale=-2:240,fps=15" -pix_fmt yuv420p '
+                    '-c:v libx264 -profile:v baseline -level 3.0 '
+                    '-preset ultrafast -tune zerolatency '
+                    '-g 30 -keyint_min 30 -sc_threshold 0 '
+                    '-b:v 450k -maxrate 500k -bufsize 800k '
+                    '-c:a aac -b:a 96k -ac 2 -ar 48000'
+                    )
+                    try:
+                        stream2 = dynamic_media_stream(path=..., video=video, ffmpeg_params=ultra_ffmpeg)
+                        await client.play(chat_id, stream2)
+                    except Exception:
+                        if video:
+                            audio_safe = dynamic_media_stream(path=..., video=False)
+                            await client.play(chat_id, audio_safe)
+                            await app.send_message(
+                            original_chat_id,
+                            "⚠️ CPU yếu, tự động chuyển audio-only."
+                        )
+                        else:
+                            raise
                 button = stream_markup(_, chat_id)
                 run = await app.send_photo(
                     chat_id=original_chat_id,
@@ -425,11 +518,31 @@ class Call:
                 db[chat_id][0]["markup"] = "tg"
 
             else:
-                stream = dynamic_media_stream(path=queued, video=video)
+                stream = dynamic_media_stream(path=link, video=video)
                 try:
                     await client.play(chat_id, stream)
-                except:
-                    return await app.send_message(original_chat_id, text=_["call_6"])
+                except Exception as e:
+                    ultra_ffmpeg = (
+                    '-vf "scale=-2:240,fps=15" -pix_fmt yuv420p '
+                    '-c:v libx264 -profile:v baseline -level 3.0 '
+                    '-preset ultrafast -tune zerolatency '
+                    '-g 30 -keyint_min 30 -sc_threshold 0 '
+                    '-b:v 450k -maxrate 500k -bufsize 800k '
+                    '-c:a aac -b:a 96k -ac 2 -ar 48000'
+                    )
+                    try:
+                        stream2 = dynamic_media_stream(path=..., video=video, ffmpeg_params=ultra_ffmpeg)
+                        await client.play(chat_id, stream2)
+                    except Exception:
+                        if video:
+                            audio_safe = dynamic_media_stream(path=..., video=False)
+                            await client.play(chat_id, audio_safe)
+                            await app.send_message(
+                            original_chat_id,
+                            "⚠️ CPU yếu, tự động chuyển audio-only."
+                        )
+                        else:
+                            raise
 
                 if videoid == "telegram":
                     button = stream_markup(_, chat_id)
