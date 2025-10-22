@@ -4,7 +4,7 @@ import time
 from pyrogram import filters
 from pyrogram.enums import ChatType
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
-from py_yt  import VideosSearch
+from py_yt import VideosSearch
 
 import config
 from config import BANNED_USERS, HELP_IMG_URL, START_VIDS, STICKERS
@@ -33,6 +33,7 @@ async def delete_sticker_after_delay(message, delay):
     await asyncio.sleep(delay)
     await message.delete()
 
+
 @app.on_message(filters.command(["start"]) & filters.private & ~BANNED_USERS)
 @LanguageStart
 async def start_pm(client, message: Message, _):
@@ -51,7 +52,7 @@ async def start_pm(client, message: Message, _):
             if await is_on_off(2):
                 await app.send_message(
                     chat_id=config.LOGGER_ID,
-                    text=f"{message.from_user.mention} ᴠừᴀ ᴍớɪ ᴋʜởɪ ᴅᴏ̣̂ɴɢ ʙᴏᴛ đᴇ̂̉ ᴋɪᴇ̂̉ᴍ ᴛʀᴀ <b>sᴜᴅᴏʟɪsᴛ</b>.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
+                    text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>sᴜᴅᴏʟɪsᴛ</b>.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
                 )
         elif name.startswith("inf"):
             m = await message.reply_text("🔎")
@@ -74,7 +75,8 @@ async def start_pm(client, message: Message, _):
                 [
                     [
                         InlineKeyboardButton(text=_["S_B_6"], url=link),
-                        InlineKeyboardButton(text=_["S_B_4"], url=config.SUPPORT_CHAT),
+                        InlineKeyboardButton(
+                            text=_["S_B_4"], url=config.SUPPORT_CHAT),
                     ]
                 ]
             )
@@ -88,7 +90,7 @@ async def start_pm(client, message: Message, _):
             if await is_on_off(2):
                 await app.send_message(
                     chat_id=config.LOGGER_ID,
-                    text=f"{message.from_user.mention} ᴠừᴀ ᴍớɪ ᴋʜởɪ ᴅᴏ̣̂ɴɢ ʙᴏᴛ đᴇ̂̉ ᴋɪᴇ̂̉ᴍ ᴛʀᴀ <b>ᴛʀᴀᴄᴋ ɪɴғᴏʀᴍᴀᴛɪᴏɴ</b>.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
+                    text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>ᴛʀᴀᴄᴋ ɪɴғᴏʀᴍᴀᴛɪᴏɴ</b>.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
                 )
     else:
         out = private_panel(_)
@@ -107,8 +109,9 @@ async def start_pm(client, message: Message, _):
         if await is_on_off(2):
             await app.send_message(
                 chat_id=config.LOGGER_ID,
-                text=f"{message.from_user.mention} ᴠừᴀ ᴍớɪ ᴋʜởɪ ᴅᴏ̣̂ɴɢ ʙᴏᴛ.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
+                text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
             )
+
 
 @app.on_message(filters.command(["start"]) & filters.group & ~BANNED_USERS)
 @LanguageStart
@@ -118,12 +121,14 @@ async def start_gp(client, message: Message, _):
     try:
         await message.reply_video(
             random.choice(START_VIDS),
-            caption=_["start_1"].format(app.mention, get_readable_time(uptime)),
+            caption=_["start_1"].format(
+                app.mention, get_readable_time(uptime)),
             reply_markup=InlineKeyboardMarkup(out),
         )
     except:
-        pass    
+        pass
     return await add_served_chat(message.chat.id)
+
 
 @app.on_message(filters.new_chat_members, group=-1)
 async def welcome(client, message: Message):
