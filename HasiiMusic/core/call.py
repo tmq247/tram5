@@ -500,7 +500,7 @@ class Call:
                         await self.stop_stream(update.chat_id)
                         return
 
-                elif isinstance(update, StreamEnded):
+                elif isinstance(update, StreamAudioEnded):
                     if update.stream_type == StreamEnded.Type.AUDIO:
                         assistant = await group_assistant(self, update.chat_id)
                         await self.play(assistant, update.chat_id)
