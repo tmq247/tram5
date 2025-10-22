@@ -9,7 +9,7 @@ from pyrogram.errors import FloodWait, ChatAdminRequired
 from pyrogram.types import InlineKeyboardMarkup
 from pytgcalls import PyTgCalls
 from pytgcalls.exceptions import NoActiveGroupCall
-from pytgcalls.types import AudioQuality, ChatUpdate, MediaStream, StreamEnded, Update, VideoQuality
+from pytgcalls.types import AudioQuality, ChatUpdate, MediaStream, StreamAudioEnded, Update, VideoQuality
 
 import config
 from strings import get_string
