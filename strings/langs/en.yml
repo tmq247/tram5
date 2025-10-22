@@ -24,16 +24,16 @@ general_3: |
   <blockquote>
   ↩️ Hãy quay lại tài khoản người dùng để sử dụng tôi.
   </blockquote>
-general_4: "🚫 𝗣𝗲𝗿𝗺𝗶𝘀𝘀𝗶𝗼𝗻 𝗗𝗲𝗻𝗶𝗲𝗱. 𝗬𝗼𝘂 𝗰𝗮𝗻'𝘁 𝗺𝗮𝗻𝗮𝗴𝗲 𝘃𝗶𝗱𝗲𝗼𝗰𝗵𝗮𝘁𝘀. \n 🔄 𝗨𝗽𝗱𝗮𝘁𝗲 𝗮𝗱𝗺𝗶𝗻 𝗰𝗮𝗰𝗵𝗲 𝘃𝗶𝗮 /reload"
+general_4: "🚫 Quyền bị từ chối. ⚙️ Bạn không thể quản lý video chat. \n   🔄 Cập nhật bộ nhớ đệm quyền quản trị qua /reload"
 
 #("""(general_4: |
-  <blockquote>
-  🚫 <b>Quyền bị từ chối</b>
-  </blockquote>
-  <blockquote>
-  ⚙️ Bạn không thể quản lý video chat.<br>
-  🔄 Cập nhật bộ nhớ đệm quyền quản trị qua /reload
-  </blockquote>)""")
+  #<blockquote>
+  #🚫 <b>Quyền bị từ chối</b>
+#  </blockquote>
+ # <blockquote>
+ # ⚙️ Bạn không thể quản lý video chat.<br>
+  #🔄 Cập nhật bộ nhớ đệm quyền quản trị qua /reload
+  #</blockquote>)""")
 
 general_5: |
   <blockquote>
