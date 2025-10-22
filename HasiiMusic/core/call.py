@@ -3,7 +3,7 @@ import os
 from datetime import datetime, timedelta
 from typing import Union
 
-from ntgcalls import TelegramServerError
+#from ntgcalls import TelegramServerError
 from pyrogram import Client
 from pyrogram.errors import FloodWait, ChatAdminRequired
 from pyrogram.types import InlineKeyboardMarkup
@@ -488,9 +488,9 @@ class Call:
             ChatUpdate.Status.KICKED
             | ChatUpdate.Status.LEFT_GROUP
             | ChatUpdate.Status.CLOSED_VOICE_CHAT
-            | ChatUpdate.Status.DISCARDED_CALL
-            | ChatUpdate.Status.BUSY_CALL
-        )
+            | ChatUpdate.Status.DISCARDED_CALL)
+           # | ChatUpdate.Status.BUSY_CALL
+       # )
 
         async def unified_update_handler(client, update: Update) -> None:
             try:
