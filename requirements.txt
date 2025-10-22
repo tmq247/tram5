@@ -14,7 +14,7 @@ psutil
 py-yt-search
 kurigram==2.2.13
 python-dotenv
-ntgcalls==2.0.6
+#ntgcalls==2.0.6
 py-tgcalls==2.2.8
 pyyaml==6.0.3
 requests
@@ -23,3 +23,6 @@ spotipy
 tgcrypto
 unidecode
 yt-dlp==2025.10.14
+
+--no-binary ntgcalls
+ntgcalls==2.0.6
