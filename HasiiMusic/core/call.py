@@ -3,13 +3,13 @@ import os
 from datetime import datetime, timedelta
 from typing import Union
 
-#from ntgcalls import TelegramServerError
+from ntgcalls import TelegramServerError
 from pyrogram import Client
 from pyrogram.errors import FloodWait, ChatAdminRequired
 from pyrogram.types import InlineKeyboardMarkup
 from pytgcalls import PyTgCalls
 from pytgcalls.exceptions import NoActiveGroupCall
-from pytgcalls.types import AudioQuality, ChatUpdate, MediaStream, StreamAudioEnded, Update, VideoQuality
+from pytgcalls.types import AudioQuality, ChatUpdate, MediaStream, StreamEnded, Update, VideoQuality
 
 import config
 from strings import get_string
@@ -500,7 +500,7 @@ class Call:
                         await self.stop_stream(update.chat_id)
                         return
 
-                elif isinstance(update, StreamAudioEnded):
+                elif isinstance(update, StreamEnded):
                     if update.stream_type == StreamEnded.Type.AUDIO:
                         assistant = await group_assistant(self, update.chat_id)
                         await self.play(assistant, update.chat_id)
