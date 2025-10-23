@@ -173,19 +173,19 @@ async def dl_command(client: Client, message: Message):
         await message.reply_text(f"❌ Không lấy được audio/voice: {e}")
         return
     mime = _guess_mime(path)
-token = _make_token(path, DL_KEEP_MIN, mime, one_shot=DL_ONE_SHOT)
-url = _build_url(token)
+    token = _make_token(path, DL_KEEP_MIN, mime, one_shot=DL_ONE_SHOT)
+    url = _build_url(token)
 
-bullet = "(1 lần)" if DL_ONE_SHOT else "(nhiều lần)"
-text = (
+    bullet = "(1 lần)" if DL_ONE_SHOT else "(nhiều lần)"
+    text = (
     "🔗 Link tải sẵn sàng\n\n"
     f"• File: {path.name}\n"
     f"• Loại: {mime}\n"
     f"• Hết hạn: ~{DL_KEEP_MIN} phút {bullet}\n"
 )
 
-kb = InlineKeyboardMarkup([[InlineKeyboardButton("⬇️ Tải file", url=url)]])
-await message.reply_text(text, reply_markup=kb, disable_web_page_preview=True, parse_mode=None)
+    kb = InlineKeyboardMarkup([[InlineKeyboardButton("⬇️ Tải file", url=url)]])
+    await message.reply_text(text, reply_markup=kb, disable_web_page_preview=True, parse_mode=None)
 
 # ==================== API nội bộ ====================
 async def create_download_link_from_message(client: Client, msg: Message, *, minutes: Optional[int] = None, one_shot: Optional[bool] = None) -> str:
