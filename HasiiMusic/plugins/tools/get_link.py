@@ -168,7 +168,8 @@ async def dl_command(client: Client, message: Message):
     if not replied:
         await message.reply_text("Hãy reply vào 1 tin nhắn có audio/voice rồi dùng /dl")
         return
-    try: path = await _download_audio_to_temp(client, replied)
+    try: 
+       path = await _download_audio_to_temp(client, replied)
     except Exception as e:
         await message.reply_text(f"❌ Không lấy được audio/voice: {e}")
         return
@@ -206,8 +207,7 @@ async def dl_status(client: Client, message: Message):
             f"• Base: {base}\n"
             f"• Port: {DL_PORT}\n"
             f"• TTL mặc định: {DL_KEEP_MIN} phút\n"
-            f"• One-shot: {DL_ONE_SHOT}\n"
-            f"• Cache: {DL_ROOT}",
+            f"• One-shot: {DL_ONE_SHOT}\n",
             disable_web_page_preview=True,
         )
     except Exception as e:
