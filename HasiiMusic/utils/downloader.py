@@ -83,8 +83,10 @@ async def _get_session() -> aiohttp.ClientSession:
     async with _session_lock:
         if _session and not _session.closed:
             return _session
-        timeout = aiohttp.ClientTimeout(total=600, sock_connect=20, sock_read=60)
-        connector = TCPConnector(limit=0, ttl_dns_cache=300, enable_cleanup_closed=True)
+        timeout = aiohttp.ClientTimeout(
+            total=600, sock_connect=20, sock_read=60)
+        connector = TCPConnector(
+            limit=0, ttl_dns_cache=300, enable_cleanup_closed=True)
         _session = aiohttp.ClientSession(timeout=timeout, connector=connector)
         return _session
 
@@ -206,7 +208,8 @@ async def yt_dlp_download(
                 }
             )
             await _with_sem(
-                loop.run_in_executor(None, lambda: YoutubeDL(opts).download([link]))
+                loop.run_in_executor(
+                    None, lambda: YoutubeDL(opts).download([link]))
             )
             return f"{_DOWNLOAD_DIR}/{safe_title}.mp4"
 
@@ -227,13 +230,32 @@ async def yt_dlp_download(
                         {
                             "key": "FFmpegExtractAudio",
                             "preferredcodec": "mp3",
-                            "preferredquality": "192",
+                            "preferredquality": "320",
                         }
+                    ],
+                    "postprocessor_args": [
+                        "-af",
+                        (
+                            # Dolby-like EQ + Stronger Bass + Dynamic Normalization
+                            # Deep sub-bass (thunder feel)
+                            "equalizer=f=32:width_type=h:width=50:g=14,"
+                            "equalizer=f=64:width_type=h:width=50:g=11,"   # Punchy low bass
+                            "equalizer=f=125:width_type=h:width=50:g=8,"   # Warmth & fullness
+                            "equalizer=f=250:width_type=h:width=50:g=3,"   # Body
+                            "equalizer=f=500:width_type=h:width=50:g=0,"   # Neutral mids
+                            "equalizer=f=1000:width_type=h:width=50:g=0,"
+                            "equalizer=f=2000:width_type=h:width=50:g=1,"  # Slight vocal lift
+                            "equalizer=f=4000:width_type=h:width=50:g=3,"  # Clarity boost
+                            "equalizer=f=8000:width_type=h:width=50:g=5,"  # Brightness
+                            "equalizer=f=16000:width_type=h:width=50:g=6,"  # Air & sparkle
+                            "dynaudnorm=f=200:g=15"                        # Dynamic volume normalization
+                        ),
                     ],
                 }
             )
             await _with_sem(
-                loop.run_in_executor(None, lambda: YoutubeDL(opts).download([link]))
+                loop.run_in_executor(
+                    None, lambda: YoutubeDL(opts).download([link]))
             )
             return f"{_DOWNLOAD_DIR}/{safe_title}.mp3"
 
