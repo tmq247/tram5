@@ -30,7 +30,7 @@ from typing import Dict, Optional, Tuple
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from HasiiMusic import app
-
+import unicodedata, urllib.parse
 # ==================== CẤU HÌNH ====================
 DL_BASE_URL = os.environ.get("DL_BASE_URL", "")
 DL_BIND = os.environ.get("DL_BIND", "0.0.0.0")
@@ -79,12 +79,14 @@ def _cleanup_loop():
         time.sleep(30)
 threading.Thread(target=_cleanup_loop, name="dl_cleanup", daemon=True).start()
 
+def ensure_server_running() -> None: global app_fastapi, _server_started if FastAPI is None: raise RuntimeError("Cần cài fastapi & uvicorn: pip install fastapi uvicorn python-multipart") with _server_lock: if _server_started: return app_fastapi = FastAPI(title="tram5-dl-link", version="1.0.1")
 def ensure_server_running() -> None:
     global app_fastapi, _server_started
     if FastAPI is None:
         raise RuntimeError("Cần cài fastapi & uvicorn: pip install fastapi uvicorn python-multipart")
     with _server_lock:
-        if _server_started: return
+        if _server_started:
+            return
         app_fastapi = FastAPI(title="tram5-dl-link", version="1.0.1")
 
         @app_fastapi.get("/")
@@ -93,6 +95,7 @@ def ensure_server_running() -> None:
 
         @app_fastapi.get("/dl/{token}")
         def download(token: str):
+            import unicodedata, urllib.parse
             with _DL_LOCK:
                 meta = _DL_TABLE.get(token)
                 if not meta:
@@ -100,23 +103,35 @@ def ensure_server_running() -> None:
                 path, exp, mime, one_shot = meta
                 if _now() > exp:
                     _DL_TABLE.pop(token, None)
-                    try: path.unlink(missing_ok=True)
-                    except Exception: pass
+                    try:
+                        path.unlink(missing_ok=True)
+                    except Exception:
+                        pass
                     raise HTTPException(status_code=410, detail="Token hết hạn")
                 if not path.exists():
                     _DL_TABLE.pop(token, None)
                     raise HTTPException(status_code=404, detail="Tệp không còn tồn tại")
-                headers = {"Cache-Control": "no-store", "Content-Disposition": f"attachment; filename=\"{path.name}\""}
+                orig_name = path.name
+                ascii_name = unicodedata.normalize("NFKD", orig_name).encode("ascii", "ignore").decode() or "file"
+                if not os.path.splitext(ascii_name)[1] and os.path.splitext(orig_name)[1]:
+                    ascii_name += os.path.splitext(orig_name)[1]
+                utf8_quoted = urllib.parse.quote(orig_name.encode("utf-8"))
+                content_disp = "attachment; filename=\"%s\"; filename*=UTF-8''%s" % (ascii_name, utf8_quoted)
+                headers = {"Cache-Control": "no-store", "Content-Disposition": content_disp}
                 if one_shot:
                     _DL_TABLE.pop(token, None)
                     def _del_later(p: Path):
                         time.sleep(5)
-                        try: p.unlink(missing_ok=True)
-                        except Exception: pass
+                        try:
+                            p.unlink(missing_ok=True)
+                        except Exception:
+                            pass
                     threading.Thread(target=_del_later, args=(path,), daemon=True).start()
                 return FileResponse(str(path), headers=headers, media_type=mime)
 
-        def _run(): uvicorn.run(app_fastapi, host=DL_BIND, port=DL_PORT, log_level="info")
+        def _run():
+            uvicorn.run(app_fastapi, host=DL_BIND, port=DL_PORT, log_level="info")
+
         threading.Thread(target=_run, name="dl_link_server", daemon=True).start()
         _server_started = True
 
