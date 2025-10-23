@@ -7,10 +7,10 @@ import asyncio
 import json
 from typing import Optional
 from HasiiMusic.utils.m3u8_sniffer import sniff_m3u8
-
+from HasiiMusic import app
 # Tuỳ repo, bạn có thể đã có app = Client(...). Nếu đã có, import app thay vì tạo mới.
 
-@Client.on_message(filters.command(["m3u8", "getm3u8"], prefixes=["/", "!", "."]))
+@app.on_message(filters.command(["m3u8", "getm3u8"], prefixes=["/", "!", "."]))
 async def cmd_m3u8(client: Client, message: Message):
     if len(message.command) < 2:
         return await message.reply_text("Usage:\n`/m3u8 <url>`\n\nTuỳ chọn: Reply kèm JSON headers/cookies/ua", quote=True)
