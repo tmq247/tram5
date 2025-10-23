@@ -31,7 +31,28 @@ from typing import Dict, Optional, Tuple
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from HasiiMusic import app
-import unicodedata, urllib.parse
+import re, unicodedata, urllib.parse
+
+_ZW = re.compile(r'[\u200B-\u200D\uFEFF]')  # zero-width chars
+_WS = re.compile(r'\s+')                    # mọi khoảng trắng (space, tab, \n)
+
+def _sanitize_url(u: str) -> str:
+    if not isinstance(u, str):
+        u = str(u)
+    u = _ZW.sub('', u)         # bỏ zero-width
+    u = u.replace('\r', '')    # bỏ CR
+    u = u.strip()
+    u = _WS.sub('', u)         # bỏ mọi trắng (kể cả \n)
+    # chuẩn hoá: xoá // dư sau scheme
+    if u.startswith('http://') or u.startswith('https://'):
+        scheme, rest = u.split('://', 1)
+        rest = re.sub(r'/+', '/', rest)
+        u = f'{scheme}://{rest}'
+    # kiểm tra cơ bản
+    p = urllib.parse.urlparse(u)
+    if p.scheme not in ('http', 'https') or not p.netloc:
+        raise ValueError(f'URL không hợp lệ: {u}')
+    return u
 # ==================== CẤU HÌNH ====================
 DL_BASE_URL = os.environ.get("DL_BASE_URL", "")
 DL_BIND = os.environ.get("DL_BIND", "0.0.0.0")
@@ -175,8 +196,8 @@ async def dl_command(client: Client, message: Message):
         return
     mime = _guess_mime(path)
     token = _make_token(path, DL_KEEP_MIN, mime, one_shot=DL_ONE_SHOT)
-    url = _build_url(token)
-
+    raw_url = _build_url(token)
+    url = _sanitize_url(raw_url)
     bullet = "(1 lần)" if DL_ONE_SHOT else "(nhiều lần)"
     text = (
     "🔗 Link tải sẵn sàng\n\n"
@@ -184,10 +205,8 @@ async def dl_command(client: Client, message: Message):
     f"• Loại: {mime}\n"
     f"• Hết hạn: ~{DL_KEEP_MIN} phút {bullet}\n"
 )
-
     kb = InlineKeyboardMarkup([[InlineKeyboardButton("⬇️ Tải file", url=url)]])
     await message.reply_text(text, reply_markup=kb, disable_web_page_preview=True, parse_mode=None)
-
 # ==================== API nội bộ ====================
 async def create_download_link_from_message(client: Client, msg: Message, *, minutes: Optional[int] = None, one_shot: Optional[bool] = None) -> str:
     ensure_server_running()
