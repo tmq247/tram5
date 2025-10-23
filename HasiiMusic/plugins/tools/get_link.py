@@ -156,10 +156,10 @@ async def dl_command(client: Client, message: Message):
     url = _build_url(token)
     bullet = "(1 lần)" if DL_ONE_SHOT else "(nhiều lần)"
     text = (
-        "🔗 **Link tải sẵn sàng**\\n\\n"
-        f"• File: `{path.name}`\\n"
-        f"• Loại: `{mime}`\\n"
-        f"• Hết hạn: ~{DL_KEEP_MIN} phút {bullet}\\n"
+        "🔗 **Link tải sẵn sàng**\n\n"
+        f"• File: `{path.name}`\n"
+        f"• Loại: `{mime}`\n"
+        f"• Hết hạn: ~{DL_KEEP_MIN} phút {bullet}\n"
         f"• URL: {url}"
     )
     await message.reply_text(text, disable_web_page_preview=True)
@@ -179,11 +179,11 @@ async def dl_status(client: Client, message: Message):
         ensure_server_running()
         base = _public_base()
         await message.reply_text(
-            "✅ dl_link hoạt động.\\n"
-            f"• Base: {base}\\n"
-            f"• Port: {DL_PORT}\\n"
-            f"• TTL mặc định: {DL_KEEP_MIN} phút\\n"
-            f"• One-shot: {DL_ONE_SHOT}\\n"
+            "✅ dl_link hoạt động.\n"
+            f"• Base: {base}\n"
+            f"• Port: {DL_PORT}\n"
+            f"• TTL mặc định: {DL_KEEP_MIN} phút\n"
+            f"• One-shot: {DL_ONE_SHOT}\n"
             f"• Cache: {DL_ROOT}",
             disable_web_page_preview=True,
         )
