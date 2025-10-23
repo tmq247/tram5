@@ -79,7 +79,6 @@ def _cleanup_loop():
         time.sleep(30)
 threading.Thread(target=_cleanup_loop, name="dl_cleanup", daemon=True).start()
 
-def ensure_server_running() -> None: global app_fastapi, _server_started if FastAPI is None: raise RuntimeError("Cần cài fastapi & uvicorn: pip install fastapi uvicorn python-multipart") with _server_lock: if _server_started: return app_fastapi = FastAPI(title="tram5-dl-link", version="1.0.1")
 def ensure_server_running() -> None:
     global app_fastapi, _server_started
     if FastAPI is None:
