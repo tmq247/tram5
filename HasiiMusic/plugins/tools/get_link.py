@@ -23,6 +23,7 @@ from pathlib import Path
 from typing import Dict, Optional, Tuple
 from pyrogram import Client, filters
 from pyrogram.types import Message
+from HasiiMusic import app
 
 # ==================== CẤU HÌNH ====================
 DL_BASE_URL = os.environ.get("DL_BASE_URL", "")
@@ -136,7 +137,7 @@ def _make_token(path: Path, minutes: int, mime: str, one_shot: bool = True) -> s
 def _build_url(token: str) -> str: return f"{_public_base()}/dl/{token}"
 
 # ==================== LỆNH /dl & /getlink ====================
-@Client.on_message(filters.command(["dl", "getlink"]) & (filters.private | filters.group))
+@app.on_message(filters.command(["dl", "getlink"]) & (filters.private | filters.group))
 async def dl_command(client: Client, message: Message):
     try: ensure_server_running()
     except Exception as e:
@@ -172,7 +173,7 @@ async def create_download_link_from_message(client: Client, msg: Message, *, min
     return _build_url(token)
 
 # ==================== /dl_status ====================
-@Client.on_message(filters.command(["dl_status"]))
+@app.on_message(filters.command(["dl_status"]))
 async def dl_status(client: Client, message: Message):
     try:
         ensure_server_running()
