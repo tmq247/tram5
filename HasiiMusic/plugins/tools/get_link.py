@@ -19,6 +19,12 @@ Cách dùng nhanh:
 
 from __future__ import annotations
 import os, time, socket, hashlib, secrets, threading, mimetypes
+# ---- NẠP .env (để không phụ thuộc vào shell export) ----
+try:
+    from dotenv import load_dotenv
+    load_dotenv()  # tự động đọc file .env ở thư mục dự án (nếu có)
+except Exception:
+    pass
 from pathlib import Path
 from typing import Dict, Optional, Tuple
 from pyrogram import Client, filters
