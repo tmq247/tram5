@@ -138,89 +138,25 @@ async def ensure_cookies_for_domain(
 
 
 # --- cập nhật sniff_m3u8: khi cookies=None, tự gọi ensure_cookies_for_domain để tạo/nạp
-async def sniff_m3u8(
-    url: str,
-    user_agent: Optional[str] = None,
-    headers: Optional[Dict[str, str]] = None,
-    cookies: Optional[List[Dict[str, Union[str, bool]]]] = None,
-    prefer_browser: bool = True,
-    wait_secs: int = 25,
-    headless: bool = True,
-    auto_create_cookies: bool = True,
-    force_refresh_cookies: bool = False,
-    engines: Optional[List[str]] = None,   # <-- thêm: thứ tự engine
-) -> Tuple[Optional[str], List[str]]:
-    if engines is None:
-        # Thử firefox trước (hợp với hướng đi gốc), rồi fallback chromium
-        engines = ["firefox", "chromium"]
+  
 
-    all_urls: List[str] = []
-    best: Optional[str] = None
+M3U8_RX = re.compile(r"\.m3u8(\?.*)?$", re.IGNORECASE)
+M3U8_CT = (
+    "application/vnd.apple.mpegurl",
+    "application/x-mpegurl",
+    "audio/mpegurl",
+    "application/mpegurl",
+)
 
-    # cookies tự tạo/nạp nếu cần
-    if not cookies and auto_create_cookies:
-        try:
-            c = await ensure_cookies_for_domain(
-                url=url,
-                user_agent=user_agent,
-                headers=headers,
-                headless=headless,
-                force_refresh=force_refresh_cookies,
-            )
-            if c:
-                cookies = []
-                for ck in c:
-                    if "name" in ck and "value" in ck:
-                        cookies.append(
-                            {
-                                "name": ck.get("name"),
-                                "value": ck.get("value"),
-                                "domain": ck.get("domain"),
-                                "path": ck.get("path", "/"),
-                                "expires": ck.get("expires", -1),
-                                "httpOnly": ck.get("httpOnly", False),
-                                "secure": ck.get("secure", False),
-                            }
-                        )
-        except Exception:
-            cookies = cookies or []
+def _uniq(seq: List[str]) -> List[str]:
+    seen = set()
+    out = []
+    for x in seq:
+        if x and x not in seen:
+            seen.add(x)
+            out.append(x)
+    return out
 
-    if prefer_browser:
-        for eng in engines:
-            got = await _browser_m3u8(
-                engine=eng,
-                url=url,
-                user_agent=user_agent,
-                headers=headers,
-                cookies=cookies,
-                wait_secs=wait_secs,
-                headless=headless,
-            )
-            all_urls.extend(got)
-            if all_urls:
-                break  # đã có thì thôi
-        if not all_urls:
-            all_urls.extend(_yt_dlp_guess(url))
-    else:
-        all_urls.extend(_yt_dlp_guess(url))
-        if not all_urls:
-            for eng in engines:
-                got = await _browser_m3u8(
-                    engine=eng,
-                    url=url,
-                    user_agent=user_agent,
-                    headers=headers,
-                    cookies=cookies,
-                    wait_secs=wait_secs,
-                    headless=headless,
-                )
-                all_urls.extend(got)
-                if all_urls:
-                    break
-
-    all_urls = _uniq([u for u in all_urls if "data:" not in u and "blob:" not in u])
-    best = _best_candidate(all_urls)
-    return best, all_urls
 async def _browser_m3u8(
     engine: str,  # "firefox" | "chromium"
     url: str,
@@ -369,3 +305,132 @@ async def _browser_m3u8(
     # Lọc kết quả
     uniq = _uniq([u for u in found if u and "blob:" not in u and u.startswith(("http://", "https://"))])
     return uniq
+
+def _yt_dlp_guess(url: str, timeout: int = 25) -> List[str]:
+    """
+    Fallback: dùng yt-dlp để cố lấy direct link/m3u8.
+    Lưu ý: không phải site nào cũng trả m3u8 qua -g.
+    """
+    cmd = [
+        "yt-dlp",
+        "-g",
+        "--no-warnings",
+        "--skip-download",
+        "--no-check-certificates",
+        "--allow-unplayable-formats",
+        url,
+    ]
+    try:
+        out = subprocess.run(
+            cmd, capture_output=True, text=True, timeout=timeout, check=False
+        )
+        lines = [l.strip() for l in (out.stdout or "").splitlines() if l.strip()]
+        # Lọc các dòng là m3u8 trước
+        m3u8_lines = [l for l in lines if M3U8_RX.search(l)]
+        return _uniq(m3u8_lines or lines)
+    except Exception:
+        return []
+
+def _best_candidate(urls: List[str]) -> Optional[str]:
+    """
+    Ưu tiên master playlist / có tham số quality / index / manifest.
+    """
+    if not urls:
+        return None
+    # ưu tiên các chuỗi trông giống master
+    prefs = ["master.m3u8", "index.m3u8", "manifest.m3u8"]
+    for p in prefs:
+        for u in urls:
+            if p in u.lower():
+                return u
+    # tiếp: có từ khóa quality/playlist/chunklist
+    for u in urls:
+        uu = u.lower()
+        if any(k in uu for k in ["quality", "playlist", "chunklist", "hls"]):
+            return u
+    # mặc định: lấy cái đầu
+    return urls[0]
+
+async def sniff_m3u8(
+    url: str,
+    user_agent: Optional[str] = None,
+    headers: Optional[Dict[str, str]] = None,
+    cookies: Optional[List[Dict[str, Union[str, bool]]]] = None,
+    prefer_browser: bool = True,
+    wait_secs: int = 25,
+    headless: bool = True,
+    auto_create_cookies: bool = True,
+    force_refresh_cookies: bool = False,
+    engines: Optional[List[str]] = None,   # <-- thêm: thứ tự engine
+) -> Tuple[Optional[str], List[str]]:
+    if engines is None:
+        # Thử firefox trước (hợp với hướng đi gốc), rồi fallback chromium
+        engines = ["firefox", "chromium"]
+
+    all_urls: List[str] = []
+    best: Optional[str] = None
+
+    # cookies tự tạo/nạp nếu cần
+    if not cookies and auto_create_cookies:
+        try:
+            c = await ensure_cookies_for_domain(
+                url=url,
+                user_agent=user_agent,
+                headers=headers,
+                headless=headless,
+                force_refresh=force_refresh_cookies,
+            )
+            if c:
+                cookies = []
+                for ck in c:
+                    if "name" in ck and "value" in ck:
+                        cookies.append(
+                            {
+                                "name": ck.get("name"),
+                                "value": ck.get("value"),
+                                "domain": ck.get("domain"),
+                                "path": ck.get("path", "/"),
+                                "expires": ck.get("expires", -1),
+                                "httpOnly": ck.get("httpOnly", False),
+                                "secure": ck.get("secure", False),
+                            }
+                        )
+        except Exception:
+            cookies = cookies or []
+
+    if prefer_browser:
+        for eng in engines:
+            got = await _browser_m3u8(
+                engine=eng,
+                url=url,
+                user_agent=user_agent,
+                headers=headers,
+                cookies=cookies,
+                wait_secs=wait_secs,
+                headless=headless,
+            )
+            all_urls.extend(got)
+            if all_urls:
+                break  # đã có thì thôi
+        if not all_urls:
+            all_urls.extend(_yt_dlp_guess(url))
+    else:
+        all_urls.extend(_yt_dlp_guess(url))
+        if not all_urls:
+            for eng in engines:
+                got = await _browser_m3u8(
+                    engine=eng,
+                    url=url,
+                    user_agent=user_agent,
+                    headers=headers,
+                    cookies=cookies,
+                    wait_secs=wait_secs,
+                    headless=headless,
+                )
+                all_urls.extend(got)
+                if all_urls:
+                    break
+
+    all_urls = _uniq([u for u in all_urls if "data:" not in u and "blob:" not in u])
+    best = _best_candidate(all_urls)
+    return best, all_urls
