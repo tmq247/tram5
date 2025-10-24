@@ -28,7 +28,30 @@ class InlineKeyboardBuilder(list):
     def row(self, *buttons):
         self.append(list(buttons))
 
+#######
+from pyrogram.errors import MessageNotModified
 
+def _normalize_markup(markup):
+    if not markup:
+        return ()
+    if isinstance(markup, list):
+        markup = InlineKeyboardMarkup(markup)
+    rows = []
+    for row in (markup.inline_keyboard or []):
+        rows.append(tuple((
+            btn.text,
+            getattr(btn, "url", None),
+            getattr(btn, "callback_data", None),
+            getattr(btn, "switch_inline_query", None),
+            getattr(btn, "switch_inline_query_current_chat", None),
+            getattr(btn, "login_url", None).url if getattr(btn, "login_url", None) else None,
+            getattr(btn, "callback_game", None) is not None,
+            getattr(btn, "pay", False),
+        ) for btn in row))
+    return tuple(rows)
+
+def _markups_equal(a, b) -> bool:
+    return _normalize_markup(a) == _normalize_markup(b)
 # ───────────────────────────── COMMANDS ───────────────────────────── #
 @app.on_message(filters.command(SONG_COMMAND) & filters.group & ~BANNED_USERS)
 @capture_err
@@ -143,8 +166,19 @@ async def song_helper_cb(client, cq, lang):
         InlineKeyboardButton(lang["BACK_BUTTON"], callback_data=f"song_back {stype}|{vidid}"),
         InlineKeyboardButton(lang["CLOSE_BUTTON"], callback_data="close"),
     )
-    await cq.edit_message_reply_markup(reply_markup=InlineKeyboardMarkup(kb))
+    # --- thay cho dòng cũ: await cq.edit_message_reply_markup(reply_markup=InlineKeyboardMarkup(kb))
+    # Nếu bạn dùng "builder", chuyển nó về list[List[InlineKeyboardButton]]
+    new_markup = kb.as_markup() if hasattr(kb, "as_markup") else (
+        InlineKeyboardMarkup(kb) if isinstance(kb, list) else InlineKeyboardMarkup(kb.buttons)
+    )
 
+    old_markup = cq.message.reply_markup
+    if not _markups_equal(old_markup, new_markup):
+        try:
+            await cq.edit_message_reply_markup(reply_markup=new_markup)
+        except MessageNotModified:
+            pass  # Telegram đôi khi vẫn ném lỗi; an toàn là bỏ qua
+    # nếu giống hệt thì không làm gì -> tránh 400 MESSAGE_NOT_MODIFIED
 
 @app.on_callback_query(filters.regex(r"song_download") & ~BANNED_USERS)
 @capture_callback_err
