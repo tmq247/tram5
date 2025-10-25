@@ -201,7 +201,7 @@ class YouTubeAPI:
         self, link: str, limit: int, user_id, videoid: Union[str, bool, None] = None
     ) -> List[str]:
         if videoid:
-            link = self.playlist_url + str(videoid)
+            link = self.playlist_url + link #str(videoid)
         link = link.split("&")[0]
         stdout, _ = await _exec_proc(
             "yt-dlp",
