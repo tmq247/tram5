@@ -209,13 +209,12 @@ async def song_download_cb(client, cq, lang):
             if not file_path:
                 raise RuntimeError("no audio file")
             await app.send_chat_action(cq.message.chat.id, ChatAction.UPLOAD_AUDIO)
-            await cq.edit_message_media(
-                InputMediaAudio(
-                    media=file_path,
-                    caption=title,
-                    title=title,
-                    performer=info.get("uploader"),
-                )
+            await cq.message.reply_audio(
+        audio=file_path,
+        caption=title,
+        title=title,
+        performer=info.get("uploader"),
+        duration=duration_sec or 0,
             )
         else:
             file_path, _ = await YouTube.download(
