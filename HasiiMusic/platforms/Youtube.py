@@ -44,7 +44,7 @@ def _cookies_args() -> List[str]:
 
 
 async def _exec_proc(*args: str) -> Tuple[bytes, bytes]:
-    proc = await asyncio.create_subprocess_exec(
+    proc = await asyncio.create_subprocess_shell(
         *args, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
     try:
