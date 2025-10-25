@@ -43,20 +43,16 @@ def _cookies_args() -> List[str]:
     return ["--cookies", p] if p else []
 
 
-async def shell_cmd(cmd):
-    proc = await asyncio.create_subprocess_shell(
-        cmd,
-        stdout=asyncio.subprocess.PIPE,
-        stderr=asyncio.subprocess.PIPE,
+async def _exec_proc(*args: str) -> Tuple[bytes, bytes]:
+    proc = await asyncio.create_subprocess_exec(
+        *args, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
-    out, errorz = await proc.communicate()
-    if errorz:
-        if "unavailable videos are hidden" in (errorz.decode("utf-8")).lower():
-            return out.decode("utf-8")
-        else:
-            return errorz.decode("utf-8")
-    return out.decode("utf-8")
-
+    try:
+        return await asyncio.wait_for(proc.communicate(), timeout=YTDLP_TIMEOUT)
+    except asyncio.TimeoutError:
+        with contextlib.suppress(Exception):
+            proc.kill()
+        return b"", b"timeout"
 
 @capture_internal_err
 async def cached_youtube_search(query: str) -> List[Dict]:
@@ -198,25 +194,26 @@ class YouTubeAPI:
         return (1, stdout.decode().split("\n")[0]) if stdout else (0, stderr.decode())
 
     @capture_internal_err
-    async def playlist(self, link, limit, videoid: bool | str = None):
+    async def playlist(
+        self, link: str, limit: int, user_id, videoid: Union[str, bool, None] = None
+    ) -> List[str]:
         if videoid:
-            link = self.playlist_url + link
-        if "&" in link:
-            link = link.split("&")[0]
-
-        cmd = (
-            f"yt-dlp -i --compat-options no-youtube-unavailable-videos "
-            f'--get-id --flat-playlist --playlist-end {limit} --skip-download "{link}" '
-            f"2>/dev/null"
+            link = self.playlist_url + str(videoid)
+        link = link.split("&")[0]
+        stdout, _ = await _exec_proc(
+            "yt-dlp",
+            *(_cookies_args()),
+            "-i",
+            "--get-id",
+            "--flat-playlist",
+            "--playlist-end",
+            str(limit),
+            "--skip-download",
+            link,
         )
+        items = stdout.decode().strip().split("\n") if stdout else []
+        return [i for i in items if i]
 
-        playlist = await shell_cmd(cmd)
-
-        try:
-            result = [key for key in playlist.split("\n") if key]
-        except Exception:
-            result = []
-        return result
 
     @capture_internal_err
     async def track(
