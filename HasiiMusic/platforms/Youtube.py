@@ -319,96 +319,51 @@ class YouTubeAPI:
 
     @capture_internal_err
     async def download(
-    self,
-    link: str,
-    mystic,
-    *,
-    video: Union[bool, str, None] = None,
-    videoid: Union[str, bool, None] = None,
-    songaudio: Union[bool, str, None] = None,
-    songvideo: Union[bool, str, None] = None,
-    format_id: Union[bool, str, None] = None,
-    title: Union[bool, str, None] = None,
-) -> Union[Tuple[str, Optional[bool]], Tuple[None, None]]:
-    """
-    Trả về:
-        - (path, True) nếu đã tải file xong (audio/video)
-        - (url, None)  nếu chỉ trả link stream (video nhánh -g)
-        - (None, None) nếu thất bại
-    """
-    link = self._prepare_link(link, videoid)
+        self,
+        link: str,
+        mystic,
+        *,
+        video: Union[bool, str, None] = None,
+        videoid: Union[str, bool, None] = None,
+        songaudio: Union[bool, str, None] = None,
+        songvideo: Union[bool, str, None] = None,
+        format_id: Union[bool, str, None] = None,
+        title: Union[bool, str, None] = None,
+    ) -> Union[Tuple[str, Optional[bool]], Tuple[None, None]]:
+        link = self._prepare_link(link, videoid)
 
-    # ── 1) Các nhánh "song_*" dùng downloader đã bọc yt-dlp (đã set extractor_args & UA)
-    if songvideo:
-        p = await yt_dlp_download(
-            link, type="song_video", format_id=str(format_id) if format_id else None, title=title
-        )
-        return (p, True) if p else (None, None)
-
-    if songaudio:
-        p = await yt_dlp_download(
-            link, type="song_audio", format_id=str(format_id) if format_id else None, title=title
-        )
-        return (p, True) if p else (None, None)
-
-    # ── 2) Nhánh video phát trực tiếp/stream
-    if video:
-        # Live: dùng hàm video() có sẵn
-        if await self.is_live(link):
-            status, stream_url = await self.video(link)
-            if status == 1:
-                return stream_url, None
-            raise ValueError("Unable to fetch live stream link")
-
-        # Nếu cấu hình yêu cầu tải file thay vì stream trực tiếp
-        if await is_on_off(1):
-            p = await yt_dlp_download(link, type="video", format_id=str(format_id) if format_id else None, title=title)
+        if songvideo:
+            p = await yt_dlp_download(
+                link, type="song_video", format_id=format_id, title=title
+            )
             return (p, True) if p else (None, None)
 
-        # ── 2a) Lấy link phát trực tiếp bằng yt-dlp CLI (-g) với chống SABR
-        # Thứ tự client thử dần để tránh "web/web_safari"
-        client_orders = [
-            ["android", "tv_embedded", "ios"],
-            ["ios", "android", "tv_embedded"],
-            ["tv_embedded", "android", "ios"],
-        ]
+        if songaudio:
+            p = await yt_dlp_download(
+                link, type="song_audio", format_id=format_id, title=title
+            )
+            return (p, True) if p else (None, None)
 
-        # Ràng buộc chất lượng giống cũ (<=720p) để nhẹ
-        # Nếu bạn muốn tôn trọng format_id khi có, có thể thay -f bên dưới cho linh hoạt
-        ytdlp_format = "best[height<=?720][width<=?1280]"
+        if video:
+            if await self.is_live(link):
+                status, stream_url = await self.video(link)
+                if status == 1:
+                    return stream_url, None
+                raise ValueError("Unable to fetch live stream link")
+            if await is_on_off(1):
+                p = await yt_dlp_download(link, type="video")
+                return (p, True) if p else (None, None)
+            stdout, _ = await _exec_proc(
+                "yt-dlp",
+                *(_cookies_args()),
+                "-g",
+                "-f",
+                "best[height<=?720][width<=?1280]",
+                link,
+            )
+            if stdout:
+                return stdout.decode().split("\n")[0], None
+            return None, None
 
-        # Nếu người dùng chỉ định format_id (itag), ưu tiên dùng luôn
-        if format_id:
-            ytdlp_format = str(format_id)
-
-        UA_ANDROID = "com.google.android.youtube/19.33.38 (Linux; U; Android 14) gzip"
-
-        # Lặp thử nhiều profile client để né SABR/signature break
-        for order in client_orders:
-            try:
-                stdout, _ = await _exec_proc(
-                    "yt-dlp",
-                    *(_cookies_args()),
-                    "--no-warnings",
-                    "--no-check-certificates",
-                    "--user-agent", UA_ANDROID,
-                    "--extractor-args", f"youtube:player_client={','.join(order)}",
-                    "-g",
-                    "-f", ytdlp_format,
-                    link,
-                )
-                if stdout:
-                    # -g có thể in nhiều dòng (video_url \n audio_url), ta lấy dòng đầu là đủ
-                    first = stdout.decode().strip().split("\n")[0]
-                    if first:
-                        return first, None
-            except Exception:
-                # thử client kế tiếp
-                continue
-
-        # Nếu tới đây vẫn không lấy được
-        return None, None
-
-    # ── 3) Mặc định: tải audio (concurrent downloader của bạn)
-    p = await download_audio_concurrent(link)
-    return (p, True) if p else (None, None)
+        p = await download_audio_concurrent(link)
+        return (p, True) if p else (None, None)
