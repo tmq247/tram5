@@ -185,9 +185,7 @@ class YouTubeAPI:
         ).split("?")[0] if info else ""
 
     @capture_internal_err
-    async def video(
-        self, link: str, videoid: Union[str, bool, None] = None
-    ) -> Tuple[int, str]:
+    async def video(self, link: str, limit: int, user_id, videoid: Union[str, bool, None] = None) -> List[str]:
         link = self._prepare_link(link, videoid)
         stdout, stderr = await _exec_proc(
             "yt-dlp",
@@ -202,7 +200,7 @@ class YouTubeAPI:
     @capture_internal_err
     async def playlist(self, link, limit, videoid: bool | str = None):
         if videoid:
-            link = self.listbase + link
+            link = self.playlist_url + link
         if "&" in link:
             link = link.split("&")[0]
 
