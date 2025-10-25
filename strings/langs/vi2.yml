@@ -1,0 +1,240 @@
+﻿general_1: |
+  <blockquote>
+  👤 <b>trả lời tin nhắn của người dùng</b>
+  </blockquote>
+  <blockquote>
+  💡 hoặc cung cấp username / user id.
+  </blockquote>
+
+general_2: |
+  <blockquote>
+  ⚠️ <b>đã xảy ra lỗi</b>
+  </blockquote>
+  <blockquote>
+  ❗ ngoại lệ: <code>{0}</code>
+  </blockquote>
+
+general_3: |
+  <blockquote>
+  🔒 <b>phát hiện quản trị viên ẩn danh</b>
+  </blockquote>
+  <blockquote>
+  ↩️ vui lòng chuyển về tài khoản người dùng để sử dụng tôi.
+  </blockquote>
+
+general_4: "🚫 từ chối quyền. bạn không thể quản lý videochat. \n 🔄 cập nhật bộ nhớ đệm quản trị qua /reload"
+
+general_5: |
+  <blockquote>
+  🛑 <b>không có luồng đang hoạt động</b>
+  </blockquote>
+  <blockquote>
+  📡 bot không phát trực tiếp trên videochat.
+  </blockquote>
+
+
+tg_1: |
+  <blockquote>
+  <u><b>{0} trình tải xuống</b></u>
+  </blockquote>
+  <blockquote>
+  📦 <b>kích thước tệp :</b> {1}<br>
+  ✅ <b>đã hoàn tất :</b> {2}<br>
+  📊 <b>phần trăm :</b> {3}%<br>
+  ⚡ <b>tốc độ :</b> {4}/s<br>
+  ⏱ <b>eta :</b> {5}
+  </blockquote>
+
+tg_2: |
+  <blockquote>
+  ✅ <b>tải xuống thành công!</b>
+  </blockquote>
+  <blockquote>
+  ⚙️ đang xử lý tệp...<br>
+  ⏱ <b>thời gian đã trôi qua :</b> {0}
+  </blockquote>
+
+tg_3: |
+  <blockquote>
+  ❌ <b>không thể tải phương tiện từ telegram.</b>
+  </blockquote>
+  <blockquote>
+  💡 vui lòng thử lại...
+  </blockquote>
+
+tg_4: |
+  <blockquote>
+  ℹ️ <b>tải xuống đã hoàn tất.</b>
+  </blockquote>
+
+tg_5: |
+  <blockquote>
+  ⚠️ <b>tải xuống đã hoàn tất hoặc bị hủy.</b>
+  </blockquote>
+
+tg_6: |
+  <blockquote>
+  ⏹ <b>đã hủy tải xuống.</b>
+  </blockquote>
+
+tg_7: |
+  <blockquote>
+  ⏹ <b>tải xuống bị hủy bởi :</b> {0}
+  </blockquote>
+
+tg_8: |
+  <blockquote>
+  ❌ <b>không thể dừng tải xuống.</b>
+  </blockquote>
+
+tg_9: |
+  <blockquote>
+  ❌ <b>không thể lấy tác vụ tải xuống đang diễn ra...</b>
+  </blockquote>
+
+
+call_1: |
+  <blockquote>
+  🔗 <b>bot cần quyền mời người dùng</b>
+  </blockquote>
+  <blockquote>
+  ➤ mời trợ lý vào trò chuyện của bạn qua liên kết.
+  </blockquote>
+
+call_2: |
+  <blockquote>
+  🚫 <u>{0} trợ lý bị cấm trong nhóm/kênh của bạn</u>
+  </blockquote>
+  <blockquote>
+  <b>id :</b> <code>{1}</code><br>
+  <b>tên :</b> {2}<br>
+  <b>tên người dùng :</b> @{3}
+  </blockquote>
+  <blockquote>
+  ⚠️ vui lòng bỏ cấm và thử lại.
+  </blockquote>
+
+call_3: |
+  <blockquote>
+  ❌ <b>không thể mời trợ lý {0}.</b>
+  </blockquote>
+  <blockquote>
+  📝 lý do : <code>{1}</code>
+  </blockquote>
+
+call_4: |
+  <blockquote>
+  ⏳ <b>vui lòng đợi...</b>
+  </blockquote>
+  <blockquote>
+  ✉️ đang mời trợ lý {0} vào trò chuyện của bạn...
+  </blockquote>
+
+call_5: |
+  <blockquote>
+  ✅ <b>trợ lý {0} đã tham gia thành công!</b>
+  </blockquote>
+  <blockquote>
+  ▶️ đang cố gắng bắt đầu phát...
+  </blockquote>
+
+call_6: |
+  <blockquote>
+  ⚠️ <b>không thể chuyển luồng.</b>
+  </blockquote>
+  <blockquote>
+  🔀 dùng /skip để đổi bản nhạc khác.
+  </blockquote>
+
+call_7: |
+  <blockquote>
+  ⏳ <b>đang tải bản kế tiếp từ hàng chờ...</b>
+  </blockquote>
+  <blockquote>
+  📥 vui lòng chờ.
+  </blockquote>
+
+call_8: "không tìm thấy videochat đang hoạt động.\n\nhãy khởi động videochat trong nhóm/kênh của bạn rồi thử lại."
+
+call_9: |
+  <blockquote>
+  ℹ️ <b>trợ lý đã ở trong videochat</b>
+  </blockquote>
+  <blockquote>
+  ⚠️ nếu không thấy, gửi <code>/reboot</code> rồi thử lại.
+  </blockquote>
+
+call_10: |
+  <blockquote>
+  ❌ <b>lỗi máy chủ telegram</b>
+  </blockquote>
+  <blockquote>
+  ⚠️ telegram đang gặp sự cố nội bộ.<br>
+  🔄 hãy thử phát lại hoặc khởi động lại videochat.
+  </blockquote>
+
+play_1 : "🦋"
+play_2: "▶️ <b>➻ chế độ phát kênh</b>\nđang xử lý, vui lòng đợi...\n<b>kênh được liên kết :</b> {0}"
+play_3: |
+  <blockquote>
+  ⚠️ <b>➤ không thể xử lý truy vấn.</b>
+  </blockquote>
+
+play_4: |
+  <blockquote>
+  🛡 <b>chỉ quản trị viên mới được phát</b>
+  </blockquote>
+  <blockquote>
+  chỉ quản trị viên của cuộc trò chuyện này được phép phát.<br>
+  đổi chế độ phát qua /playmode
+  </blockquote>
+
+play_5: |
+  <blockquote>
+  ❌ <b>» không thể xử lý tệp âm thanh.</b><br>
+  kích thước tệp âm thanh lớn hơn giới hạn đã đặt.
+  </blockquote>
+
+play_6: |
+  <blockquote>
+  ❌ <b>» luồng dài hơn {0} không được phép phát trên {1}</b>
+  </blockquote>
+
+play_7: |
+  <blockquote>
+  ❌ <b>» không phải phần mở rộng tệp video hợp lệ.</b><br>
+  <b>phần mở rộng được hỗ trợ :</b> {0}
+  </blockquote>
+
+play_8: |
+  <blockquote>
+  ❌ <b>» kích thước tệp video phải nhỏ hơn 1gib.</b>
+  </blockquote>
+
+play_9: |
+  <blockquote>
+  🎵 <b><u>tính năng danh sách phát youtube</u></b><br>
+  hãy chọn chế độ để phát toàn bộ danh sách phát youtube.
+  </blockquote>
+
+play_10: |
+  <blockquote>
+  <b>tiêu đề :</b> {0}<br>
+  <b>thời lượng :</b> {1} phút
+  </blockquote>
+
+play_11: |
+  <blockquote>
+  🎧 <u><b>{0} trình phát spotify</b></u><br>
+  <b>yêu cầu bởi :</b> {1}
+  </blockquote>
+
+maint_1: "🛠️ <b>ví dụ :</b>\n/maintenance [enable | disable]"
+maint_2: "✅ » đã bật chế độ bảo trì {0}."
+maint_3: "❌ » đã tắt chế độ bảo trì {0}."
+maint_4: "⚠️ » chế độ bảo trì đã bật."
+maint_5: "⚠️ » chế độ bảo trì đã tắt."
+
+log_1: "📜 <b>ví dụ :</b>\n/logger [enable | disable]"
+log_2: "✅ đã bật ghi log."
+log_3: "❌ đã tắt ghi log."
