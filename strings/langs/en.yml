@@ -617,47 +617,18 @@ ping_2: |
   🥀 bởi » jarvis ♡︎
   </blockquote>
 
-queue_1: |
-  <blockquote>
-  🔎 <b>đang lấy danh sách phát...</b>
-  </blockquote>
-  <blockquote>
-  ⌛ vui lòng chờ, chúng tôi đang chuẩn bị các bản nhạc của bạn!
-  </blockquote>
+queue_1: " 🔎 <b>đang lấy danh sách phát...</b> /n ⌛ vui lòng chờ, chúng tôi đang chuẩn bị các bản nhạc của bạn!"
 
-queue_2: |
-  <blockquote>
-  ⚠️ <b>danh sách phát trống</b>
-  </blockquote>
-  <blockquote>
-  ➕ thêm vài bài để bắt đầu không khí 🎶
-  </blockquote>
+queue_2: " ⚠️ <b>danh sách phát trống</b> /n ➕ thêm vài bài để bắt đầu không khí 🎶"
 
-queue_3: |
-  <blockquote>
-  📜 <u>nhấn vào đây để xem toàn bộ danh sách phát:</u> 👉 <a href={0}>tại đây</a>
-  </blockquote>
+queue_3: "📜 <u>nhấn vào đây để xem toàn bộ danh sách phát:</u> 👉 <a href={0}>tại đây</a>"
 
-queue_4: |
-  <blockquote>
-  ➥ <b>bài hát đã được thêm thành công vào vị trí hàng đợi: {0}</b>
-  </blockquote>
-  <blockquote>
-  → <b>tiêu đề:</b> {1}<br>
-  → <b>thời lượng:</b> {2} phút<br>
-  → <b>yêu cầu bởi:</b> {3}
-  </blockquote>
+queue_4: "➥ <b>bài hát đã được thêm thành công vào vị trí hàng đợi: {0}</b>/n/n→ <b>tiêu đề:</b> {1}<br>/n→ <b>thời lượng:</b> {2} phút<br>/n→ <b>yêu cầu bởi:</b> {3}"
 
 # queue_5: "ℹ️ <b>ᴏɴʟʏ ᴏɴᴇ ǫᴜᴇᴜᴇᴅ ᴛʀᴀᴄᴋ</b>\n\n💡 ᴀᴅᴅ ᴍᴏʀᴇ ᴛʀᴀᴄᴋs ᴛᴏ sᴇᴇ ᴛʜᴇ ʟɪsᴛ!"
 # queue_6: "🕚 <b>ᴅᴜʀᴀᴛɪᴏɴ :</b> ᴜɴᴋɴᴏᴡɴ (ʟɪᴠᴇ sᴛʀᴇᴀᴍ)\n\n📌 ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ᴛᴏ ᴠɪᴇᴡ ғᴜʟʟ ǫᴜᴇᴜᴇ"
 # queue_7: "📌 ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ᴛᴏ ᴠɪᴇᴡ ᴀʟʟ ǫᴜᴇᴜᴇᴅ ᴛʀᴀᴄᴋs 🔗"
-queue_5: |
-  <blockquote>
-  ℹ️ <b>chỉ có một bài trong hàng đợi</b>
-  </blockquote>
-  <blockquote>
-  💡 thêm nhiều bài hơn để xem danh sách!
-  </blockquote>
+queue_5: "ℹ️ <b>chỉ có một bài trong hàng đợi</b>/n💡 thêm nhiều bài hơn để xem danh sách!"
 
 queue_6: |
   <blockquote>
