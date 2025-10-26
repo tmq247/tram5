@@ -3,6 +3,8 @@ import os
 
 from pyrogram import filters
 from pyrogram.errors import FloodWait
+from pyrogram.enums import ParseMode
+from pyrogram.errors import EntityBoundsInvalid
 from pyrogram.types import CallbackQuery, InputMediaPhoto, Message
 
 import config
