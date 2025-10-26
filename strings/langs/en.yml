@@ -659,29 +659,11 @@ queue_5: |
   💡 thêm nhiều bài hơn để xem danh sách!
   </blockquote>
 
-queue_6: |
-  <blockquote>
-  🕚 <b>thời lượng:</b> không xác định (phát trực tiếp)
-  </blockquote>
-  <blockquote>
-  📌 nhấn bên dưới để xem toàn bộ danh sách phát
-  </blockquote>
+queue_6: "🕚 <b>thời lượng:</b> không xác định (phát trực tiếp)/n📌 nhấn bên dưới để xem toàn bộ danh sách phát"
 
-queue_7: |
-  <blockquote>
-  📌 nhấn bên dưới để xem tất cả bài trong hàng đợi 🔗
-  </blockquote>
+queue_7: "📌 nhấn bên dưới để xem tất cả bài trong hàng đợi 🔗"
 
-queue_8: |
-  <blockquote>
-  🎶 <b>{0} trình phát</b>
-  </blockquote>
-  <blockquote>
-  ▶️ <b>đang phát:</b> {1}<br>
-  🌍 <b>kiểu luồng:</b> {2}<br>
-  🙋 <b>yêu cầu bởi:</b> {3}<br>
-  {4}
-  </blockquote>
+queue_8: "🎶 <b>{0} trình phát</b>/n/n▶️ <b>đang phát:</b> {1}<br>/n🌍 <b>kiểu luồng:</b> {2}<br>/n🙋 <b>yêu cầu bởi:</b> {3}<br>/n{4}"
 
 stream_1: |
   <blockquote>
