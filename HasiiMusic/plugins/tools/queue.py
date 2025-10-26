@@ -148,7 +148,7 @@ async def get_queue(client, message: Message, _):
             IMAGE,
             caption=cap_md,
             reply_markup=upl,
-            parse_mode=ParseMode.MARKDOWN,
+            parse_mode=ParseMode.HTML,
         )
     except EntityBoundsInvalid:
         # Nếu template/i18n có markdown lỗi -> gửi plain text
@@ -156,7 +156,7 @@ async def get_queue(client, message: Message, _):
             IMAGE,
             caption=cap_trunc(plain(cap_md), MAX_CAPTION),
             reply_markup=upl,
-            parse_mode=HTML,
+            parse_mode=None,
         )
 
     if DUR != "Unknown":
