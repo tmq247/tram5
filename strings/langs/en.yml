@@ -649,10 +649,7 @@ queue_6: |
   📌 nhấn bên dưới để xem toàn bộ danh sách phát
   </blockquote>
 
-queue_7: |
-  <blockquote>
-  📌 nhấn bên dưới để xem tất cả bài trong hàng đợi 🔗
-  </blockquote>
+queue_7: "📌 nhấn bên dưới để xem tất cả bài trong hàng đợi 🔗"
 
 queue_8: |
   <blockquote>
