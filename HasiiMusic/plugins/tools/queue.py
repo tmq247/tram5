@@ -167,11 +167,11 @@ async def queued_tracks(client, CallbackQuery: CallbackQuery, _):
     for x in got:
         j += 1
         if j == 1:
-            msg += f'Streaming :\n\n✨ Title : {x["title"]}\nDuration : {x["dur"]}\nBy : {x["by"]}\n\n'
+            msg += f'Đang phát :\n\n✨ Tiêu đề : {x["title"]}\nThời lượng : {x["dur"]}\n Bởi : {x["by"]}\n\n'
         elif j == 2:
-            msg += f'Queued :\n\n✨ Title : {x["title"]}\nDuration : {x["dur"]}\nBy : {x["by"]}\n\n'
+            msg += f'Trong hàng chờ :\n\n✨ Tiêu đề : {x["title"]}\nThời lượng : {x["dur"]}\n Bởi : {x["by"]}\n\n'
         else:
-            msg += f'✨ Title : {x["title"]}\nDuration : {x["dur"]}\nBy : {x["by"]}\n\n'
+            msg += f'✨ Tiêu đề : {x["title"]}\nThời lượng : {x["dur"]}\n Bởi : {x["by"]}\n\n'
     if "Queued" in msg:
         if len(msg) < 700:
             await asyncio.sleep(1)
