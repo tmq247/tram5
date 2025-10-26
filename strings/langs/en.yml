@@ -643,8 +643,8 @@ queue_4: |
   ➥ <b>bài hát đã được thêm thành công vào vị trí hàng đợi: {0}</b>
   </blockquote>
   <blockquote>
-  → <b>tiêu đề:</b> {1}<br>
-  → <b>thời lượng:</b> {2} phút<br>
+  → <b>tiêu đề:</b> {1}
+  → <b>thời lượng:</b> {2} phút
   → <b>yêu cầu bởi:</b> {3}
   </blockquote>
 
@@ -688,8 +688,8 @@ stream_1: |
   ➥ <b>luồng yêu cầu đã bắt đầu</b> 🔴
   </blockquote>
   <blockquote>
-  ➻ <b>tiêu đề :</b> <a href={0}>{1}</a><br>
-  ➻ <b>thời lượng :</b> {2} phút<br>
+  ➻ <b>tiêu đề :</b> <a href={0}>{1}</a>
+  ➻ <b>thời lượng :</b> {2} phút
   ➻ <b>yêu cầu bởi :</b> {3}
   </blockquote>
 
@@ -698,7 +698,7 @@ stream_2: |
   ➥ <b>phát trực tiếp theo yêu cầu đã bắt đầu</b> 🚨
   </blockquote>
   <blockquote>
-  ➻ <b>kiểu luồng :</b> 🌐 phát trực tiếp [url]<br>
+  ➻ <b>kiểu luồng :</b> 🌐 phát trực tiếp [url]
   ➻ <b>yêu cầu bởi :</b> 🙋 {0}
   </blockquote>
 
@@ -708,7 +708,7 @@ S_B_3 : "trợ giúp & lệnh ❓"
 S_B_4 : "❄️hỗ trợ❄️"
 S_B_5 : "💗 mã nguồn 💗"
 S_B_6 : "youtube"
-S_B_7 : "certified coder ✔︎"
+S_B_7 : "Còi ✔︎"
 
 CLOSE_BUTTON: "✖ đóng"
 BACK_BUTTON: "⮌ quay lại"
