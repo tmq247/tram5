@@ -174,7 +174,7 @@ async def iptv_cb(_, q: CallbackQuery):
         )
         text = (
             f"📺 **{name}**\n\n"
-            f"🔗 Link:\n`{url}`\n\n"
+            f"🔗 Link:\n`/vplay {url}`\n\n"
             "👉 Bạn có thể copy link ở trên hoặc bấm **🔗 Mở liên kết**."
         )
         await q.message.edit_text(
