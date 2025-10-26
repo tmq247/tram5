@@ -35,7 +35,11 @@ general_4: "🚫 Quyền bị từ chối. ⚙️ Bạn không thể quản lý 
   #🔄 Cập nhật bộ nhớ đệm quyền quản trị qua /reload
   #</blockquote>)""")
 
-general_5: "🛑 <b>Không có luồng đang hoạt động</b>/n📡 Bot hiện không phát trực tuyến trong video chat."
+general_5: |
+  <blockquote>
+  🛑 <b>Không có luồng đang hoạt động</b>
+  📡 Bot hiện không phát trực tuyến trong video chat.
+  </blockquote>
 
 tg_1: |
   <blockquote>
@@ -639,7 +643,7 @@ queue_4: |
 # queue_5: "ℹ️ <b>ᴏɴʟʏ ᴏɴᴇ ǫᴜᴇᴜᴇᴅ ᴛʀᴀᴄᴋ</b>\n\n💡 ᴀᴅᴅ ᴍᴏʀᴇ ᴛʀᴀᴄᴋs ᴛᴏ sᴇᴇ ᴛʜᴇ ʟɪsᴛ!"
 # queue_6: "🕚 <b>ᴅᴜʀᴀᴛɪᴏɴ :</b> ᴜɴᴋɴᴏᴡɴ (ʟɪᴠᴇ sᴛʀᴇᴀᴍ)\n\n📌 ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ᴛᴏ ᴠɪᴇᴡ ғᴜʟʟ ǫᴜᴇᴜᴇ"
 # queue_7: "📌 ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ᴛᴏ ᴠɪᴇᴡ ᴀʟʟ ǫᴜᴇᴜᴇᴅ ᴛʀᴀᴄᴋs 🔗"
-queue_5: "ℹ️ <b>chỉ có một bài trong hàng đợi</b> /n/n 💡 thêm nhiều bài hơn để xem danh sách!"
+queue_5: "ℹ️ chỉ có một bài trong hàng đợi/n 💡 thêm nhiều bài hơn để xem danh sách!"
 
 queue_6: |
   <blockquote>
