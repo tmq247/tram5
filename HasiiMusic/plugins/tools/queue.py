@@ -156,7 +156,7 @@ async def get_queue(client, message: Message, _):
             IMAGE,
             caption=cap_trunc(plain(cap_md), MAX_CAPTION),
             reply_markup=upl,
-            parse_mode=None,
+            parse_mode=HTML,
         )
 
     if DUR != "Unknown":
