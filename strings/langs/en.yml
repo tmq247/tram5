@@ -35,13 +35,7 @@ general_4: "🚫 Quyền bị từ chối. ⚙️ Bạn không thể quản lý 
   #🔄 Cập nhật bộ nhớ đệm quyền quản trị qua /reload
   #</blockquote>)""")
 
-general_5: |
-  <blockquote>
-  🛑 <b>Không có luồng đang hoạt động</b>
-  </blockquote>
-  <blockquote>
-  📡 Bot hiện không phát trực tuyến trong video chat.
-  </blockquote>
+general_5: "🛑 <b>Không có luồng đang hoạt động</b>/n📡 Bot hiện không phát trực tuyến trong video chat."
 
 tg_1: |
   <blockquote>
@@ -625,13 +619,7 @@ queue_1: |
   ⌛ vui lòng chờ, chúng tôi đang chuẩn bị các bản nhạc của bạn!
   </blockquote>
 
-queue_2: |
-  <blockquote>
-  ⚠️ <b>danh sách phát trống</b> 
-  </blockquote>
-  <blockquote>
-  ➕ thêm vài bài để bắt đầu không khí 🎶"
-  </blockquote>
+queue_2: "⚠️ <b>danh sách phát trống</b> /n/n➕ thêm vài bài để bắt đầu không khí 🎶"
 
 queue_3: |
   <blockquote>
@@ -651,7 +639,7 @@ queue_4: |
 # queue_5: "ℹ️ <b>ᴏɴʟʏ ᴏɴᴇ ǫᴜᴇᴜᴇᴅ ᴛʀᴀᴄᴋ</b>\n\n💡 ᴀᴅᴅ ᴍᴏʀᴇ ᴛʀᴀᴄᴋs ᴛᴏ sᴇᴇ ᴛʜᴇ ʟɪsᴛ!"
 # queue_6: "🕚 <b>ᴅᴜʀᴀᴛɪᴏɴ :</b> ᴜɴᴋɴᴏᴡɴ (ʟɪᴠᴇ sᴛʀᴇᴀᴍ)\n\n📌 ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ᴛᴏ ᴠɪᴇᴡ ғᴜʟʟ ǫᴜᴇᴜᴇ"
 # queue_7: "📌 ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ᴛᴏ ᴠɪᴇᴡ ᴀʟʟ ǫᴜᴇᴜᴇᴅ ᴛʀᴀᴄᴋs 🔗"
-queue_5: "ℹ️ <b>chỉ có một bài trong hàng đợi</b> /n </blockquote> /n 💡 thêm nhiều bài hơn để xem danh sách!"
+queue_5: "ℹ️ <b>chỉ có một bài trong hàng đợi</b> /n/n 💡 thêm nhiều bài hơn để xem danh sách!"
 
 queue_6: |
   <blockquote>
@@ -661,7 +649,10 @@ queue_6: |
   📌 nhấn bên dưới để xem toàn bộ danh sách phát
   </blockquote>
 
-queue_7: "📌 nhấn bên dưới để xem tất cả bài trong hàng đợi 🔗"
+queue_7: |
+  <blockquote>
+  📌 nhấn bên dưới để xem tất cả bài trong hàng đợi 🔗
+  </blockquote>
 
 queue_8: |
   <blockquote>
