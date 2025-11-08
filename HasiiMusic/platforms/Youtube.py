@@ -7,6 +7,7 @@ import time
 from typing import Dict, List, Optional, Tuple, Union
 
 import yt_dlp
+import config
 from pyrogram.enums import MessageEntityType
 from pyrogram.types import Message
 from py_yt  import VideosSearch
@@ -53,6 +54,7 @@ async def _exec_proc(*args: str) -> Tuple[bytes, bytes]:
         with contextlib.suppress(Exception):
             proc.kill()
         return b"", b"timeout"
+
 
 @capture_internal_err
 async def cached_youtube_search(query: str) -> List[Dict]:
@@ -181,21 +183,23 @@ class YouTubeAPI:
         ).split("?")[0] if info else ""
 
     @capture_internal_err
-    async def video(self, link: str, videoid: Union[str, bool, None] = None) -> List[str]:
+    async def video(
+        self, link: str, videoid: Union[str, bool, None] = None
+    ) -> Tuple[int, str]:
         link = self._prepare_link(link, videoid)
         stdout, stderr = await _exec_proc(
             "yt-dlp",
             *(_cookies_args()),
             "-g",
             "-f",
-            "best[height<=?720][width<=?1280]",
+            config.YTDLP_VIDEO_FORMAT,
             link,
         )
         return (1, stdout.decode().split("\n")[0]) if stdout else (0, stderr.decode())
 
     @capture_internal_err
     async def playlist(
-        self, link: str, limit: int, videoid: Union[str, bool, None] = None
+        self, link: str, limit: int, user_id, videoid: Union[str, bool, None] = None
     ) -> List[str]:
         if videoid:
             link = self.playlist_url + str(videoid)
@@ -213,7 +217,6 @@ class YouTubeAPI:
         )
         items = stdout.decode().strip().split("\n") if stdout else []
         return [i for i in items if i]
-
 
     @capture_internal_err
     async def track(
