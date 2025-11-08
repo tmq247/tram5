@@ -1,6 +1,7 @@
 import re
 from os import getenv
 from dotenv import load_dotenv
+from typing import Iterable, Iterator, Set
 from pyrogram import filters
 
 # Load environment variables from .env file
@@ -31,6 +32,26 @@ SONG_DOWNLOAD_DURATION_LIMIT = int(
 TG_AUDIO_FILESIZE_LIMIT = int(getenv("TG_AUDIO_FILESIZE_LIMIT", "157286400000"))
 TG_VIDEO_FILESIZE_LIMIT = int(getenv("TG_VIDEO_FILESIZE_LIMIT", "12884901890000"))
 PLAYLIST_FETCH_LIMIT = int(getenv("PLAYLIST_FETCH_LIMIT", "50"))
+# ── Streaming quality preferences ────────────────────────────────────────────
+STREAM_AUDIO_ONLY_QUALITY = getenv(
+    "STREAM_AUDIO_ONLY_QUALITY", "studio"
+).strip().lower()
+STREAM_VIDEO_AUDIO_QUALITY = getenv(
+    "STREAM_VIDEO_AUDIO_QUALITY", "studio"
+).strip().lower()
+STREAM_VIDEO_QUALITY = getenv(
+    "STREAM_VIDEO_QUALITY", "fhd_1080p"
+).strip().lower()
+YTDLP_AUDIO_FORMAT = getenv(
+    "YTDLP_AUDIO_FORMAT", "bestaudio[abr>=256]/bestaudio/best"
+).strip()
+YTDLP_VIDEO_FORMAT = getenv(
+    "YTDLP_VIDEO_FORMAT", "best[height<=?1080][width<=?1920]"
+).strip()
+YTDLP_PREFERRED_AUDIO_BITRATE = getenv(
+    "YTDLP_PREFERRED_AUDIO_BITRATE", "320"
+).strip()
+
 
 # ── External APIs ──────────────────────────────────────────────────────────────
 COOKIE_URL = getenv("COOKIE_URL")  # required (paste link)
@@ -110,7 +131,60 @@ DURATION_LIMIT = time_to_seconds(f"{DURATION_LIMIT_MIN}:00")
 AYU = ["💞", "🦋", "🔍", "🧪", "⚡️", "🎩", "🍷", "🥂", "🕊️", "🪄", "🧨"]
 
 # ───── Runtime Structures ───── #
-BANNED_USERS = filters.user()
+class BannedUsersManager:
+    """Manage banned user IDs while exposing a Pyrogram filter."""
+
+    def __init__(self) -> None:
+        self._ids: Set[int] = set()
+
+        def _checker(_, __, update) -> bool:
+            user = getattr(update, "from_user", None)
+            return bool(user and user.id in self._ids)
+
+        self._filter = filters.create(_checker)
+
+    def add(self, user_id: int) -> None:
+        self._ids.add(int(user_id))
+
+    def remove(self, user_id: int) -> None:
+        self._ids.remove(int(user_id))
+
+    def discard(self, user_id: int) -> None:
+        self._ids.discard(int(user_id))
+
+    def update(self, user_ids: Iterable[int]) -> None:
+        for user_id in user_ids:
+            self.add(user_id)
+
+    def clear(self) -> None:
+        self._ids.clear()
+
+    def __contains__(self, user_id: object) -> bool:  # type: ignore[override]
+        try:
+            return int(user_id) in self._ids
+        except (TypeError, ValueError):
+            return False
+
+    def __len__(self) -> int:
+        return len(self._ids)
+
+    def __iter__(self) -> Iterator[int]:
+        return iter(self._ids)
+
+    def __bool__(self) -> bool:
+        return bool(self._ids)
+
+    def __invert__(self):
+        return ~self._filter
+
+    def __repr__(self) -> str:
+        return f"BannedUsersManager(total={len(self)})"
+
+    @property
+    def filter(self):
+        return self._filter
+
+BANNED_USERS = BannedUsersManager()
 adminlist, lyrical, votemode, autoclean, confirmer = {}, {}, {}, [], {}
 
 # ── Minimal validation ─────────────────────────────────────────────────────────
