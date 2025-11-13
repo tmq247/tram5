@@ -24,14 +24,14 @@ from YukkiMusic.utils.database import (
     get_playlist_names,
     save_playlist,
 )
-from YukkiMusic.utils.decorators import language, languageCB
-from YukkiMusic.utils.decorators.play import botplaylist_markup
-from YukkiMusic.utils.inline.playlist import (
+from HasiiMusic.utils.decorators import language, languageCB
+from HasiiMusic.utils.decorators.play import botplaylist_markup
+from HasiiMusic.utils.inline.playlist import (
     get_playlist_markup,
     warning_markup,
 )
-from YukkiMusic.utils.pastebin import Yukkibin
-from YukkiMusic.utils.stream.stream import stream
+from HasiiMusic.utils.pastebin import Yukkibin
+from HasiiMusic.utils.stream.stream import stream
 
 
 @app.on_message(command("PLAYLIST_COMMAND") & ~BANNED_USERS)
