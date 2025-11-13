@@ -8,10 +8,9 @@ future==1.0.0
 gitpython
 heroku3
 httpx==0.28.1
-motor 
-pillow==11.3.0
+motor
 psutil
-py-yt-search
+#py-yt-search
 #kurigram==2.2.13
 python-dotenv
 #ntgcalls==2.0.6
@@ -22,7 +21,9 @@ speedtest-cli
 spotipy
 tgcrypto
 unidecode
-yt-dlp==2025.10.14
 pyrofork
 --no-binary ntgcalls
+pillow==12.0.0
+git+https://github.com/CertifiedCoders/youtube-search-python
 ntgcalls==2.0.6
+yt-dlp==2025.11.12
