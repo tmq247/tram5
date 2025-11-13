@@ -3,8 +3,8 @@ from pyrogram.types import (
     InlineKeyboardMarkup,
     InlineQueryResultPhoto,
 )
-from py_yt import VideosSearch
-
+#from py_yt import VideosSearch
+from youtubesearchpython.__future__ import VideosSearch
 from HasiiMusic.utils.inlinequery import answer
 from config import BANNED_USERS
 from HasiiMusic import app
