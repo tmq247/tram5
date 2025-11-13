@@ -7,10 +7,9 @@ import time
 from typing import Dict, List, Optional, Tuple, Union
 
 import yt_dlp
-import config
 from pyrogram.enums import MessageEntityType
 from pyrogram.types import Message
-from py_yt  import VideosSearch
+from youtubesearchpython.__future__ import VideosSearch
 
 from HasiiMusic.utils.cookie_handler import COOKIE_PATH
 from HasiiMusic.utils.database import is_on_off
@@ -112,7 +111,7 @@ class YouTubeAPI:
             entities = msg.entities or msg.caption_entities or []
             for ent in entities:
                 if ent.type == MessageEntityType.URL:
-                    return text[ent.offset : ent.offset + ent.length]
+                    return text[ent.offset: ent.offset + ent.length]
                 if ent.type == MessageEntityType.TEXT_LINK:
                     return ent.url
         return None
@@ -192,7 +191,7 @@ class YouTubeAPI:
             *(_cookies_args()),
             "-g",
             "-f",
-            config.YTDLP_VIDEO_FORMAT,
+            "best[height<=?720][width<=?1280]",
             link,
         )
         return (1, stdout.decode().split("\n")[0]) if stdout else (0, stderr.decode())
@@ -272,7 +271,8 @@ class YouTubeAPI:
                 for fmt in info.get("formats", []):
                     if "dash" in str(fmt.get("format", "")).lower():
                         continue
-                    need = ("format", "filesize", "filesize_approx", "format_id", "ext", "format_note")
+                    need = ("format", "filesize", "filesize_approx",
+                            "format_id", "ext", "format_note")
                     if not any(k in fmt for k in ("filesize", "filesize_approx")):
                         continue
                     if not all(k in fmt for k in ("format", "format_id", "ext", "format_note")):
