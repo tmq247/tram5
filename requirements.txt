@@ -11,7 +11,7 @@ httpx==0.28.1
 motor
 psutil
 #py-yt-search
-#kurigram==2.2.13
+kurigram==2.2.13
 python-dotenv
 #ntgcalls==2.0.6
 py-tgcalls==2.2.8
