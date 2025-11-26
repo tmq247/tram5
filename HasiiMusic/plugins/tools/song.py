@@ -68,11 +68,14 @@ async def song_command_private(client, message: Message, lang):
         return await mystic.edit_text(lang["play_4"].format(SONG_DOWNLOAD_DURATION, dur_min))
 
     await mystic.delete()
-    await message.reply_photo(
+    try:
+        await message.reply_photo(
         thumb,
         caption=lang["song_4"].format(title),
         reply_markup=InlineKeyboardMarkup(song_markup(lang, vidid)),
-    )
+        )
+    except:
+        await message.reply_text("vui lòng thử lại bằng liên kết của bài hát")
 
 
 # ───────────────────────────── CALLBACKS ───────────────────────────── #
