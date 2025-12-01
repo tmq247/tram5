@@ -1,4 +1,3 @@
-# Authored By Certified Coders © 2025
 import os
 from random import randint
 from typing import Union
@@ -7,12 +6,12 @@ from pyrogram.types import InlineKeyboardMarkup
 
 import config
 from HasiiMusic import Carbon, YouTube, app
-from HasiiMusic.core.call import StreamController
+from HasiiMusic.core.call import JARVIS
 from HasiiMusic.misc import db
 from HasiiMusic.utils.database import add_active_video_chat, is_active_chat
 from HasiiMusic.utils.exceptions import AssistantErr
 from HasiiMusic.utils.inline import aq_markup, close_markup, stream_markup
-from HasiiMusic.utils.pastebin import ANNIEBIN
+from HasiiMusic.utils.pastebin import TuneBin
 from HasiiMusic.utils.stream.queue import put_queue, put_queue_index
 from HasiiMusic.utils.thumbnails import get_thumb
 from HasiiMusic.utils.errors import capture_internal_err
@@ -39,7 +38,7 @@ async def stream(
     is_video = bool(video)
 
     if forceplay:
-        await StreamController.force_stop_stream(chat_id)
+        await JARVIS.force_stop_stream(chat_id)
 
     if streamtype == "playlist":
         msg = f"{_['play_19']}\n\n"
@@ -89,7 +88,7 @@ async def stream(
                 if not file_path:
                     raise AssistantErr(_["play_14"])
 
-                await StreamController.join_call(
+                await JARVIS.join_call(
                     chat_id,
                     original_chat_id,
                     file_path,
@@ -126,7 +125,7 @@ async def stream(
 
         if count == 0:
             return
-        link = await ANNIEBIN(msg)
+        link = await TuneBin(msg)
         lines = msg.count("\n")
         car = os.linesep.join(msg.split(os.linesep)[:17]) if lines >= 17 else msg
         try:
@@ -183,7 +182,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await StreamController.join_call(
+            await JARVIS.join_call(
                 chat_id,
                 original_chat_id,
                 file_path,
@@ -247,7 +246,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await StreamController.join_call(chat_id, original_chat_id, file_path, video=False)
+            await JARVIS.join_call(chat_id, original_chat_id, file_path, video=False)
             await put_queue(
                 chat_id,
                 original_chat_id,
@@ -302,7 +301,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await StreamController.join_call(chat_id, original_chat_id, file_path, video=is_video)
+            await JARVIS.join_call(chat_id, original_chat_id, file_path, video=is_video)
             await put_queue(
                 chat_id,
                 original_chat_id,
@@ -362,7 +361,7 @@ async def stream(
             if not file_path:
                 raise AssistantErr(_["play_14"])
 
-            await StreamController.join_call(
+            await JARVIS.join_call(
                 chat_id,
                 original_chat_id,
                 file_path,
@@ -422,7 +421,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await StreamController.join_call(
+            await JARVIS.join_call(
                 chat_id,
                 original_chat_id,
                 link,
