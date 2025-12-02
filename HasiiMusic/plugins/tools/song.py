@@ -30,19 +30,19 @@ class InlineKeyboardBuilder(list):
 
 
 # ───────────────────────────── COMMANDS ───────────────────────────── #
-@app.on_message(filters.command(SONG_COMMAND) & filters.group & ~BANNED_USERS)
-@capture_err
-@language
-async def song_command_group(client, message: Message, lang):
-    await message.reply_text(
-        lang["song_1"],
-        reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton(lang["SG_B_1"], url=f"https://t.me/{app.username}?start=song")]]
-        ),
-    )
+#@app.on_message(filters.command(SONG_COMMAND) & filters.group & ~BANNED_USERS)
+#@capture_err
+#@language
+#async def song_command_group(client, message: Message, lang):
+#    await message.reply_text(
+#        lang["song_1"],
+#        reply_markup=InlineKeyboardMarkup(
+ #           [[InlineKeyboardButton(lang["SG_B_1"], url=f"https://t.me/{app.username}?start=song")]]
+#        ),
+#    )
 
 
-@app.on_message(filters.command(SONG_COMMAND) & filters.private & ~BANNED_USERS)
+@app.on_message(filters.command(SONG_COMMAND) & ~BANNED_USERS)
 @capture_err
 @language
 async def song_command_private(client, message: Message, lang):
