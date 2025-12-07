@@ -75,8 +75,10 @@ async def song_command_private(client, message: Message, lang):
         reply_markup=InlineKeyboardMarkup(song_markup(lang, vidid)),
         )
     except:
-        await message.reply_text("vui lòng thử lại bằng liên kết của bài hát")
-
+        await message.reply_text(
+        caption=lang["song_4"].format(title),
+        reply_markup=InlineKeyboardMarkup(song_markup(lang, vidid)),
+        )
 
 # ───────────────────────────── CALLBACKS ───────────────────────────── #
 @app.on_callback_query(filters.regex(r"song_back") & ~BANNED_USERS)
