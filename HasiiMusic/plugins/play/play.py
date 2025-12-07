@@ -508,14 +508,23 @@ async def play_command(
                     "f" if fplay else "d",
                 )
                 await mystic.delete()
-                await message.reply_photo(
-                    photo=details["thumb"],
-                    caption=_["play_10"].format(
-                        details["title"].title(),
-                        details["duration_min"],
-                    ),
-                    reply_markup=InlineKeyboardMarkup(buttons),
-                )
+                try:
+                    await message.reply_photo(
+                        photo=details["thumb"],
+                        caption=_["play_10"].format(
+                            details["title"].title(),
+                            details["duration_min"],
+                        ),
+                        reply_markup=InlineKeyboardMarkup(buttons),
+                    )
+                except:
+                    await message.reply_text(
+                        caption=_["play_10"].format(
+                            details["title"].title(),
+                            details["duration_min"],
+                        ),
+                        reply_markup=InlineKeyboardMarkup(buttons),
+                    )
                 return await play_logs(message, streamtype="Searched on YouTube")
 
             else:
@@ -527,14 +536,23 @@ async def play_command(
                     "f" if fplay else "d",
                 )
                 await mystic.delete()
-                await message.reply_photo(
-                    photo=details["thumb"],
-                    caption=_["play_10"].format(
-                        details["title"],
-                        details["duration_min"],
-                    ),
-                    reply_markup=InlineKeyboardMarkup(buttons),
-                )
+                try:
+                    await message.reply_photo(
+                        photo=details["thumb"],
+                        caption=_["play_10"].format(
+                            details["title"],
+                            details["duration_min"],
+                        ),
+                        reply_markup=InlineKeyboardMarkup(buttons),
+                    )
+                except:
+                    await message.reply_text(
+                        caption=_["play_10"].format(
+                            details["title"],
+                            details["duration_min"],
+                        ),
+                        reply_markup=InlineKeyboardMarkup(buttons),
+                    )
                 return await play_logs(message, streamtype="URL Search Inline")
 
 
