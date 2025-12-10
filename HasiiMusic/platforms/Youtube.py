@@ -365,8 +365,8 @@ class YouTubeAPI:
                 link,
             )
             if stdout:
-                print(stdout.decode().split("\n")[0])
-                return stdout.decode().split("\n")[0], None
+                print(stdout)
+                return stdout, None
             return None, None
         p = await download_audio_concurrent(link)
         return (p, True) if p else (None, None)
