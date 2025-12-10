@@ -37,16 +37,16 @@ STREAM_AUDIO_ONLY_QUALITY = getenv(
     "STREAM_AUDIO_ONLY_QUALITY", "studio"
 ).strip().lower()
 STREAM_VIDEO_AUDIO_QUALITY = getenv(
-    "STREAM_VIDEO_AUDIO_QUALITY", "studio"
+    "STREAM_VIDEO_AUDIO_QUALITY", "medium"
 ).strip().lower()
 STREAM_VIDEO_QUALITY = getenv(
-    "STREAM_VIDEO_QUALITY", "fhd_1080p"
+    "STREAM_VIDEO_QUALITY", "hd_720p"
 ).strip().lower()
 YTDLP_AUDIO_FORMAT = getenv(
     "YTDLP_AUDIO_FORMAT", "bestaudio[abr>=256]/bestaudio/best"
 ).strip()
 YTDLP_VIDEO_FORMAT = getenv(
-    "YTDLP_VIDEO_FORMAT", "best[height<=?1080][width<=?1920]"
+    "YTDLP_VIDEO_FORMAT", "best[height<=?720][width<=?1280]"
 ).strip()
 YTDLP_PREFERRED_AUDIO_BITRATE = getenv(
     "YTDLP_PREFERRED_AUDIO_BITRATE", "320"
