@@ -398,7 +398,7 @@ class YouTubeAPI:
                 *(_cookies_args()),
                 "-g",
                 "-f",
-                "bestvideo[ext=mp4][height<=?720]+bestaudio[ext=m4a]/best[ext=mp4][height<=?720]/best[height<=?720]",
+                "best[ext=mp4][height<=?720]/best[height<=?720]",
                 link,
             )
             if stdout:
