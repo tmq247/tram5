@@ -347,23 +347,76 @@ class YouTubeAPI:
 
         if video:
             if await self.is_live(link):
-                status, stream_url = await self.video(link)
-                if status == 1:
+                # For live streams: prefer direct mp4/DASH URLs (not HLS .m3u8) to avoid expiration problems.
+                # First try to get a direct mp4/DASH url (video+audio muxed or video+audio pair)
+                fmt_try_1 = "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best"
+                stdout, _ = await _exec_proc(
+                    "yt-dlp",
+                    *(_cookies_args()),
+                    "-g",
+                    "-f",
+                    fmt_try_1,
+                    link,
+                )
+                stream_url = stdout.decode().split("\n")[0].strip() if stdout else None
+
+                # If the returned url is an HLS manifest (.m3u8) try to get a protocol that is not m3u8
+                if stream_url and stream_url.lower().endswith(".m3u8"):
+                    fmt_try_2 = "best[protocol!=m3u8]/best"
+                    stdout2, _ = await _exec_proc(
+                        "yt-dlp",
+                        *(_cookies_args()),
+                        "-g",
+                        "-f",
+                        fmt_try_2,
+                        link,
+                    )
+                    alt = stdout2.decode().split("\n")[0].strip() if stdout2 else None
+                    if alt:
+                        stream_url = alt
+
+                # If we've got something that looks like a usable stream, return it (refresh each play)
+                if stream_url:
+                    # sometimes yt-dlp -g returns empty or extra lines, ensure non-empty
                     return stream_url, None
+
+                # Fallback: keep existing behavior (self.video might handle special cases)
+                status, stream_url = await self.video(link)
+                if status == 1 and stream_url:
+                    return stream_url, None
+
                 raise ValueError("Unable to fetch live stream link")
+
+            # Non-live flow: prefer mp4/dash muxed url to avoid HLS expiry
             if await is_on_off(1):
                 p = await yt_dlp_download(link, type="video")
                 return (p, True) if p else (None, None)
+
+            # Use yt-dlp -g with format preferring mp4+dash mux (and limiting res)
             stdout, _ = await _exec_proc(
                 "yt-dlp",
                 *(_cookies_args()),
                 "-g",
                 "-f",
-                "best[height<=?720][width<=?1280]",
+                "bestvideo[ext=mp4][height<=?720]+bestaudio[ext=m4a]/best[ext=mp4][height<=?720]/best[height<=?720]",
                 link,
             )
             if stdout:
-                return stdout.decode().split("\n")[0], None
+                candidate = stdout.decode().split("\n")[0].strip()
+                # if candidate is m3u8, try to avoid it by asking for protocol!=m3u8
+                if candidate.lower().endswith(".m3u8"):
+                    stdout2, _ = await _exec_proc(
+                        "yt-dlp",
+                        *(_cookies_args()),
+                        "-g",
+                        "-f",
+                        "best[protocol!=m3u8][height<=?720]/best[height<=?720]",
+                        link,
+                    )
+                    alt = stdout2.decode().split("\n")[0].strip() if stdout2 else None
+                    if alt:
+                        candidate = alt
+                return candidate, None
             return None, None
 
         p = await download_audio_concurrent(link)
