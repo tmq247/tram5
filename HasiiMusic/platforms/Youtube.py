@@ -209,7 +209,7 @@ class YouTubeAPI:
             *(_cookies_args()),
             "-i",
             "--get-id",
-            "--flat-playlist",
+            "--no-flat-playlist",
             "--playlist-end",
             str(limit),
             "--skip-download",
@@ -360,7 +360,7 @@ class YouTubeAPI:
                 *(_cookies_args()),
                 "-g",
                 "-f",
-                "best[height<=?720][width<=?1280]/best[vcodec!=none]",
+                "best[height<=?720][width<=?1280]",
                 link,
             )
             if stdout:
