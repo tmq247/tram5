@@ -209,13 +209,14 @@ class YouTubeAPI:
             *(_cookies_args()),
             "-i",
             "--get-id",
-            "--no-flat-playlist",
+            "--flat-playlist",
             "--playlist-end",
             str(limit),
             "--skip-download",
             link,
         )
         items = stdout.decode().strip().split("\n") if stdout else []
+        print(items)
         return [i for i in items if i]
 
     @capture_internal_err
@@ -364,6 +365,7 @@ class YouTubeAPI:
                 link,
             )
             if stdout:
+                print(stdout)
                 return stdout.decode().split("\n")[0], None
             return None, None
         p = await download_audio_concurrent(link)
