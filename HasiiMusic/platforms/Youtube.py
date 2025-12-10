@@ -346,7 +346,7 @@ class YouTubeAPI:
             )
             return (p, True) if p else (None, None)
 
-         if video:
+        if video:
             if await self.is_live(link):
                 status, stream_url = await self.video(link)
                 if status == 1:
