@@ -4,6 +4,7 @@ import json
 import os
 import re
 import time
+import uuid
 from typing import Dict, List, Optional, Tuple, Union
 
 import yt_dlp
@@ -348,7 +349,6 @@ class YouTubeAPI:
         if video:
             if await self.is_live(link):
                 # For live streams: prefer direct mp4/DASH URLs (not HLS .m3u8) to avoid expiration problems.
-                # First try to get a direct mp4/DASH url (video+audio muxed or video+audio pair)
                 fmt_try_1 = "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best"
                 stdout, _ = await _exec_proc(
                     "yt-dlp",
@@ -358,9 +358,53 @@ class YouTubeAPI:
                     fmt_try_1,
                     link,
                 )
-                stream_url = stdout.decode().split("\n")[0].strip() if stdout else None
+
+                # --- NEW: handle 2-line (video_url + audio_url) case by muxing to a fifo pipe ---
+                lines = stdout.decode().splitlines() if stdout else []
+                if len(lines) >= 2:
+                    video_url = lines[0].strip()
+                    audio_url = lines[1].strip()
+
+                    # create fifo
+                    pipe_path = f"/tmp/annie_stream_{uuid.uuid4().hex}.ts"
+                    try:
+                        os.mkfifo(pipe_path)
+                    except FileExistsError:
+                        pass
+
+                    # start ffmpeg mux (video copy, audio encode to aac) -> write mpegts to pipe
+                    proc = await asyncio.create_subprocess_exec(
+                        "ffmpeg",
+                        "-re",
+                        "-i",
+                        video_url,
+                        "-i",
+                        audio_url,
+                        "-map",
+                        "0:v:0",
+                        "-map",
+                        "1:a:0",
+                        "-c:v",
+                        "copy",
+                        "-c:a",
+                        "aac",
+                        "-b:a",
+                        "128k",
+                        "-f",
+                        "mpegts",
+                        pipe_path,
+                        stdout=asyncio.subprocess.DEVNULL,
+                        stderr=asyncio.subprocess.PIPE,
+                    )
+
+                    # TODO: store proc & pipe_path so you can kill/cleanup after call.
+                    # e.g. self._ffmpeg_procs = getattr(self, "_ffmpeg_procs", {}); self._ffmpeg_procs[pipe_path] = proc
+
+                    return pipe_path, None
+                # --- END NEW block ---
 
                 # If the returned url is an HLS manifest (.m3u8) try to get a protocol that is not m3u8
+                stream_url = lines[0].strip() if lines else None
                 if stream_url and stream_url.lower().endswith(".m3u8"):
                     fmt_try_2 = "best[protocol!=m3u8]/best"
                     stdout2, _ = await _exec_proc(
@@ -371,13 +415,13 @@ class YouTubeAPI:
                         fmt_try_2,
                         link,
                     )
-                    alt = stdout2.decode().split("\n")[0].strip() if stdout2 else None
+                    alt_lines = stdout2.decode().splitlines() if stdout2 else []
+                    alt = alt_lines[0].strip() if alt_lines else None
                     if alt:
                         stream_url = alt
 
                 # If we've got something that looks like a usable stream, return it (refresh each play)
                 if stream_url:
-                    # sometimes yt-dlp -g returns empty or extra lines, ensure non-empty
                     return stream_url, None
 
                 # Fallback: keep existing behavior (self.video might handle special cases)
@@ -398,11 +442,56 @@ class YouTubeAPI:
                 *(_cookies_args()),
                 "-g",
                 "-f",
-                "best*[ext=mp4][height<=?720]/best*[height<=?720]/best*[vcodec!=none]",
+                "bestvideo[ext=mp4][height<=?720]+bestaudio[ext=m4a]/best[ext=mp4][height<=?720]/best[height<=?720]",
                 link,
             )
-            if stdout:
-                candidate = stdout.decode().split("\n")[0].strip()
+
+            # --- NEW: handle 2-line (video_url + audio_url) case here too ---
+            lines = stdout.decode().splitlines() if stdout else []
+            if len(lines) >= 2:
+                video_url = lines[0].strip()
+                audio_url = lines[1].strip()
+
+                # create fifo
+                pipe_path = f"/tmp/annie_stream_{uuid.uuid4().hex}.ts"
+                try:
+                    os.mkfifo(pipe_path)
+                except FileExistsError:
+                    pass
+
+                # start ffmpeg mux
+                proc = await asyncio.create_subprocess_exec(
+                    "ffmpeg",
+                    "-re",
+                    "-i",
+                    video_url,
+                    "-i",
+                    audio_url,
+                    "-map",
+                    "0:v:0",
+                    "-map",
+                    "1:a:0",
+                    "-c:v",
+                    "copy",
+                    "-c:a",
+                    "aac",
+                    "-b:a",
+                    "128k",
+                    "-f",
+                    "mpegts",
+                    pipe_path,
+                    stdout=asyncio.subprocess.DEVNULL,
+                    stderr=asyncio.subprocess.PIPE,
+                )
+
+                # TODO: store proc & pipe_path so you can kill/cleanup after call.
+                # e.g. self._ffmpeg_procs[pipe_path] = proc
+
+                return pipe_path, None
+            # --- END NEW block ---
+
+            if lines:
+                candidate = lines[0].strip()
                 # if candidate is m3u8, try to avoid it by asking for protocol!=m3u8
                 if candidate.lower().endswith(".m3u8"):
                     stdout2, _ = await _exec_proc(
@@ -418,6 +507,5 @@ class YouTubeAPI:
                         candidate = alt
                 return candidate, None
             return None, None
-
         p = await download_audio_concurrent(link)
         return (p, True) if p else (None, None)
