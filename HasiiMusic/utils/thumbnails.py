@@ -4,7 +4,7 @@ import aiofiles
 import aiohttp
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont
 #from py_yt  import VideosSearch
-from youtubesearchpython.__future__ import VideosSearch
+from youtubesearchpython.aio import VideosSearch
 from config import YOUTUBE_IMG_URL
 from HasiiMusic.core.dir import CACHE_DIR 
 
