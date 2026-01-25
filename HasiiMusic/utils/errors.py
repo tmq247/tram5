@@ -56,7 +56,7 @@ async def handle_trace(err, tb, label, filename, extras=None):
     if len(caption) > 4096:
         await send_large_error(tb, caption.split("\n\n")[0], filename)
     else:
-        await app.send_message(LOGGER_ID, caption)
+        await app.send_message(LOGGER_ID, caption, parse_mode=None, disable_web_page_preview=True)
 
 async def log_ignored_error(err, tb, label, extras=None):
     if not DEBUG_IGNORE_LOG:
