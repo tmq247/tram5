@@ -53,14 +53,30 @@ async def handle_trace(err, tb, label, filename, extras=None):
         return
 
     caption = format_traceback(err, tb, label, extras)
-    if len(caption) > 4096:
-        await send_large_error(tb, caption.split("\n\n")[0], filename)
-    else:
-        await app.send_message(LOGGER_ID, caption, parse_mode=None, disable_web_page_preview=True)
+    SAFE_LEN = 3500
 
-async def log_ignored_error(err, tb, label, extras=None):
-    if not DEBUG_IGNORE_LOG:
-        return
+    try:
+        if len(caption) > SAFE_LEN:
+            # gửi log đầy đủ dưới dạng file
+            await send_large_error(tb, caption, filename)
+
+            # gửi thông báo ngắn
+            short = caption[:SAFE_LEN] + "\n\n[Traceback sent as file]"
+            await app.send_message(
+                LOGGER_ID,
+                short,
+                parse_mode=None,
+                disable_web_page_preview=True
+            )
+        else:
+            await app.send_message(
+                LOGGER_ID,
+                caption,
+                parse_mode=None,
+                disable_web_page_preview=True
+            )
+    except Exception as e:
+        print("LOGGER FAILED:", e)
 
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     lines = [
