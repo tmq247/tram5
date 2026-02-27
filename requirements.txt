@@ -11,10 +11,9 @@ httpx==0.28.1
 motor
 psutil
 #py-yt-search
-kurigram==2.2.13
+kurigram
 python-dotenv
-#ntgcalls==2.0.6
-py-tgcalls==2.2.8
+py-tgcalls
 pyyaml==6.0.3
 requests
 speedtest-cli
@@ -22,8 +21,8 @@ spotipy
 tgcrypto
 unidecode
 pyrofork
---no-binary ntgcalls
+#--no-binary ntgcalls
 pillow==12.0.0
 git+https://github.com/CertifiedCoders/youtube-search-python
-ntgcalls==2.0.6
-yt-dlp==2025.11.12
+ntgcalls
+yt-dlp
