@@ -144,10 +144,10 @@ def _ytdlp_base_opts(mystic=None) -> Dict[str, Union[str, int, bool]]:
 "outtmpl": f"{_DOWNLOAD_DIR}/%(id)s.%(ext)s",
 "quiet": True,
 "no_warnings": True,
-"noplaylist": True,
+#"noplaylist": True,
 "overwrites": True,
 "continuedl": True,
-"noprogress": True,
+#"noprogress": True,
 
 "format": "bestaudio[ext=m4a]/bestaudio",
 
@@ -279,7 +279,7 @@ async def _dedup(key: str, runner):
 
 
 async def yt_dlp_download(
-    link: str, type: str, format_id: str = None, title: str = None
+    link: str, type: str, format_id: str = None, title: str = None, mystic=None
 ) -> Optional[str]:
     loop = asyncio.get_running_loop()
 
@@ -287,7 +287,7 @@ async def yt_dlp_download(
         key = f"a:{link}"
 
         async def run():
-            opts = _ytdlp_base_opts()
+            opts = _ytdlp_base_opts(mystic)
             opts.update({"format": YTDLP_AUDIO_FORMAT})
             bitrate = YTDLP_PREFERRED_AUDIO_BITRATE
             if bitrate.isdigit():
@@ -316,7 +316,7 @@ async def yt_dlp_download(
         key = f"v:{link}"
 
         async def run():
-            opts = _ytdlp_base_opts()
+            opts = _ytdlp_base_opts(mystic)
             opts.update({"format": YTDLP_VIDEO_FORMAT})
             return await _with_sem(
                 loop.run_in_executor(
@@ -337,7 +337,7 @@ async def yt_dlp_download(
         key = f"sv:{link}:{format_id}:{safe_title}"
 
         async def run():
-            opts = _ytdlp_base_opts()
+            opts = _ytdlp_base_opts(mystic)
             opts.update(
                 {
                     "format": f"{format_id}+140",
@@ -359,7 +359,7 @@ async def yt_dlp_download(
         key = f"sa:{link}:{format_id}:{safe_title}"
 
         async def run():
-            opts = _ytdlp_base_opts()
+            opts = _ytdlp_base_opts(mystic)
             opts.update(
                 {
                     "format": format_id,
