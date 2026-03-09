@@ -337,13 +337,13 @@ class YouTubeAPI:
 
         if songvideo:
             p = await yt_dlp_download(
-                link, type="song_video", format_id=format_id, title=title
+                link, type="song_video", format_id=format_id, title=title, mystic=mystic
             )
             return (p, True) if p else (None, None)
 
         if songaudio:
             p = await yt_dlp_download(
-                link, type="song_audio", format_id=format_id, title=title
+                link, type="song_audio", format_id=format_id, title=title, mystic=mystic
             )
             return (p, True) if p else (None, None)
 
