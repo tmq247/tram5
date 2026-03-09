@@ -89,7 +89,7 @@ def ytdlp_progress(d, mystic):
 
         if percent != ytdlp_progress.last:
             ytdlp_progress.last = percent
-            asyncio.create_task(mystic.edit_text(text))
+            asyncio.create_task(mystic.edit_text(text), parse_mode=None)
 
     elif d["status"] == "finished":
 
