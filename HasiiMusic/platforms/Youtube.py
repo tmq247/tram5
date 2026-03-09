@@ -354,7 +354,7 @@ class YouTubeAPI:
                     return stream_url, None
                 raise ValueError("Unable to fetch live stream link")
             if await is_on_off(1):
-                p = await yt_dlp_download(link, type="video")
+                p = await yt_dlp_download(link, type="video", mystic=mystic)
                 return (p, True) if p else (None, None)
             stdout, _ = await _exec_proc(
                 "yt-dlp",
