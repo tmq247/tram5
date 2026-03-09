@@ -385,7 +385,7 @@ async def yt_dlp_download(
     return None
 
 
-async def download_audio_concurrent(link: str, mystic=none) -> Optional[str]:
+async def download_audio_concurrent(link: str, mystic=None) -> Optional[str]:
     vid = extract_video_id(link)
     cached = file_exists(vid)
     if cached:
