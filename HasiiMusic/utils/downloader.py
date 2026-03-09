@@ -260,3 +260,38 @@ async def yt_dlp_download(
         return f"{_DOWNLOAD_DIR}/{safe_title}.mp4"
 
     return None
+    
+async def download_audio_concurrent(link: str) -> Optional[str]:
+    vid = extract_video_id(link)
+    cached = file_exists(vid)
+    if cached:
+        return cached
+
+    if not USE_API:
+        return await yt_dlp_download(link, type="audio")
+
+    key = f"rac:{link}"
+
+    async def run():
+        yt_task = asyncio.create_task(yt_dlp_download(link, type="audio"))
+        api_task = asyncio.create_task(api_download_song(link))
+        done, pending = await asyncio.wait(
+            {yt_task, api_task}, return_when=asyncio.FIRST_COMPLETED
+        )
+        for t in done:
+            with contextlib.suppress(Exception):
+                res = t.result()
+                if res:
+                    for p in pending:
+                        p.cancel()
+                        with contextlib.suppress(Exception, asyncio.CancelledError):
+                            await p
+                    return res
+        for t in pending:
+            with contextlib.suppress(Exception, asyncio.CancelledError):
+                res = await t
+                if res:
+                    return res
+        return None
+
+    return await _dedup(key, lambda: _with_sem(run()))
