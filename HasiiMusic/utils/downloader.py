@@ -96,22 +96,33 @@ def _safe_filename(name: str) -> str:
 
 
 def _ytdlp_base_opts() -> Dict[str, Union[str, int, bool]]:
-    opts: Dict[str, Union[str, int, bool]] = {
-        "outtmpl": f"{_DOWNLOAD_DIR}/%(id)s.%(ext)s",
-        "quiet": True,
-        "no_warnings": True,
-        "noplaylist": True,
-        "overwrites": True,
-        "continuedl": True,
-        "noprogress": True,
-        "concurrent_fragment_downloads": 16,
-        "http_chunk_size": 1 << 20,
-        "socket_timeout": 30,
-        "retries": 3,
-        "fragment_retries": 3,
-        "cachedir": str(CACHE_DIR),
-        "prefer_ffmpeg": True,
-    }
+    opts = {
+"outtmpl": f"{_DOWNLOAD_DIR}/%(id)s.%(ext)s",
+"quiet": True,
+"no_warnings": True,
+"noplaylist": True,
+"overwrites": True,
+"continuedl": True,
+"noprogress": True,
+
+"format": "bestaudio[ext=m4a]/bestaudio",
+
+"concurrent_fragment_downloads": 32,
+"http_chunk_size": 1048576,
+
+"external_downloader": "aria2c",
+"external_downloader_args": ["-x","16","-k","1M"],
+
+"extractor_args":{
+"youtube":{"player_client":["android"]}
+},
+
+"socket_timeout":30,
+"retries":5,
+"fragment_retries":5,
+
+"cachedir":str(CACHE_DIR),
+}
     cookiefile = _cookiefile_path()
     if cookiefile:
         opts["cookiefile"] = cookiefile
