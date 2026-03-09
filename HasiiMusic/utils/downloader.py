@@ -385,14 +385,14 @@ async def yt_dlp_download(
     return None
 
 
-async def download_audio_concurrent(link: str) -> Optional[str]:
+async def download_audio_concurrent(link: str, mystic=none) -> Optional[str]:
     vid = extract_video_id(link)
     cached = file_exists(vid)
     if cached:
         return cached
 
     if not USE_API:
-        return await yt_dlp_download(link, type="audio")
+        return await yt_dlp_download(link, type="audio", mystic=mystic)
 
     key = f"rac:{link}"
 
