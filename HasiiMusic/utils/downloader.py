@@ -53,49 +53,43 @@ def _cookiefile_path() -> Optional[str]:
 _DEFAULT_AUDIO_EXTS: tuple[str, ...] = ("mp3", "m4a", "webm", "opus", "mka")
 _DEFAULT_VIDEO_EXTS: tuple[str, ...] = ("mp4", "mkv", "webm", "mov")
 
-def progress_bar(percent: float) -> str:
-    filled = int(percent / 5)
-    bar = "█" * filled + "░" * (20 - filled)
-    return f"[{bar}] {percent:.1f}%"
+import re
+import asyncio
 
+_last_update = 0
 
-def ytdlp_progress(d, mystic):
+async def ytdlp_progress(d, mystic):
+    global _last_update
 
-    if not mystic:
+    if d["status"] != "downloading":
         return
 
-    if d["status"] == "downloading":
+    percent_str = d.get("_percent_str", "0%")
+    speed = d.get("_speed_str", "0")
+    eta = d.get("_eta_str", "0")
 
-        percent = d.get("_percent_str", "0%").replace("%", "")
-        speed = d.get("_speed_str", "0")
-        eta = d.get("_eta_str", "0")
+    percent = float(percent_str.replace("%", "").strip())
 
+    # chia progress thành 10 phần
+    blocks = int(percent / 10)
+    bar = "█" * blocks + "░" * (10 - blocks)
+
+    text = (
+        "⬇️ Đang tải từ YouTube\n\n"
+        f"{bar} {percent:.1f}%\n\n"
+        f"⚡ Tốc độ: {speed}\n"
+        f"⏳ Còn lại: {eta}"
+    )
+
+    now = asyncio.get_event_loop().time()
+
+    # tránh spam edit message
+    if now - _last_update > 2:
         try:
-            percent_f = float(percent)
+            await mystic.edit_text(text, parse_mode=None)
+            _last_update = now
         except:
-            percent_f = 0
-
-        bar = progress_bar(percent_f)
-
-        text = (
-            "⬇️ **Đang tải từ YouTube...**\n\n"
-            f"{bar}\n\n"
-            f"⚡ **Tốc độ:** {speed}\n"
-            f"⏳ **ETA:** {eta}"
-        )
-
-        if not hasattr(ytdlp_progress, "last"):
-            ytdlp_progress.last = ""
-
-        if percent != ytdlp_progress.last:
-            ytdlp_progress.last = percent
-            asyncio.create_task(mystic.edit_text(text), parse_mode=None)
-
-    elif d["status"] == "finished":
-
-        asyncio.create_task(
-            mystic.edit_text("🔄 **Đang xử lý file...**")
-        )
+            pass
 
 
 def _find_downloaded_file(
