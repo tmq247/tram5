@@ -71,7 +71,7 @@ async def cached_youtube_search(query: str) -> List[Dict]:
     try:
         def _search():
             with yt_dlp.YoutubeDL({"quiet": True}) as ydl:
-                return ydl.extract_info(f"ytsearch1:{query}", download=False)
+                return ydl.extract_info(f"ytsearch1:{query}", download=True)
         loop = asyncio.get_event_loop()
         data = await loop.run_in_executor(None, _search)
         result = data.get("entries", [])
@@ -131,7 +131,7 @@ class YouTubeAPI:
             return res[0] if res else None
         def _search():
             with yt_dlp.YoutubeDL({"quiet": True}) as ydl:
-                return ydl.extract_info(f"ytsearch1:{q}", download=False)
+                return ydl.extract_info(f"ytsearch1:{q}", download=True)
         loop = asyncio.get_event_loop()
         data = await loop.run_in_executor(None, _search)
         result = data.get("entries", [])
