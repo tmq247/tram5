@@ -10,7 +10,7 @@ from typing import Dict, List, Optional, Tuple, Union
 import yt_dlp
 from pyrogram.enums import MessageEntityType
 from pyrogram.types import Message
-from youtubesearchpython.aio import VideosSearch
+#from youtubesearchpython.aio import VideosSearch
 
 from HasiiMusic.utils.cookie_handler import COOKIE_PATH
 from HasiiMusic.utils.database import is_on_off
@@ -69,8 +69,12 @@ async def cached_youtube_search(query: str) -> List[Dict]:
         if len(_cache) > YOUTUBE_META_MAX:
             _cache.clear()
     try:
-        data = await VideosSearch(query, limit=1).next()
-        result = data.get("result", [])
+        def _search():
+            with yt_dlp.YoutubeDL({"quiet": True}) as ydl:
+                return ydl.extract_info(f"ytsearch1:{query}", download=False)
+        loop = asyncio.get_event_loop()
+        data = await loop.run_in_executor(None, _search)
+        result = data.get("entries", [])
     except Exception:
         result = []
     if result:
@@ -125,8 +129,12 @@ class YouTubeAPI:
         if use_cache and not q.startswith("http"):
             res = await cached_youtube_search(q)
             return res[0] if res else None
-        data = await VideosSearch(q, limit=1).next()
-        result = data.get("result", [])
+        def _search():
+            with yt_dlp.YoutubeDL({"quiet": True}) as ydl:
+                return ydl.extract_info(f"ytsearch1:{q}", download=False)
+        loop = asyncio.get_event_loop()
+        data = await loop.run_in_executor(None, _search)
+        result = data.get("entries", [])
         return result[0] if result else None
 
     @capture_internal_err
