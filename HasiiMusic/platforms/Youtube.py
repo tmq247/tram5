@@ -28,14 +28,14 @@ _cache_lock = asyncio.Lock()
 _formats_cache: Dict[str, Tuple[float, List[Dict], str]] = {}
 _formats_lock = asyncio.Lock()
 
-async def VideosSearch(query, limit=1):
+def VideosSearch(query, limit=1):
     loop = asyncio.get_event_loop()
 
     def _search():
         with yt_dlp.YoutubeDL({"quiet": True}) as ydl:
             return ydl.extract_info(f"ytsearch{limit}:{query}", download=False)
 
-    data = await loop.run_in_executor(None, _search)
+    data = loop.run_in_executor(None, _search)
 
     entries = data.get("entries", [])
 
