@@ -75,6 +75,7 @@ async def cached_youtube_search(query: str) -> List[Dict]:
         loop = asyncio.get_event_loop()
         data = await loop.run_in_executor(None, _search)
         result = data.get("entries", [])
+        print(result)
     except Exception:
         result = []
     if result:
@@ -135,6 +136,7 @@ class YouTubeAPI:
         loop = asyncio.get_event_loop()
         data = await loop.run_in_executor(None, _search)
         result = data.get("entries", [])
+        print(result)
         return result[0] if result else None
 
     @capture_internal_err
