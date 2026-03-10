@@ -53,24 +53,26 @@ def _cookiefile_path() -> Optional[str]:
 _DEFAULT_AUDIO_EXTS: tuple[str, ...] = ("mp3", "m4a", "webm", "opus", "mka")
 _DEFAULT_VIDEO_EXTS: tuple[str, ...] = ("mp4", "mkv", "webm", "mov")
 
-import re
-import asyncio
 
 _last_update = 0
 
+import time
+
 def ytdlp_progress(d, mystic):
-    global _last_update
 
     if d["status"] != "downloading":
         return
 
-    percent_str = d.get("_percent_str", "0%")
+    downloaded = d.get("downloaded_bytes", 0)
+    total = d.get("total_bytes") or d.get("total_bytes_estimate", 0)
+
+    if total == 0:
+        return
+
+    percent = downloaded * 100 / total
     speed = d.get("_speed_str", "0")
     eta = d.get("_eta_str", "0")
 
-    percent = float(percent_str.replace("%", "").strip())
-
-    # chia progress thành 10 phần
     blocks = int(percent / 10)
     bar = "█" * blocks + "░" * (10 - blocks)
 
@@ -81,15 +83,9 @@ def ytdlp_progress(d, mystic):
         f"⏳ Còn lại: {eta}"
     )
 
-    now = asyncio.get_event_loop().time()
-
-    # tránh spam edit message
-    if now - _last_update > 2:
-        try:
-            asyncio.create_task(mystic.edit_text(text, parse_mode=None))
-            _last_update = now
-        except:
-            pass
+    asyncio.create_task(
+        mystic.edit_text(text, parse_mode=None)
+    )
 
 
 def _find_downloaded_file(
