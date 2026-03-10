@@ -10,7 +10,7 @@ from typing import Dict, List, Optional, Tuple, Union
 import yt_dlp
 from pyrogram.enums import MessageEntityType
 from pyrogram.types import Message
-#from yt_search import VideosSearch
+from youtubesearchpython.aio import VideosSearch
 
 from HasiiMusic.utils.cookie_handler import COOKIE_PATH
 from HasiiMusic.utils.database import is_on_off
@@ -28,38 +28,6 @@ _cache_lock = asyncio.Lock()
 _formats_cache: Dict[str, Tuple[float, List[Dict], str]] = {}
 _formats_lock = asyncio.Lock()
 
-def VideosSearch(query, limit=1):
-    loop = asyncio.get_event_loop()
-
-    def _search():
-        with yt_dlp.YoutubeDL({"quiet": True}) as ydl:
-            return ydl.extract_info(f"ytsearch{limit}:{query}", download=False)
-
-    data = loop.run_in_executor(None, _search)
-
-    entries = data.get("entries", [])
-
-    results = []
-    for e in entries:
-        duration = e.get("duration")
-        if duration:
-            minutes = duration // 60
-            seconds = duration % 60
-            duration = f"{minutes}:{seconds:02d}"
-        else:
-            duration = "0:00"
-
-        results.append(
-            {
-                "id": e.get("id"),
-                "title": e.get("title"),
-                "link": e.get("webpage_url"),
-                "duration": duration,
-                "thumbnail": e.get("thumbnail"),
-            }
-        )
-
-    return {"result": results}
 
 def _cookiefile_path() -> Optional[str]:
     path = str(COOKIE_PATH)
