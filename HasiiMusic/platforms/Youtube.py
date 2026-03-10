@@ -28,6 +28,38 @@ _cache_lock = asyncio.Lock()
 _formats_cache: Dict[str, Tuple[float, List[Dict], str]] = {}
 _formats_lock = asyncio.Lock()
 
+async def VideosSearch(query, limit=1):
+    loop = asyncio.get_event_loop()
+
+    def _search():
+        with yt_dlp.YoutubeDL({"quiet": True}) as ydl:
+            return ydl.extract_info(f"ytsearch{limit}:{query}", download=False)
+
+    data = await loop.run_in_executor(None, _search)
+
+    entries = data.get("entries", [])
+
+    results = []
+    for e in entries:
+        duration = e.get("duration")
+        if duration:
+            minutes = duration // 60
+            seconds = duration % 60
+            duration = f"{minutes}:{seconds:02d}"
+        else:
+            duration = "0:00"
+
+        results.append(
+            {
+                "id": e.get("id"),
+                "title": e.get("title"),
+                "link": e.get("webpage_url"),
+                "duration": duration,
+                "thumbnail": e.get("thumbnail"),
+            }
+        )
+
+    return {"result": results}
 
 def _cookiefile_path() -> Optional[str]:
     path = str(COOKIE_PATH)
@@ -69,12 +101,8 @@ async def cached_youtube_search(query: str) -> List[Dict]:
         if len(_cache) > YOUTUBE_META_MAX:
             _cache.clear()
     try:
-        def _search():
-            with yt_dlp.YoutubeDL({"quiet": True}) as ydl:
-                return ydl.extract_info(f"ytsearch1:{query}", download=True)
-        loop = asyncio.get_event_loop()
-        data = await loop.run_in_executor(None, _search)
-        result = data.get("entries", [])
+        data = await VideosSearch(query, limit=1).next()
+        result = data.get("result", [])
     except Exception:
         result = []
     if result:
@@ -129,12 +157,8 @@ class YouTubeAPI:
         if use_cache and not q.startswith("http"):
             res = await cached_youtube_search(q)
             return res[0] if res else None
-        def _search():
-            with yt_dlp.YoutubeDL({"quiet": True}) as ydl:
-                return ydl.extract_info(f"ytsearch1:{q}", download=True)
-        loop = asyncio.get_event_loop()
-        data = await loop.run_in_executor(None, _search)
-        result = data.get("entries", [])
+        data = await VideosSearch(q, limit=1).next()
+        result = data.get("result", [])
         return result[0] if result else None
 
     @capture_internal_err
