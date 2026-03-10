@@ -58,7 +58,7 @@ import asyncio
 
 _last_update = 0
 
-async def ytdlp_progress(d, mystic):
+def ytdlp_progress(d, mystic):
     global _last_update
 
     if d["status"] != "downloading":
@@ -86,7 +86,7 @@ async def ytdlp_progress(d, mystic):
     # tránh spam edit message
     if now - _last_update > 2:
         try:
-            await mystic.edit_text(text, parse_mode=None)
+            asyncio.create_task(mystic.edit_text(text, parse_mode=None))
             _last_update = now
         except:
             pass
