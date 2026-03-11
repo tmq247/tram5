@@ -213,27 +213,28 @@ class YouTubeAPI:
         return (1, stdout.decode().split("\n")[0]) if stdout else (0, stderr.decode())
 
     @capture_internal_err
-    async def playlist(
-        self, link: str, limit: int, user_id, videoid: Union[str, bool, None] = None
-    ) -> List[str]:
+    async def playlist(self, link: str, limit: int, user_id, videoid: Union[str, bool, None] = None) -> List[str]:
         if videoid:
             link = self.playlist_url + str(videoid)
-        link = link.split("&")[0]
+
+    # Không cắt tham số nếu là playlist Mix (RD)
+        if "list=RD" not in link:
+            link = link.split("&")[0]
         stdout, _ = await _exec_proc(
-            "yt-dlp",
-            *(_cookies_args()),
-            "-i",
-            "--get-id",
-            "--flat-playlist",
-            "--playlist-end",
-            str(limit),
-            "--skip-download",
-            link,
-        )
+        "yt-dlp",
+        *(_cookies_args()),
+        "-i",
+        "--yes-playlist",
+        "--get-id",
+        "--flat-playlist",
+        "--playlist-end",
+        str(limit),
+        "--skip-download",
+        link,
+    )
         items = stdout.decode().strip().split("\n") if stdout else []
         print(items)
         return [i for i in items if i]
-
     @capture_internal_err
     async def track(
         self, link: str, videoid: Union[str, bool, None] = None
