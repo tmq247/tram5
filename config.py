@@ -19,7 +19,7 @@ BOT_NAME = getenv("BOT_NAME", "Muội Muội")
 ASSUSERNAME = getenv("ASSUSERNAME", "COIHAYCOC")
 EVALOP = list(map(int, getenv("EVALOP", "6337933296").split()))
 #######
-PRIVATE_BOT_MODE = getenv("PRIVATE_BOT_MODE", "True")
+PRIVATE_BOT_MODE = getenv("PRIVATE_BOT_MODE")
 # ───── Mongo & Logging ───── #
 MONGO_DB_URI = getenv("MONGO_DB_URI")
 LOGGER_ID = int(getenv("LOGGER_ID"))
