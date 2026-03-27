@@ -422,21 +422,7 @@ async def play_command(
                     return await mystic.edit_text(
                         _["play_6"].format(config.DURATION_LIMIT_MIN, app.mention)
                     )
-            else:
-                await stream(
-    _,
-    mystic,
-    user_id,
-    details,
-    chat_id,
-    user_name,
-    message.chat.id,
-    video=bool(video),
-    streamtype="youtube",
-    forceplay=True,
-)
-                await mystic.delete()
-                return await play_logs(message, streamtype="Livestream")
+           # else:
                # buttons = livestream_markup(
                     #_,
                 #    track_id,
@@ -610,21 +596,7 @@ async def play_music(client, CallbackQuery, _):
                 return await mystic.edit_text(
                     _["play_6"].format(config.DURATION_LIMIT_MIN, app.mention)
                 )
-        else:
-            await stream(
-    _,
-    mystic,
-    user_id,
-    details,
-    chat_id,
-    user_name,
-    message.chat.id,
-    video=bool(video),
-    streamtype="youtube",
-    forceplay=True,
-)
-            await mystic.delete()
-            return await play_logs(message, streamtype="Livestream")
+        #else:
            # buttons = livestream_markup(
             #    _,
               #  track_id,
