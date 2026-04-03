@@ -350,7 +350,7 @@ async def download_audio_concurrent(link: str) -> Optional[str]:
     key = f"rac:{link}"
 
     async def run():
-        yt_task = asyncio.create_task(yt_dlp_download(link, type="audio"))
+        yt_task = asyncio.create_task(yt_dlp_download(link, type="audio", mystic=mystic))
         api_task = asyncio.create_task(api_download_song(link))
         done, pending = await asyncio.wait(
             {yt_task, api_task}, return_when=asyncio.FIRST_COMPLETED
