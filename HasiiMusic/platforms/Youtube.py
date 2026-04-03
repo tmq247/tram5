@@ -353,13 +353,13 @@ class YouTubeAPI:
 
         if songvideo:
             p = await yt_dlp_download(
-                link, type="song_video", format_id=format_id, title=title, mystic=mystic
+                link, type="song_video", format_id=format_id, title=title
             )
             return (p, True) if p else (None, None)
 
         if songaudio:
             p = await yt_dlp_download(
-                link, type="song_audio", format_id=format_id, title=title, mystic=mystic
+                link, type="song_audio", format_id=format_id, title=title
             )
             return (p, True) if p else (None, None)
 
@@ -370,7 +370,7 @@ class YouTubeAPI:
                     return stream_url, None
                 raise ValueError("Unable to fetch live stream link")
             if await is_on_off(1):
-                p = await yt_dlp_download(link, type="video", mystic=mystic)
+                p = await yt_dlp_download(link, type="video")
                 return (p, True) if p else (None, None)
             stdout, _ = await _exec_proc(
                 "yt-dlp",
