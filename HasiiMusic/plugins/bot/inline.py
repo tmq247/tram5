@@ -3,7 +3,7 @@ from pyrogram.types import (
     InlineKeyboardMarkup,
     InlineQueryResultPhoto,
 )
-from py_yt import VideosSearch
+from youtubesearchpython import VideosSearch
 #from youtubesearchpython.aio import VideosSearch
 from HasiiMusic.utils.inlinequery import answer
 from config import BANNED_USERS
