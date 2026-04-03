@@ -11,7 +11,7 @@ import yt_dlp
 from pyrogram.enums import MessageEntityType
 from pyrogram.types import Message
 #from youtubesearchpython.aio import VideosSearch
-from py_yt  import VideosSearch
+from youtubesearchpython import VideosSearch
 from HasiiMusic.utils.cookie_handler import COOKIE_PATH
 from HasiiMusic.utils.database import is_on_off
 from HasiiMusic.utils.downloader import download_audio_concurrent, yt_dlp_download
