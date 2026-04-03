@@ -53,7 +53,7 @@ def PlayWrapper(command):
                     text=f"{app.mention} ɪs ᴜɴᴅᴇʀ ᴍᴀɪɴᴛᴇɴᴀɴᴄᴇ, ᴠɪsɪᴛ <a href={SUPPORT_CHAT}>sᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ</a> ғᴏʀ ᴋɴᴏᴡɪɴɢ ᴛʜᴇ ʀᴇᴀsᴏɴ.",
                     disable_web_page_preview=True,
                 )
-        if PRIVATE_BOT_MODE:
+        if PRIVATE_BOT_MODE is True:
             if (message.chat.id != LOGGER_ID and not await is_served_private_chat(message.chat.id)):
                 await message.reply_text(
                     "**BOT NHẠC TRẢ PHÍ**\n\nChỉ Dành Cho Các Cuộc Trò Chuyện Đã Được Chủ Sở Hữu Cho Phép — Hãy Liên Hệ Chủ Sở Hữu Để Được Phép Dùng Bot Trong Nhóm Của Bạn."
