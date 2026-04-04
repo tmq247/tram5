@@ -158,7 +158,7 @@ async def song_download_cb(client, cq, lang):
     try:
         await cq.answer("Downloading…")
     except Exception:
-
+        pass
     _ignored, req = cq.data.split(None, 1)
     stype, fmt_id, vidid = req.split("|")
     yturl = f"https://www.youtube.com/watch?v={vidid}"
