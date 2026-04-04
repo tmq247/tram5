@@ -208,7 +208,7 @@ async def song_download_cb(client, cq, lang):
                     supports_streaming=True,
                 )
             )
-      exceptpr8nt(lỗi1 )
+      exceptpr8nt(lỗi1)
 
     except Exception:
         await mystic.edit_text(lang["song_10"])
