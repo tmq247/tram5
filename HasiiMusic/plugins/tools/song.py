@@ -158,7 +158,6 @@ async def song_download_cb(client, cq, lang):
     try:
         await cq.answer("Downloading…")
     except Exception:
-        print(lỗi)
 
     _ignored, req = cq.data.split(None, 1)
     stype, fmt_id, vidid = req.split("|")
@@ -174,6 +173,7 @@ async def song_download_cb(client, cq, lang):
         duration_sec = time_to_seconds(info.get("duration_min")) if info.get("duration_min") else None
 
         if stype == "audio":
+            print(lỗi)
             file_path, _ = await YouTube.download(
                 yturl, mystic, songaudio=True, format_id=fmt_id, title=title
             )
@@ -189,6 +189,7 @@ async def song_download_cb(client, cq, lang):
                 )
             )
         else:
+            print(lỗi)
             file_path, _ = await YouTube.download(
                 yturl, mystic, songvideo=True, format_id=fmt_id, title=title
             )
@@ -207,6 +208,7 @@ async def song_download_cb(client, cq, lang):
                     supports_streaming=True,
                 )
             )
+      exceptpr8nt(lỗi1 )
 
     except Exception:
         await mystic.edit_text(lang["song_10"])
