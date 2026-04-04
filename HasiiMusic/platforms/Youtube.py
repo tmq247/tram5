@@ -233,7 +233,6 @@ class YouTubeAPI:
         link,
     )
         items = stdout.decode().strip().split("\n") if stdout else []
-        print(items)
         return [i for i in items if i]
     @capture_internal_err
     async def track(
