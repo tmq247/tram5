@@ -204,6 +204,7 @@ class YouTubeAPI:
         link = self._prepare_link(link, videoid)
         stdout, stderr = await _exec_proc(
             "yt-dlp",
+            "--js-runtimes", "node",
             *(_cookies_args()),
             "-g",
             "-f",
@@ -222,6 +223,7 @@ class YouTubeAPI:
             link = link.split("&")[0]
         stdout, _ = await _exec_proc(
         "yt-dlp",
+        "--js-runtimes", "node",
         *(_cookies_args()),
         "-i",
         "--yes-playlist",
@@ -373,6 +375,7 @@ class YouTubeAPI:
                 return (p, True) if p else (None, None)
             stdout, _ = await _exec_proc(
                 "yt-dlp",
+                "--js-runtimes", "node",
                 *(_cookies_args()),
                 "-g",
                 "-f",
@@ -380,7 +383,6 @@ class YouTubeAPI:
                 link,
             )
             if stdout:
-                print(stdout)
                 return stdout.decode().split("\n")[0].strip(), None
             return None, None
         p = await download_audio_concurrent(link)
