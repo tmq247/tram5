@@ -150,7 +150,7 @@ def _ytdlp_base_opts(mystic=None) -> Dict[str, Union[str, int, bool]]:
 "extractor_args": {
 "youtube": {"player_client": ["android", "web"]}
 },
-"js_runtimes": ["node:/usr/bin/node"],  # 🔥 bắt buộc
+"js_runtimes":  RUNTIME["node:/usr/bin/node"],  # 🔥 bắt buộc
 
 "socket_timeout":30,
 "retries":5,
