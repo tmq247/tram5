@@ -194,7 +194,7 @@ async def song_download_cb(client, cq, lang):
             )
             print(6)
         else:
-            print(lỗi)
+            print(7)
             file_path, _ = await YouTube.download(
                 yturl, mystic, songvideo=True, format_id=fmt_id, title=title
             )
@@ -213,7 +213,7 @@ async def song_download_cb(client, cq, lang):
                     supports_streaming=True,
                 )
             )
-            print(lỗi1)
+            print(8)
 
     except Exception:
         await mystic.edit_text(lang["song_10"])
