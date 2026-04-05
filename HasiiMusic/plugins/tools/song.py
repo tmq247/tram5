@@ -164,19 +164,23 @@ async def song_download_cb(client, cq, lang):
     yturl = f"https://www.youtube.com/watch?v={vidid}"
 
     mystic = await cq.edit_message_text(lang["song_8"])
+    print(1)
 
     file_path = None
+    print(2)
     try:
+        print(3)
         info, _ = await YouTube.track(yturl)
         raw_title = info.get("title") or "Song"
         title = re.sub(r"\s+", " ", re.sub(r"[^\w\s\-\.\(\)\[\]]+", " ", raw_title)).strip()[:200]
         duration_sec = time_to_seconds(info.get("duration_min")) if info.get("duration_min") else None
-
+        print(4)
         if stype == "audio":
             print(lỗi)
             file_path, _ = await YouTube.download(
                 yturl, mystic, songaudio=True, format_id=fmt_id, title=title
             )
+            print(5)
             if not file_path:
                 raise RuntimeError("no audio file")
             await app.send_chat_action(cq.message.chat.id, ChatAction.UPLOAD_AUDIO)
@@ -188,6 +192,7 @@ async def song_download_cb(client, cq, lang):
                     performer=info.get("uploader"),
                 )
             )
+            print(6)
         else:
             print(lỗi)
             file_path, _ = await YouTube.download(
