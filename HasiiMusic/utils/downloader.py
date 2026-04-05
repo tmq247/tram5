@@ -147,10 +147,11 @@ def _ytdlp_base_opts(mystic=None) -> Dict[str, Union[str, int, bool]]:
 "external_downloader": "aria2c",
 "external_downloader_args": ["-x","16","-k","1M"],
 
-"extractor_args":{
-"youtube":{"player_client":["android"]}
+"extractor_args": {
+"youtube": {"player_client": ["android", "web"]}
 },
-"js_runtimes": ["node:/usr/bin/node"],
+"js_runtimes": ["node:/usr/bin/node"],  # 🔥 bắt buộc
+
 "socket_timeout":30,
 "retries":5,
 "fragment_retries":5,
