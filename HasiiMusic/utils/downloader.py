@@ -5,6 +5,7 @@ import re
 from functools import partial
 from glob import glob
 from typing import Dict, Iterable, Optional, Union
+os.environ["PATH"] += ":/usr/bin"
 
 import aiofiles
 import aiohttp
