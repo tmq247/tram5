@@ -150,7 +150,7 @@ def _ytdlp_base_opts(mystic=None) -> Dict[str, Union[str, int, bool]]:
 "extractor_args":{
 "youtube":{"player_client":["android"]}
 },
-"--js-runtimes", ["node"],
+"js_runtimes": ["node"],
 "socket_timeout":30,
 "retries":5,
 "fragment_retries":5,
