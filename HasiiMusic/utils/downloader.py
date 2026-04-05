@@ -6,7 +6,8 @@ from functools import partial
 from glob import glob
 from typing import Dict, Iterable, Optional, Union
 os.environ["PATH"] += ":/usr/bin"
-
+import shutil
+print("NODE:", shutil.which("node"))
 import aiofiles
 import aiohttp
 from aiohttp import TCPConnector
