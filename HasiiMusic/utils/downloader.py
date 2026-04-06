@@ -355,7 +355,7 @@ async def yt_dlp_download(
             opts = _ytdlp_base_opts(mystic)
             opts.update(
                 {
-                    "format": format_id or "bestaudio/best",
+                    "format": {format_id} or "bestaudio/best",
                     "outtmpl": f"{_DOWNLOAD_DIR}/{safe_title}.%(ext)s",
                     "prefer_ffmpeg": True,
                     "postprocessors": [
